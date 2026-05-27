@@ -1,0 +1,292 @@
+/* DATA DESCRIPTION:
+Citation:	Salganik, Evgenii; Hornnes, Vegard; Rübsamen-Von Döhren, Paul Jorrit; Panchi, Nabil; Høyland, Knut Vilhelm (2023): First- and second-year sea-ice salinity, temperature, and density during GoNorth 2022 leg 1 [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.962567
+Abstract:	First- and second-year sea-ice thickness, draft, salinity, temperature, and density were measured during two ice stations on 24 October 2022 and 30 October 2022 during leg 1 of the GoNorth 2022 expedition. The ice cores were extracted with 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US). During each ice station, ice temperature was measured in situ from a separate temperature core, using Ebro TFX 410 Thermometer thermometers in drill holes with a length of half-core-diameter at 5 cm vertical resolution. Ice bulk practical salinity was measured from melted core sections at 5 cm resolution using a Mettler Toledo SevenGo conductivity meter. Sea ice density was measured using the hydrostatic weighing method (Pustogvar and Kulyakhtin, 2016) from several density cores in the freezer laboratory onboard RV Kronprins Haakon at the temperature from –10°C to –14°C. Relative volumes of brine and gas were estimated from ice salinity, temperature, and density using Cox and Weeks (1983) for cold ice and Leppäranta and Manninen (1988) for ice warmer than –2°C.
+	This sea ice physics data was collected during leg 1 of the GoNorth 2022 scientific expedition on 14 October – 3 November 2022 (cruise number 2022713) on the RV Kronprins Haakon. The ice cores were collected at two ice stations (Station 6 and Super Station 14) located at 82°13.56' N and 26°41.43' E for the first and 82°31.05' N and 17°30.04' E for the second sea ice station in the area north of Svalbard. The data contains the event label (1), station (2), time (3), global coordinates (4,5) of each coring measurement, ice type (11), and sample ID (12). Each core has its manually measured ice thickness (6), ice draft (7), snow height (8), and local coordinates for each ice station (7,8). Each core section has the total length of its top (13) and bottom (14) measured in situ. Each core section has the value of its practical salinity (15), each core section of a temperature core has the value of its in situ temperature (16), and each core section of density cores has the value of its ice density (18). Each core section also has laboratory temperature (17), an estimate of brine volume fraction (19), and gas volume fraction (20).
+Keyword(s):	Arctic; cores; density; GoNorth; Physical properties; Salinity; Sea ice; Temperature; time-series
+Funding:	The Research Council of Norway (RCN) (URI: http://www.forskningsradet.no/en/Home_page/1177315753906), grant/award no. 326834: Risk of sea ice and icebergs for field development in the Southwestern Barents Sea (RAREICE) (URI: https://prosjektbanken.forskningsradet.no/en/project/FORISS/326834)
+	The Research Council of Norway (RCN) (URI: http://www.forskningsradet.no/en/Home_page/1177315753906), grant/award no. 328957: air-snow-ice-ocean INTERactions transforming Atlantic Arctic Climate (INTERAAC) (URI: https://prosjektbanken.forskningsradet.no/en/project/FORISS/328957)
+Coverage:	MEDIAN LATITUDE: 82.310345 * MEDIAN LONGITUDE: 23.877870 * SOUTH-BOUND LATITUDE: 82.222783 * WEST-BOUND LONGITUDE: 17.473750 * NORTH-BOUND LATITUDE: 82.504400 * EAST-BOUND LONGITUDE: 26.767533
+	DATE/TIME START: 2022-10-24T11:00:00 * DATE/TIME END: 2022-10-30T11:00:00
+	MINIMUM DEPTH, ice/snow: 0.000 m * MAXIMUM DEPTH, ice/snow: 1.155 m
+Event(s):	GoNorth1_6-DEN1 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-DEN2 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-DEN4 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-DEN5 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-DEN6 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-DEN7 * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-SAL * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_6-TEMP * LATITUDE: 82.222783 * LONGITUDE: 26.767533 * DATE/TIME: 2022-10-24T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN1 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN2 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN3 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN4 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN5 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN6 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN7 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN8 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-DEN9 * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-SAL * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+	GoNorth1_14-TEMP * LATITUDE: 82.504400 * LONGITUDE: 17.473750 * DATE/TIME: 2022-10-30T11:00:00 * CAMPAIGN: GoNorth1 (2022713, 2022-GEO-001) * BASIS: Kronprins Haakon (URI: https://npolar.no/en/kronprins-haakon/) * METHOD/DEVICE: Ice drilling corer (Kovacs) * COMMENT: Device: 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US)
+Parameter(s):	Event label (Event) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Station label (Station) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	DATE/TIME (Date/Time) * GEOCODE * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	LATITUDE (Latitude) * GEOCODE * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	LONGITUDE (Longitude) * GEOCODE * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Sea ice thickness [m] (EsEs) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Sea ice draft [m] (Sea ice draft) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Snow height [m] (Snow h) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Distance, relative, X [m] (Dist rel X) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Distance, relative, Y [m] (Dist rel Y) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Sea ice type (Sea ice type) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Core (Core) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * COMMENT: Core ID
+	DEPTH, ice/snow [m] (Depth ice/snow) * GEOCODE * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * COMMENT: top
+	DEPTH, ice/snow [m] (Depth ice/snow) * GEOCODE * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * COMMENT: bottom
+	Sea ice salinity (Sea ice sal) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * METHOD/DEVICE: Conductivity meter, Mettler Toledo, SevenGo * COMMENT: Practical Salinity Scale
+	Temperature, ice/snow [°C] (t) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * METHOD/DEVICE: Precision Core Thermometer, Ebro, TFX 410
+	Temperature, technical [°C] (T tech) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Density, ice [kg/m**3] (Density ice) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com) * METHOD/DEVICE: Hydrostatic weighing
+	Volume, brine [%] (Vol brine) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+	Volume, gas [%] (Vol gas) * PI: Salganik, Evgenii (https://orcid.org/0000-0001-8383-7815, salganikea@gmail.com)
+License:	Creative Commons Attribution 4.0 International (CC-BY-4.0) (URI: https://creativecommons.org/licenses/by/4.0/)
+Status:	Curation Level: Enhanced curation (URI: https://wiki.pangaea.de/wiki/Curation_levels)
+Size:	2945 data points
+*/
+Event	Station	Date/Time	Latitude	Longitude	EsEs [m]	Sea ice draft [m]	Snow h [m]	Dist rel X [m]	Dist rel Y [m]	Sea ice type	Core (Core ID)	Depth ice/snow [m] (top)	Depth ice/snow [m] (bottom)	Sea ice sal (Practical Salinity Scale, Con...)	t [°C] (Precision Core Thermometer, E...)	T tech [°C]	Density ice [kg/m**3] (Hydrostatic weighing)	Vol brine [%]	Vol gas [%]
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.000	0.000		-7.7				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.100	0.100		-8.5				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.200	0.200		-6.4				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.300	0.300		-4.7				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.400	0.400		-3.5				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.500	0.500		-3.2				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.600	0.600		-2.6				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.700	0.700		-2.2				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.800	0.800		-2.0				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	0.900	0.900		-1.8				
+GoNorth1_6-TEMP	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	TEMP	1.000	1.000		-1.8				
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.000	0.050	0.20				0.14	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.050	0.100	0.20				0.13	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.100	0.150	0.30				0.20	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.150	0.200	0.70				0.53	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.200	0.250	4.80				4.13	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.250	0.300	4.70				4.62	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.300	0.350	4.50				5.05	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.350	0.400	4.50				5.78	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.400	0.440	7.10				9.93	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.440	0.480	5.30				7.63	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.480	0.530	6.00				9.10	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.530	0.580	5.00				8.34	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.580	0.630	4.30				7.89	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.630	0.680	4.10				8.15	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.680	0.730	4.00				8.56	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.730	0.770	3.50				7.80	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.770	0.820	2.80				6.50	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.820	0.870	3.20				7.84	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.870	0.930	1.30				3.31	
+GoNorth1_6-SAL	Station 6	2022-10-24T11:00	82.2228	26.7675	0.970	0.93	0.05	2	0	SYI	SAL	0.930	0.990	2.40				6.13	
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.000	0.040	0.75		-11.1	892.3	0.49	2.94
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.040	0.090	0.12		-11.1	906.4	0.08	1.34
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.090	0.140	0.28		-11.1	912.6	0.18	0.68
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.140	0.190	0.53		-11.1	918.0	0.37	0.12
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.190	0.240	0.77		-11.1	917.5	0.61	0.21
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.240	0.290	1.22		-11.1	912.6	1.07	0.79
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.290	0.340	2.89		-11.1	914.3	2.90	0.80
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.340	0.390	4.70		-11.1	912.4	5.33	1.22
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.390	0.450	7.05		-11.1	915.6	9.26	1.15
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.450	0.510	6.07		-11.1	912.5	8.62	1.37
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.510	0.560	4.99		-11.1	907.6	7.37	1.77
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.560	0.610	4.51		-11.1	912.2	7.25	1.22
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.610	0.660	4.37		-11.1	908.3	7.70	1.63
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.660	0.710	5.42		-11.1	912.3	10.45	1.31
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.710	0.750	5.97		-11.1	908.7	12.31	1.77
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.750	0.800	4.95		-11.1	908.5	10.90	1.67
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.800	0.850	4.87		-11.1	910.1	11.24	1.49
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.850	0.900	5.35		-11.1	913.9	13.11	1.13
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.900	0.950	3.93		-11.1	917.7	10.13	0.56
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	0.950	1.000	3.18		-11.1	917.5	8.60	0.49
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	1.000	1.040	2.98		-11.1	914.4	8.08	0.80
+GoNorth1_6-DEN1	Station 6	2022-10-24T11:00	82.2228	26.7675	1.040	0.97	0.05	0	0	SYI	DEN 1	1.040	1.090	3.26		-11.1	908.2	8.78	1.51
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.000	0.050	0.37		-13.9	881.1	0.24	4.16
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.050	0.110	0.39		-13.9	894.7	0.24	2.68
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.110	0.160	0.82		-13.9	915.4	0.57	0.48
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.160	0.210	1.35		-13.9	913.8	1.07	0.71
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.210	0.250	2.10		-13.9	916.5	1.89	0.50
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.250	0.290	5.27		-13.9	912.3	5.36	1.30
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.290	0.340	5.80		-13.9	911.7	6.70	1.42
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.340	0.390	5.63		-13.9	910.3	7.63	1.56
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.390	0.440	5.55		-13.9	911.9	7.95	1.37
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.440	0.490	5.76		-13.9	913.5	8.73	1.22
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.490	0.530	6.93		-13.9	916.9	11.60	0.98
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.530	0.570	5.65		-13.9	894.7	10.16	3.24
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.570	0.620	5.19		-13.9	887.9	10.05	3.93
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.620	0.670	4.66		-13.9	862.3	9.90	6.65
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.670	0.720	4.09		-13.9	873.6	8.93	5.36
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.720	0.770	3.41		-13.9	872.7	8.04	5.39
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.770	0.820	2.74		-13.9	884.4	6.82	4.05
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.820	0.870	3.23		-13.9	893.7	8.56	3.09
+GoNorth1_6-DEN2	Station 6	2022-10-24T11:00	82.2228	26.7675	0.960	0.92	0.12	5	0	SYI	DEN 2	0.870	0.920	3.39		-13.9	907.9	9.12	1.57
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.000	0.050	0.70		-13.5	906.6	0.46	1.41
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.050	0.100	0.83		-13.5	911.8	0.53	0.86
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.100	0.150	1.01		-13.5	915.3	0.66	0.50
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.150	0.190	1.73		-13.5	913.1	1.26	0.82
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.190	0.240	4.42		-13.5	902.7	3.56	2.24
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.240	0.290	4.55		-13.5	905.0	4.18	2.01
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.290	0.330	4.63		-13.5	909.8	4.88	1.50
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.330	0.370	5.02		-13.5	913.2	5.87	1.17
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.370	0.420	5.23		-13.5	904.8	6.92	2.11
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.420	0.470	3.94		-13.5	908.7	5.57	1.54
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.470	0.520	4.98		-13.5	903.7	7.32	2.20
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.520	0.570	4.10		-13.5	887.2	6.45	3.89
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.570	0.620	3.83		-13.5	873.6	6.59	5.33
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.620	0.660	2.58		-13.5	864.5	4.76	6.19
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.660	0.710	3.02		-13.5	866.9	6.03	5.97
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.710	0.760	3.07		-13.5	898.5	6.80	2.55
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.760	0.810	3.49		-13.5	896.0	8.10	2.87
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.810	0.860	2.69		-13.5	900.0	6.65	2.35
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.860	0.910	2.93		-13.5	874.7	7.41	5.12
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.910	0.960	2.37		-13.5	910.8	6.40	1.14
+GoNorth1_6-DEN4	Station 6	2022-10-24T11:00	82.2228	26.7675	1.090	0.92	0.07	10	5	SYI	DEN 4	0.960	1.010	2.75		-13.5	918.2	7.49	0.38
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.000	0.050	0.55		-14.3	818.6	0.33	10.98
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.050	0.100	0.48		-14.3	862.2	0.29	6.23
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.100	0.140	0.28		-14.3	835.0	0.16	9.17
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.140	0.180	0.21		-14.3	900.2	0.14	2.07
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.180	0.230	0.54		-14.3	915.0	0.41	0.49
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.230	0.280	0.66		-14.3	914.5	0.56	0.56
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.280	0.320	1.01		-14.3	912.1	0.96	0.86
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.320	0.370	1.25		-14.3	914.4	1.34	0.64
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.370	0.420	1.23		-14.3	912.8	1.48	0.81
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.420	0.485	2.13		-14.3	910.4	2.94	1.17
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.485	0.535	3.50		-14.3	908.4	5.04	1.53
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.535	0.575	3.21		-14.3	912.0	4.82	1.11
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.575	0.615	2.36		-14.3	914.0	3.80	0.80
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.615	0.655	3.27		-14.3	914.3	5.69	0.87
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.655	0.705	5.32		-14.3	910.2	10.00	1.53
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.705	0.755	4.70		-14.3	914.8	9.58	0.97
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.755	0.795	5.21		-14.3	906.8	11.33	1.89
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.795	0.835	4.71		-14.3	899.3	10.52	2.65
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.835	0.880	4.82		-14.3	907.8	11.30	1.74
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.880	0.930	5.14		-14.3	897.9	12.55	2.85
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.930	0.980	2.97		-14.3	900.0	7.61	2.39
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	0.980	1.020	3.13		-14.3	905.0	8.40	1.86
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	1.020	1.060	2.56		-14.3	909.7	6.90	1.29
+GoNorth1_6-DEN5	Station 6	2022-10-24T11:00	82.2228	26.7675	1.230	1.10	0.08	10	10	SYI	DEN 5	1.060	1.105	2.62		-14.3	913.5	7.10	0.88
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.000	0.065	0.71		-14.3	843.1	0.43	8.33
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.065	0.115	0.75		-14.3	863.4	0.45	6.13
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.115	0.165	1.34		-14.3	812.4	0.80	11.73
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.165	0.225	0.45		-14.3	894.5	0.33	2.71
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.225	0.265	0.44		-14.3	915.5	0.38	0.43
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.265	0.295	0.57		-14.3	903.3	0.53	1.77
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.295	0.325	1.30		-14.3	907.9	1.31	1.35
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.325	0.365	2.79		-14.3	905.3	3.07	1.79
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.365	0.415	2.74		-14.3	910.6	3.41	1.21
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.415	0.465	2.46		-14.3	910.1	3.41	1.24
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.465	0.505	2.89		-14.3	910.7	4.16	1.22
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.505	0.545	4.10		-14.3	913.7	6.13	1.02
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.545	0.590	3.57		-14.3	913.0	5.74	1.04
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.590	0.635	3.52		-14.3	911.1	6.18	1.24
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.635	0.680	3.43		-14.3	916.5	6.57	0.65
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.680	0.720	3.44		-14.3	915.6	7.05	0.75
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.720	0.770	4.02		-14.3	911.9	8.83	1.21
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.770	0.815	4.57		-14.3	912.2	10.50	1.24
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.815	0.860	4.26		-14.3	916.6	10.27	0.73
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.860	0.910	3.30		-14.3	909.5	8.33	1.39
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.910	0.955	3.76		-14.3	906.6	9.91	1.76
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	0.955	1.005	2.89		-14.3	904.7	7.75	1.87
+GoNorth1_6-DEN6	Station 6	2022-10-24T11:00	82.2228	26.7675	1.140	1.03	0.11	5	5	SYI	DEN 6	1.005	1.060	3.41		-14.3	905.7	9.16	1.82
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.000	0.050	0.52		-13.7	846.0	0.32	7.99
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.050	0.100	0.12		-13.7	806.8	0.07	12.21
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.100	0.150	0.10		-13.7	865.3	0.06	5.85
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.150	0.210	0.23		-13.7	902.4	0.16	1.82
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.210	0.260	0.70		-13.7	914.3	0.55	0.58
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.260	0.310	0.89		-13.7	909.1	0.77	1.17
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.310	0.355	1.20		-13.7	905.8	1.16	1.56
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.355	0.405	1.90		-13.7	917.4	2.09	0.38
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.405	0.455	1.90		-13.7	916.6	2.34	0.46
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.455	0.505	2.05		-13.7	905.9	2.81	1.64
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.505	0.555	1.84		-13.7	910.1	2.62	1.16
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.555	0.605	2.65		-13.7	909.4	3.92	1.33
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.605	0.655	2.74		-13.7	906.5	4.33	1.65
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.655	0.705	3.30		-13.7	905.9	5.69	1.78
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.705	0.755	2.97		-13.7	904.8	5.57	1.86
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.755	0.805	3.62		-13.7	915.1	7.37	0.81
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.805	0.855	3.15		-13.7	911.5	6.89	1.15
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.855	0.905	3.23		-13.7	913.7	7.38	0.92
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.905	0.955	3.39		-13.7	920.3	8.15	0.23
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	0.955	1.005	3.69		-13.7	915.6	9.28	0.77
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	1.005	1.040	3.05		-13.7	913.6	7.94	0.91
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	1.005	1.045	3.73		-13.7	914.5	10.05	0.89
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	1.045	1.095	3.65		-13.7	911.3	9.86	1.23
+GoNorth1_6-DEN7	Station 6	2022-10-24T11:00	82.2228	26.7675	1.240	1.10	0.04	0	5	SYI	DEN 7	1.095	1.155	3.46		-13.7	909.1	9.32	1.45
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.000	0.000		-3.8				
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.050	0.050		-3.3				
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.100	0.100		-2.9				
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.150	0.150		-2.6				
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.200	0.200		-2.3				
+GoNorth1_14-TEMP	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	TEMP	0.280	0.280		-1.9				
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.000	0.050	8.55				11.46	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.050	0.100	5.04				7.47	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.100	0.150	5.60				9.18	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.150	0.200	5.31				9.49	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.200	0.250	5.27				10.37	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.250	0.290	5.27				11.30	
+GoNorth1_14-SAL	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.02	1	0	FYI	SAL	0.290	0.330	5.94				13.80	
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.000	0.050	8.69		-9.7	885.2	11.31	4.64
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.050	0.100	5.10		-9.7	904.7	7.61	2.11
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.100	0.150	5.65		-9.7	909.8	9.45	1.62
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.150	0.200	5.39		-9.7	911.4	9.94	1.42
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.200	0.240	4.88		-9.7	912.9	9.93	1.19
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.240	0.280	5.21		-9.7	909.0	11.47	1.65
+GoNorth1_14-DEN1	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	-1	0	FYI	DEN 1	0.280	0.320	5.39		-9.7	915.9	13.04	0.93
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.000	0.050	12.25		-9.7	860.2	15.48	7.74
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.050	0.100	5.67		-9.7	889.5	8.30	3.82
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.100	0.150	5.45		-9.7	902.6	9.02	2.38
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.150	0.190	4.52		-9.7	892.5	8.04	3.36
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.190	0.240	5.24		-9.7	898.4	10.30	2.80
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.240	0.280	4.73		-9.7	922.2	10.48	0.17
+GoNorth1_14-DEN2	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.305	0.29	0.02	5	0	FYI	DEN 2	0.280	0.330	6.51		-9.7	921.0	15.85	0.52
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.000	0.050	10.32		-9.7	888.5	13.47	4.48
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.050	0.090	6.36		-9.7	896.9	9.30	3.10
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.090	0.140	5.63		-9.7	913.8	9.27	1.19
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.140	0.180	4.34		-9.7	914.7	7.78	0.93
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.180	0.230	4.84		-9.7	921.7	9.58	0.23
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.230	0.275	4.79		-9.7	917.0	10.44	0.74
+GoNorth1_14-DEN3	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.03	10	0	FYI	DEN 3	0.275	0.330	5.68		-9.7	918.8	13.79	0.65
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.000	0.050	8.33		-9.7	870.3	10.67	6.20
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.050	0.090	4.86		-9.7	909.0	7.23	1.61
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.090	0.140	5.27		-9.7	915.1	8.74	1.00
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.140	0.190	5.13		-9.7	913.2	9.34	1.19
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.190	0.240	4.85		-9.7	913.3	9.83	1.14
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.240	0.275	5.54		-9.7	909.7	12.25	1.62
+GoNorth1_14-DEN4	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.29	0.02	10	5	FYI	DEN 4	0.275	0.315	5.66		-9.7	909.9	13.59	1.61
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.000	0.050	7.65		-9.7	839.6	9.49	9.44
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.050	0.100	4.39		-9.7	894.9	6.57	3.08
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.100	0.150	5.20		-9.7	908.9	8.86	1.66
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.150	0.200	5.42		-9.7	917.6	10.37	0.75
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.200	0.250	5.06		-9.7	909.9	10.79	1.54
+GoNorth1_14-DEN5	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.300	0.28	0.05	5	5	FYI	DEN 5	0.250	0.300	6.16		-9.7	910.0	14.74	1.66
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.000	0.050	8.34		-9.7	890.5	10.94	4.03
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.050	0.100	4.63		-9.7	903.8	6.94	2.15
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.100	0.140	5.23		-9.7	909.0	8.72	1.66
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.140	0.180	5.86		-9.7	913.7	10.62	1.22
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.180	0.230	5.34		-9.7	915.1	10.68	1.01
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.230	0.270	5.21		-9.7	920.7	11.57	0.39
+GoNorth1_14-DEN6	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.290	0.27	0.03	0	5	FYI	DEN 6	0.270	0.310	5.63		-9.7	917.2	13.62	0.82
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.050	0.050	7.71		-9.7	885.7	10.01	4.47
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.100	0.050	4.66		-9.7	910.0	6.95	1.48
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.155	0.055	5.00		-9.7	914.8	8.36	1.00
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.205	0.050	5.31		-9.7	911.5	9.74	1.40
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.255	0.050	4.71		-9.7	912.1	9.57	1.26
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.295	0.040	5.46		-9.7	915.7	12.18	0.96
+GoNorth1_14-DEN7	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.310	0.30	0.03	0	10	FYI	DEN 7	0.335	0.040	6.39		-9.7	910.4	15.41	1.65
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.000	0.050	12.67		-9.7	871.9	16.27	6.54
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.050	0.100	4.56		-9.7	910.7	6.89	1.39
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.100	0.150	5.52		-9.7	916.9	9.38	0.84
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.150	0.200	5.70		-9.7	905.9	10.57	2.05
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.200	0.260	5.33		-9.7	909.4	11.22	1.63
+GoNorth1_14-DEN8	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	5	10	FYI	DEN 8	0.260	0.320	6.27		-9.7	911.3	15.07	1.53
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.000	0.050	8.33		-9.7	870.3	10.67	6.20
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.050	0.090	4.86		-9.7	909.0	7.23	1.61
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.090	0.140	5.27		-9.7	915.1	8.74	1.00
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.140	0.190	5.13		-9.7	913.2	9.34	1.19
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.190	0.240	4.85		-9.7	913.3	9.83	1.14
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.240	0.275	5.54		-9.7	909.7	12.25	1.62
+GoNorth1_14-DEN9	Super Station 14	2022-10-30T11:00	82.5044	17.4737	0.320	0.29	0.03	10	10	FYI	DEN 9	0.275	0.315	5.66		-9.7	909.9	13.59	1.61

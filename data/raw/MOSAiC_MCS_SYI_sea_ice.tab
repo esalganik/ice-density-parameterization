@@ -1,0 +1,664 @@
+/* DATA DESCRIPTION:
+Citation:	Oggier, Marc; Salganik, Evgenii; Whitmore, Laura M; Fong, Allison A; Hoppe, Clara Jule Marie; Rember, Robert; Høyland, Knut Vilhelm; Gradinger, Rolf; Divine, Dmitry V; Fons, Steven W; Abrahamsson, Katarina; Aguilar-Islas, Ana M; Angelopoulos, Michael; Arndt, Stefanie; Balmonte, John Paul; Bozzato, Deborah; Bowman, Jeff S; Castellani, Giulia; Chamberlain, Emelia; Creamean, Jessie; D'Angelo, Alessandra; Damm, Ellen; Dumitrascu, Adela; Eggers, Lena; Gardner, Jessie; Grosfeld, Lisa; Haapala, Jari; Immerz, Antonia; Kolabutin, Nikolai; Lange, Benjamin Allen; Lei, Ruibo; Marsay, Christopher M; Maus, Sönke; Olsen, Lasse Mørk; Müller, Oliver; Nuibom, Alexey; Ren, Jian; Rinke, Annette; Sheikin, Igor; Shimanchuk, Egor; Snoeijs-Leijonmalm, Pauline; Spahic, Susanne; Stefels, Jacqueline; Torres-Valdés, Sinhué; Torstensson, Anders; Ulfsbo, Adam; Verdugo, Josefa; Vortkamp, Martina; Wang, Lei; Webster, Melinda; Wischnewski, Laura; Granskog, Mats A (2023): Second-year sea-ice salinity, temperature, density, oxygen and hydrogen isotope composition from the main coring site (MCS-SYI) during MOSAiC legs 1 to 4 in 2019/2020 [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.959830
+Replaced by:	Oggier, Marc; Salganik, Evgenii; Whitmore, Laura M; Fong, Allison A; Hoppe, Clara Jule Marie; Rember, Robert; Høyland, Knut Vilhelm; Gradinger, Rolf; Divine, Dmitry V; Fons, Steven W; Abrahamsson, Katarina; Aguilar-Islas, Ana M; Angelopoulos, Michael; Arndt, Stefanie; Balmonte, John Paul; Bozzato, Deborah; Bowman, Jeff S; Castellani, Giulia; Chamberlain, Emelia; Creamean, Jessie; D'Angelo, Alessandra; Damm, Ellen; Dietrich, Ulrike; Droste, Elise Sayana; Dumitrascu, Adela; Eggers, Sarah Lena; Gardner, Jessie; Grosfeld, Lisa; Haapala, Jari; Heitmann, Laura; Immerz, Antonia; Kolabutin, Nikolai; Lange, Benjamin Allen; Lei, Ruibo; Marsay, Christopher M; Maus, Sönke; Olsen, Lasse Mørk; Müller, Oliver; Nuibom, Alexey; Ren, Jian; Rinke, Annette; Schmidt, Katrin; Sheikin, Igor; Shimanchuk, Egor; Snoeijs-Leijonmalm, Pauline; Spahic, Susanne; Stefels, Jacqueline; Torres-Valdés, Sinhué; Torstensson, Anders; Ulfsbo, Adam; Verdugo, Josefa; Vortkamp, Martina; Wang, Lei; Webster, Melinda; Granskog, Mats A (2024): Second-year sea-ice salinity, temperature, density, nutrient, oxygen and hydrogen isotope composition from the main coring site (MCS-SYI) during MOSAiC legs 1 to 4 in 2019/2020 [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.973860
+Abstract:	Second-year sea-ice thickness, draft, salinity, temperature, and density were measured during near-weekly surveys at the main second-year ice coring site (MCS-SYI) during the MOSAiC expedition (legs 1 to 3) and new second-year ice coring site leg 4, since the earlier site was not accessible any longer. The ice cores were extracted either with a 9-cm (Mark II) or 7.25-cm (Mark III) internal diameter ice corers (Kovacs Enterprise, US). This data set includes data from 18 coring site visits and were performed from 28 October 2019 to 20 July 2020 at coring locations within 50 m to each other in the MOSAiC Central Observatory. During each coring event, ice temperature was measured in situ from a separate temperature core, using Testo 720 thermometers in drill holes with a length of half-core-diameter at 5-cm vertical resolution. Ice bulk practical salinity was measured from melted core sections at 5-cm resolution using a YSI 30 conductivity meter. Ice density was measured using the hydrostatic weighing method (Pustogvar and Kulyakhtin, 2016) from a density core in the freezer laboratory onboard Polarstern at the temperature of –15°C. Relative volumes of brine and gas were estimated from ice salinity, temperature and density using Cox and Weeks (1983) for cold ice and Leppäranta and Manninen (1988) for ice warmer than –2°C. The data contains the event label (1), time (2), and global coordinates (3,4) of each coring measurement and sample IDs (13, 15). Each salinity core has its manually measured ice thickness (5), ice draft (6), core length (7), and mean snow height (22). Each core section has the total length of its top (8) and bottom (9) measured in situ, as well estimated depth of section top (10), bottom (11), and middle (12). The depth estimates assume that the total length of all core sections is equal to the measured ice thickness. Each core section has the value of its practical salinity (14), isotopic values (16, 17, 18) (Meyer et al., 2000), as well as sea ice temperature (19) and ice density (20) interpolated to the depth of salinity measurements. The global coordinates of coring sites were measured directly. When it was not possible, coordinates of the nearby temperature buoy 2019T62 (legs 1-3) or 2019T61 (leg 4) were used. Ice mass balance buoy 2019T62 installation is described in doi:10.1594/PANGAEA.940231, ice mass balance buoy 2020T61 installation is described in doi: 10.1594/PANGAEA.926580. Brine volume (21) fraction estimates are presented only for fraction values from 0 to 30%. Each core section also has comments (23) describing if the sample is from a new coring site or has any other special characteristics. Macronutrients from the salinity core will be published in a subsequent version of this data set.
+Keyword(s):	Arctic; cores; density; Ecological monitoring; MOSAiC20192020; MOSAiC_ECO; MOSAiC_ICE; Physical properties; Salinity; Temperature; Sea ice; time-series
+Related to:	Angelopoulos, Michael; Damm, Ellen; Simões Pereira, Patric; Abrahamsson, Katarina; Bauch, Dorothea; Bowman, Jeff S; Castellani, Giulia; Creamean, Jessie; Divine, Dmitry V; Dumitrascu, Adela; Granskog, Mats A; Kolabutin, Nikolai; Krumpen, Thomas; Fons, Steven W; Nicolaus, Marcel; Oggier, Marc; Rinke, Annette; Sachs, Torsten; Shimanchuk, Egor; Stefels, Jacqueline; Stephens, Mark; Ulfsbo, Adam; Verdugo, Josefa; Wang, Lei; Zhan, Liyang; Haas, Christian (2022): Deciphering the Properties of Different Arctic Ice Types During the Growth Phase of MOSAiC: Implications for Future Studies on Gas Pathways. Frontiers in Earth Science, 10, 864523, https://doi.org/10.3389/feart.2022.864523
+	Granskog, Mats A (2021): Overview sea ice cores collected by the snow and sea ice physics (ICE) team on the Multidisciplinary drifting Observatory for the Study of Arctic Climate (MOSAiC) expedition. Zenodo, https://doi.org/10.5281/zenodo.4719904
+	Salganik, Evgenii; Katlein, Christian; Lange, Benjamin Allen; Matero, Ilkka; Lei, Ruibo; Fong, Allison A; Fons, Steven W; Divine, Dmitry V; Oggier, Marc; Castellani, Giulia; Bozzato, Deborah; Chamberlain, Emelia; Hoppe, Clara Jule Marie; Müller, Oliver; Gardner, Jessie; Rinke, Annette; Simões Pereira, Patric; Ulfsbo, Adam; Marsay, Christopher M; Webster, Melinda; Maus, Sönke; Høyland, Knut Vilhelm; Granskog, Mats A (2023): Temporal evolution of under-ice meltwater layers and false bottoms and their impact on summer Arctic sea ice mass balance. Elementa - Science of the Anthropocene, 11(1), 00035, https://doi.org/10.1525/elementa.2022.00035
+Source:	Lei, Ruibo; Cheng, Bin; Hoppmann, Mario; Zuo, Guangyu (2021): Temperature and heating induced temperature difference measurements from SIMBA-type sea ice mass balance buoy 2019T66, deployed during MOSAiC 2019/20 [dataset bundled publication]. PANGAEA, https://doi.org/10.1594/PANGAEA.938134
+Other version:	Oggier, Marc; Salganik, Evgenii; Whitmore, Laura M; Fong, Allison A; Hoppe, Clara Jule Marie; Rember, Robert; Høyland, Knut Vilhelm; Gradinger, Rolf; Divine, Dmitry V; Fons, Steven W; Abrahamsson, Katarina; Aguilar-Islas, Ana M; Angelopoulos, Michael; Arndt, Stefanie; Balmonte, John Paul; Bozzato, Deborah; Bowman, Jeff S; Castellani, Giulia; Chamberlain, Emelia; Creamean, Jessie; D'Angelo, Alessandra; Damm, Ellen; Dietrich, Ulrike; Droste, Elise Sayana; Dumitrascu, Adela; Eggers, Sarah Lena; Gardner, Jessie; Grosfeld, Lisa; Haapala, Jari; Heitmann, Laura; Immerz, Antonia; Kolabutin, Nikolai; Lange, Benjamin Allen; Lei, Ruibo; Marsay, Christopher M; Maus, Sönke; Olsen, Lasse Mørk; Müller, Oliver; Nuibom, Alexey; Ren, Jian; Rinke, Annette; Schmidt, Katrin; Sheikin, Igor; Shimanchuk, Egor; Snoeijs-Leijonmalm, Pauline; Spahic, Susanne; Stefels, Jacqueline; Torres-Valdés, Sinhué; Torstensson, Anders; Ulfsbo, Adam; Verdugo, Josefa; Vortkamp, Martina; Wang, Lei; Webster, Melinda; Granskog, Mats A (2025): Second-year sea-ice salinity, temperature, density, nutrient, oxygen and hydrogen isotope composition from the main coring site (MCS-SYI) during MOSAiC legs 1 to 4 in 2019/2020, version 2 [dataset]. PANGAEA, https://doi.org/10.1594/PANGAEA.974764
+References:	Cox, G F N; Weeks, W F (1983): Equations for Determining the Gas and Brine Volumes in Sea-Ice Samples. Journal of Glaciology, 29(102), 306-316, https://doi.org/10.3189/S0022143000008364
+	Leppäranta, M; Manninen, T (1988): The brine and gas content of sea ice with attention to low salinities and high temperatures. Finnish Institute of Marine Research Internal Report (Vol. 2). Helsinki
+	Meyer, Hanno; Schönicke, Lutz; Wand, Ulrich; Hubberten, Hans-Wolfgang; Friedrichsen, Hans (2000): Isotope Studies of Hydrogen and Oxygen in Ground Ice - Experiences with the Equilibration Technique. Isotopes in Environmental and Health Studies, 36(2), 133-149, https://doi.org/10.1080/10256010008032939
+	Pustogvar, A; Kulyakhtin, A (2016): Sea ice density measurements. Methods and uncertainties. Cold Regions Science and Technology, 131, 46-52, https://doi.org/10.1016/j.coldregions.2016.09.001
+Additional metadata:	SENSOR: Metadata for laboratory ISOLAB Facility - Stable Isotope Laboratory Potsdam at current Version. Alfred Wegener Institut Helmholtz Centre for Polar and Marine Research, hdl:10013/sensor.ddc92f54-4c63-492d-81c7-696260694001
+	SENSOR: Metadata for mass spectrometer Finnigan Delta-S mass spectrometer (DIFE) at current Version. Alfred Wegener Institut Helmholtz Centre for Polar and Marine Research, hdl:10013/sensor.af148dea-fe65-4c87-9744-50dc4c81f7c9
+Project(s):	Arctic Research Icebreaker Consortium: A strategy for meeting the needs for marine-based research in the Arctic (ARICE) (URI: https://doi.org/10.3030/730965)
+	Multidisciplinary drifting Observatory for the Study of Arctic Climate (MOSAiC) (URI: https://mosaic-expedition.org/)
+	Ridges - Safe HAVens for ice-associated Flora and Fauna in a Seasonally ice-covered Arctic OCean (HAVOC) (URI: https://npolar.no/en/projects/havoc/)
+Funding:	Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research, Bremerhaven (AWI) (URI: https://www.awi.de/), grant/award no. AFMOSAiC-1_00: Multidisciplinary drifting Observatory for the Study of Arctic Climate
+	Alfred Wegener Institute, Helmholtz Centre for Polar and Marine Research, Bremerhaven (AWI) (URI: https://www.awi.de/), grant/award no. AWI_PS122_00: Multidisciplinary drifting Observatory for the Study of Arctic Climate / MOSAiC
+	Dutch Research Council (NWO), grant/award no. 866.18.002: Artic Sea Ice-Pelagic coupling of the Carbon and Sulfur cycles
+	Horizon 2020 (H2020) (URI: https://ec.europa.eu/programmes/horizon2020/), grant/award no. 730965: Arctic Research Icebreaker Consortium: A strategy for meeting the needs for marine-based research in the Arctic (ARICE) (URI: doi:10.3030/730965)
+	National Natural Science Foundation of China (NSFC) (URI: https://www.nsfc.gov.cn/english/site_1/index.html), grant/award no. 41976219
+	National Science Foundation (NSF), grant/award no. 1735862: Chemical, Physical and Biological processes linking snow and sea ice to the Arctic Ocean mixed layer: Improving models through the MOSAiC platform (URI: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=1735862)
+	National Science Foundation (NSF), grant/award no. 1753418: Collaborative Research: Defining the Atmospheric Deposition of Trace eEements into the Arctic Ocean-Ice Ecosystem During the Year-Long MOSAIC Ice Drift (URI: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=1753418)
+	National Science Foundation (NSF), grant/award no. 1821911: Collaborative Research: Quantifying microbial controls on the annual cycle of methane and oxygen within the ultraoligotrophic Central Arctic during MOSAiC (URI: https://www.nsf.gov/awardsearch/show-award/?AWD_ID=1821911)
+	Swedish Research Council (VR), grant/award no. 2018-00509_Formas: How warming of the Central Arctic Ocean changes the metabolic functions of sympagic and pelagic microbiomes, with emphasis on carbon and nitrogen cycling (URI: https://www.vr.se/english/swecris.html#/project/2018-00509_Formas)
+	Swedish Research Council (VR), grant/award no. 2018-01398_Formas: Drivers of anthropogenic changes in carbon storage and ocean acidification in the new Arctic Ocean (DRACO2) (URI: https://www.vr.se/english/swecris.html#/project/2018-01398_Formas)
+	Swedish Research Council (VR), grant/award no. 2018-04685_VR: Uncovering the seasonality of sympagic and pelagic microbiomes and their metabolic functions in the Central Arctic Ocean with emphasis on carbon and nitrogen cycling (URI: https://www.vr.se/english/swecris.html#/project/2018-04685_VR)
+	The Research Council of Norway (RCN) (URI: http://www.forskningsradet.no/en/Home_page/1177315753906), grant/award no. 280292: Ridges - Safe HAVens for ice-associated Flora and Fauna in a Seasonally ice-covered Arctic OCean (URI: https://prosjektbanken.forskningsradet.no/en/project/FORISS/280292)
+	United States Department of Energy, Atmospheric Systems Research Program, grant/award no. DE-AC05-76RL01830
+	United States Department of Energy, Atmospheric Systems Research Program, grant/award no. DE-SC0019745: Evaluation of ice nucleating particles and their sources in the central Arctic during MOSAiC
+	United States Department of Energy, Atmospheric Systems Research Program, grant/award no. DE-SC0022046: Closing the gap on understudied aerosol-climate processes in the rapidly changing central Arctic (URI: https://pamspublic.science.energy.gov/WebPAMSExternal/Interface/Common/ViewPublicAbstract.aspx?rv=a2093134-feb9-41c9-b69e-820c5a81d8d2&rtc=24&PRoleId=10)
+Coverage:	MEDIAN LATITUDE: 84.287904 * MEDIAN LONGITUDE: 41.947208 * SOUTH-BOUND LATITUDE: 80.770900 * WEST-BOUND LONGITUDE: -0.485000 * NORTH-BOUND LATITUDE: 88.070800 * EAST-BOUND LONGITUDE: 126.329900
+	DATE/TIME START: 2019-10-28T05:30:00 * DATE/TIME END: 2020-07-20T10:00:00
+	MINIMUM ELEVATION: -4420.4 m * MAXIMUM ELEVATION: -762.0 m
+Event(s):	PS122/1_5-78 * LATITUDE: 85.551309 * LONGITUDE: 126.326096 * DATE/TIME: 2019-10-28T01:05:00 * ELEVATION: -4379.2 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: temperature: T; 2nd temperature core as measurement were too slow for T: T2; S nutrient isotope: SALO 18; ECO1A: ECO1A; ECO1D: ECO1D; ECO1C: ECO1C; ECO1B: ECO1B; texture: TEX; DIC/TA: DIC; ECO2A: ECO2A; ECO2B: ECO2B; ECO2C: ECO2C; only bottom 10: MEIO; Repository: REP; CT using 9cm rather than 7cm as ice shatters: CT; RHO using 9cm rather than 7cm as ice shatters: RHO
+	PS122/1_6-36 * LATITUDE: 85.942870 * LONGITUDE: 120.201472 * DATE/TIME: 2019-11-04T01:39:00 * ELEVATION: -4407.2 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: SYI, T: temperature, backup, original FloeNavi record: LAT:85.933591, LONG:120.371864-20191104-PS122-1_6-SYI-T; SYI: CH4-; SYI, SALO18: salinity, nutrient, isotope-20191104-PS122-1_6-SYI-SALO18; SYI: Halo-; SYI, ECO1: CHLA-20191104-PS122-1_6-SYI-ECO1A; SYI, ECO1B: PROD-20191104-PS122-1_6-SYI-ECO1B; SYI, ISO-; SYI, ECO1C: PIGS-20191104-PS122-1_6-SYI-ECO1C; SYI, ECO1D:ALGAE-20191104-PS122-1_6-SYI-ECO1D; SYI, BROMO-; SYI, TEXture-20191104-PS122-1_6-SYI-TEX; SYI, REP, full bagged-20191104-PS122-1_6-SYI-REP; SYI, DIC, original FloeNavi record: LAT:85.93583, LONG:120.315434-20191104-PS122-1_6-SYI-DIC; SYI, ECO2A: DNA1-20191104-PS122-1_6-SYI-ECO2A; SYI, ECO2B: DNA2-20191104-PS122-1_6-SYI-ECO2B; SYI, ECO2C: RNA-20191104-PS122-1_6-SYI-ECO2C; SYI, MEIOI, bottom 10 cm only, upper part for PLT-20191104-PS122-1_6-SYI-MEIOI; SYI, CT3, 9 cm core to avoid ice shattering-20191104-PS122-1_6-SYI-CT3; SYI, MEIOI, bottom 10 cm only-20191104-PS122-1_6-SYI-MEIOII; SYI, MEIOIII, bottom 10 cm only-20191104-PS122-1_6-SYI-MEIOIII
+	PS122/1_7-9 * LATITUDE: 85.871159 * LONGITUDE: 116.220002 * DATE/TIME: 2019-11-11T03:01:00 * ELEVATION: -4413.1 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: temp: temp; Ch4: CH4; SALO18: SALO18; HOLO: HOLO; CHLA: CHLA; PROD: PROD; BROMO: BROMO; PIGS: PIGS; ISO: ISO; ALGAE: ALGAE; MEIO1: MEIO1; BAC: BAC; REP: REP; TEX: tex; DIC: DIC; DNA1: DNA1; DNA2: DNA2; RNA: RNA
+	PS122/1_7-53 * LATITUDE: 86.184690 * LONGITUDE: 119.690593 * DATE/TIME: 2019-11-16T03:29:00 * ELEVATION: -4406.1 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: core2: extra, use for DIC, SYI; T: SYI temperature; S: Salinity; core3: extra SYI, use by ECO; core1 : extra, use for BROMO; core4: extra SYI; SALO18: salinity; S: Salinity SYI
+	PS122/1_9-11 * LATITUDE: 86.017578 * LONGITUDE: 120.673690 * DATE/TIME: 2019-11-25T05:10:00 * ELEVATION: -4406.1 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: BAC20191125: ww; temp: t; bromo: bromo20191125; halo: halo; ch4: ch4_20191125; ECO1A: ECO1A_20191125; iso: iso_20191125; eco1B: eco2_20191125; eco1d: eco1d_20191125; PLT: PLT2019_11_25; bac: bac20191125; meio1: meio20191125; rep: rep20191125; eco2a: eco2a20191125; eco2b: eco2b20191125; eco2c: 7; dic: dic20191125; tex: tex20191125
+	PS122/1_10-16 * LATITUDE: 85.929355 * LONGITUDE: 113.531791 * DATE/TIME: 2019-12-02T05:52:00 * ELEVATION: -4420.4 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * CAMPAIGN: PS122/1 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: temp: temp20191202; ch4: ch420191202; salo: SALO20191202; HALO: HALO20191202; ECO1: ECO1_20191202; SIO: SIO_20191202; ECO1B : ECO1B; ECO1C: ECO1C20191202; ECO1D: ECO1D_20191202; BAC: BAC_20191202; ECO2A: ECO2A_20191202; ECO2B: ECO2B_20191202; ECO2C: ECO2C_20191202; MEIO1: MEIO1_20191202; DIC: DIC_20191202; PLT: PLT_20191202; Tex: Tex_20191202; REP: REP_20191202
+	PS122/2_20-5 * LATITUDE: 87.332424 * LONGITUDE: 107.154857 * DATE/TIME: 2020-01-13T08:23:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/2 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: t: temp core; t: tempcore; ch4: ch4 core; halo: halo core bagged; s18: salinity core ; beryllium : bulk core for berrylium measurement; iso: iso core bagged; bromo: bromo core bagged; eco1a: eco1a; eco1b: eco1b; eco1c: eco1c; eco1d: eco1d core; tex: texture core; microplastic: lasses core for microplastics; eco2a: eco2a; eco2b: eco2b; eco2c: eco2c; dic: dic; meio1: meio1; rep: rep; plt: microplastics
+	PS122/2_22-7 * LATITUDE: 87.452347 * LONGITUDE: 95.348209 * DATE/TIME: 2020-01-27T07:54:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/2 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: T: DS syi temp core; ch4: ds syi ch4 core; halo: halo core ds syi; salo18: salinity core ds syi; iso: iso core ds syi; bromoj: bromo core ds syi; bromo: bromo core syi ds; chla eco1a: eco1a core ds syi; PROD eco1b: eco1b core ds syi; PIGS eco1c: eco1c ds syi core; algae eco 1d: eco1d ds syi ; tex: tex core ds syi; dna1 eco2a: eco2a core ds syi; dic: dic/ta dic core ds syi; dna2 eco2b: eco2b core ds syi; rep: rep core ds syi; rna eco2c: eco 2c core ds syi; backup bac: backup core ds syi; plastic plt: plastic core ds syi; rho: rho core ds syi
+	PS122/2_25-15 * LATITUDE: 88.070784 * LONGITUDE: 78.612863 * DATE/TIME: 2020-02-17T07:43:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/2 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: temp: syi; halo: temp on this core; salo18: syi; eco1a: syi; tex: syi; eco1b: syi; dic: syi; eco1d: syi; rep: rep core; pp1: primary production 1; pp2: primary production 2; pp3: primary production 3; meio1: bot 10cm
+	PS122/3_33-18 * LATITUDE: 86.177355 * LONGITUDE: 15.516265 * DATE/TIME: 2020-03-24T08:47:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/3 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: HALO: SYI dark site; CH4: SYI; SALO18: SYI dark site; DIC: SYI dark site; ISO: SYI; ECO1A: SYI darksite; ECO1B: SYI darksite; ECO1C: SHi dark si tc; ECO1D: sy; DMSP: syi; SYI:BROMO; SYI: be1
+	PS122/3_35-4 * LATITUDE: 84.516155 * LONGITUDE: 14.233763 * DATE/TIME: 2020-04-06T10:53:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/3 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: HALO: SYI dark site; DIC: SY. i dark site; SÀLO18: SYI dark site; SYI DS: ECO1A; REP:SYI DS; TEX: SYI DS; BAC: SYI DS; MEIO1: SYI DS; OPT: SYI DS
+	PS122/3_36-4 * LATITUDE: 84.273923 * LONGITUDE: 14.920769 * DATE/TIME: 2020-04-13T12:15:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/3 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: CH4: SYI dark site; SALO18: SYI dark site; DIC: SYI dark site; DMSP: SYI dark site; TEX: SYI dark site; ISO: SYI dark site; ECO1B: SYI dark site
+	PS122/3_38-16 * LATITUDE: 83.912864 * LONGITUDE: 15.606337 * DATE/TIME: 2020-04-27T11:40:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/3 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: ISO: SYI dark site; SALO18: SYI dark site; DIC: SYI dark site; CH4: SYI dark site; ECO1A: SYI dark site; ECO1b: SYI Dark Site; ECO2A: SYI Dark Site; REP: SYI DS; SYI DS TEX; SYI Dark Site: ECO2B; SYI Dark Site: BAC; SYI DS PLT; SYI DS MEIO1; SYI DS: OPT
+	PS122/3_39-18 * LATITUDE: 83.886008 * LONGITUDE: 18.314536 * DATE/TIME: 2020-05-04T11:29:00 * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/3 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: CH4: SYI dark site; DIC: SYI dark site; SALO18: SYI dark site; ECO1A: SYI dark site; ECO1B: SYI dark site; ISO: SYI dark site; ECO1C: SYI dark site; DMSP: SYI dark site; REP: SYI dark site; Tex: SYI dark site; MEIO1: SYI dark site; BAC: SYI dark site
+	PS122/4_45-29 * LATITUDE: 81.783978 * LONGITUDE: 8.948385 * DATE/TIME: 2020-06-30T14:50:00 * ELEVATION: -793.6 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/4 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: SYI common coring activity at new site just north of Alli's ridge from original MOSAiC CO floe.
+	PS122/4_46-20 * LATITUDE: 81.674088 * LONGITUDE: 5.190187 * DATE/TIME: 2020-07-06T16:45:00 * ELEVATION: -762.0 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/4 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: SYI coring near Alli's ridge on main floe.
+	PS122/4_47-18 * LATITUDE: 81.411199 * LONGITUDE: 0.277515 * DATE/TIME: 2020-07-13T16:30:00 * ELEVATION: -2145.7 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/4 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: SYI coring at new SYI site near Alli's ridge on main floe.
+	PS122/4_48-25 * LATITUDE: 80.733019 * LONGITUDE: -0.550967 * DATE/TIME: 2020-07-20T16:45:00 * ELEVATION: -3115.3 m * O2A REGISTRY URI: https://registry.o2a-data.de/items/5065 * LOCATION: Arctic Ocean * CAMPAIGN: PS122/4 (MOSAiC20192020) * BASIS: Polarstern (URI: https://doi.org/10.17815/jlsrf-3-163) * METHOD/DEVICE: Ice corer (IC) * COMMENT: "SYI ice coring; adjacent to Alli's ridge"
+Parameter(s):	Event label (Event) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/)
+	DATE/TIME (Date/Time) * GEOCODE * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/)
+	LATITUDE (Latitude) * GEOCODE * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * COMMENT: coordinates of the ice coring site at the time of sampling
+	LONGITUDE (Longitude) * GEOCODE * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * COMMENT: coordinates of the ice coring site at the time of sampling
+	Sea ice thickness [m] (EsEs) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Ice thickness gauge (ICEGAUGE) * COMMENT: Distance from the top of ice to the bottom of the ice
+	Sea ice draft [m] (Sea ice draft) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Ice thickness gauge (ICEGAUGE) * COMMENT: Distance from water level to bottom of the ice
+	Core length [m] (Core length) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Tape measure * COMMENT: Total length of the extracted ice core
+	Depth, ice/snow, top/minimum [m] (Depth ice/snow top) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Tape measure * COMMENT: top of ice layer sampled, measured from the ice surface
+	Depth, ice/snow, bottom/maximum [m] (Depth ice/snow bot) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Tape measure * COMMENT: bottom of ice layer sampled, measured from the ice surface
+	Depth, adjusted top [ambsf] (Depth adj top) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Calculated * COMMENT: top of ice layer sampled, relative to the water level
+	Depth, adjusted bottom [ambsf] (Depth adj bot) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Calculated * COMMENT: bottom of ice layer sampled, relative to the water level
+	Depth, adjusted [ambsf] (Depth adj) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Calculated * COMMENT: middle of ice layer sampled, relative to the water level
+	Sample ID (Sample ID) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * COMMENT: unique identifier for each salinity sample
+	Sea ice salinity (Sea ice sal) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Salinometer, inductive * COMMENT: Practical salinity measured after melting
+	Sample ID (Sample ID) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * COMMENT: unique identifier for each isotope sample
+	δ18O, water [‰ SMOW] (δ18O H2O) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Isotopic liquid water analyzer * COMMENT: ppt, vs. VSMOW
+	δ Deuterium, water [‰ SMOW] (δD H2O) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Isotopic liquid water analyzer * COMMENT: ppt, vs. VSMOW
+	Deuterium excess [‰] (d xs) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Isotopic liquid water analyzer
+	Temperature, ice/snow [°C] (t) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Thermometer
+	Density, ice [kg/m**3] (Density ice) * PI: Høyland, Knut Vilhelm (knut.hoyland@ntnu.no) * METHOD/DEVICE: Hydrostatic weighing * COMMENT: Sea ice density measured at laboratory temperature of -15°C
+	Volume, brine [%] (Vol brine) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Calculated * COMMENT: Liquid brine volume fraction calculated from the measured sea ice salinity and temperature
+	Snow height [m] (Snow h) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * METHOD/DEVICE: Tape measure * COMMENT: Average snow depth at coring site
+	Comment (Comment) * PI: Granskog, Mats A (https://orcid.org/0000-0002-5035-4347, mats.granskog@npolar.no, http://www.npolar.no/en/people/mats.granskog/) * COMMENT: False bottom and rafted ice flags
+License:	Creative Commons Attribution 4.0 International (CC-BY-4.0) (URI: https://creativecommons.org/licenses/by/4.0/)
+Status:	Curation Level: Enhanced curation (URI: https://wiki.pangaea.de/wiki/Curation_levels) * Processing Level: PANGAEA data processing level 3 (URI: https://wiki.pangaea.de/wiki/Processing_levels#PANGAEA_data_processing_level_3)
+Size:	9395 data points
+*/
+Event	Date/Time	Latitude (coordinates of the ice coring...)	Longitude (coordinates of the ice coring...)	EsEs [m] (Distance from the top of ice ...)	Sea ice draft [m] (Distance from water level to ...)	Core length [m] (Total length of the extracted...)	Depth ice/snow top [m] (top of ice layer sampled, mea...)	Depth ice/snow bot [m] (bottom of ice layer sampled, ...)	Depth adj top [ambsf] (top of ice layer sampled, rel...)	Depth adj bot [ambsf] (bottom of ice layer sampled, ...)	Depth adj [ambsf] (middle of ice layer sampled, ...)	Sample ID (unique identifier for each sa...)	Sea ice sal (Practical salinity measured a...)	Sample ID (unique identifier for each is...)	δ18O H2O [‰ SMOW] (ppt, vs. VSMOW, Isotopic liqu...)	δD H2O [‰ SMOW] (ppt, vs. VSMOW, Isotopic liqu...)	d xs [‰] (Isotopic liquid water analyzer)	t [°C] (Thermometer)	Density ice [kg/m**3] (Sea ice density measured at l...)	Vol brine [%] (Liquid brine volume fraction ...)	Snow h [m] (Average snow depth at coring ...)	Comment (False bottom and rafted ice f...)
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	0.000	-0.050	0.03	-0.02	0.00	A15	0.8	122-1_5 SYI 1	-5.326329570	-41.397128300	1.213508262	-8.6	893.4	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.050	-0.100	-0.02	-0.07	-0.05	A14	0.6	122-1_5 SYI 2	-4.222280748	-32.999367550	0.778878429	-7.6	910.0	0	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.100	-0.150	-0.07	-0.12	-0.10	A13	0.7	122-1_5 SYI 3	-3.741646180	-29.613340330	0.319829108	-6.6	914.5	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.150	-0.200	-0.12	-0.17	-0.15	A12	0.7	122-1_5 SYI 4	-3.466547251	-27.180290650	0.552087356	-6.1	911.2	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.200	-0.250	-0.17	-0.22	-0.20	A11	0.5	122-1_5 SYI 5	-3.437263472	-26.550230410	0.947877368	-5.8	911.6	0	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.250	-0.300	-0.22	-0.27	-0.25	A10	0.5	122-1_5 SYI 6	-4.470245206	-33.241380980	2.520580669	-5.3	913.1	0	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.300	-0.350	-0.27	-0.32	-0.30	A9	0.6	122-1_5 SYI 7	-4.373595846	-33.039101440	1.949665324	-4.9	928.8	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.350	-0.435	-0.32	-0.41	-0.36	ODD	0.5	122-1_5 SYI 8	-2.654659286	-20.664740730	0.572533563	-4.5	922.8	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.435	-0.485	-0.41	-0.45	-0.43	A8	0.5	122-1_5 SYI 9	-2.414034582	-18.158405460	1.153871194	-4.7	918.1	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.485	-0.535	-0.45	-0.51	-0.48	A7	0.5	122-1_5 SYI 10	-1.754688192	-13.580393440	0.457112095	-4.8	916.7	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.535	-0.585	-0.51	-0.55	-0.53	A6	0.4	122-1_5 SYI 11	-1.663198967	-12.188547980	1.117043754	-4.4	915.8	0	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.585	-0.635	-0.55	-0.61	-0.58	A4	0.5	122-1_5 SYI 12	-1.460835654	-11.102181880	0.584503356	-4.6	915.8	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.635	-0.685	-0.61	-0.66	-0.63	A3	0.6	122-1_5 SYI 13	-2.183404039	-16.888667970	0.578564336	-4.6	914.8	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.685	-0.735	-0.66	-0.71	-0.68	A2	0.9	122-1_5 SYI 14	-3.254439302	-24.021669320	2.013845102	-3.7	914.5	1	0.154	
+PS122/1_5-78	2019-10-28T05:30:00	85.5510	126.3299	0.770	0.74	0.790	-0.735	-0.785	-0.71	-0.76	-0.73	A1	5.4	122-1_5 SYI 15	-1.694137976	-12.873581440	0.679522365	-2.1	882.8	12	0.154	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	0.000	-0.050	0.04	-0.01	0.02	B11	0.1	PS122-1_6-SYI 1				-8.5		0	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.050	-0.100	-0.01	-0.06	-0.03	B13	0.2	PS122-1_6-SYI 2				-7.8		0	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.100	-0.150	-0.06	-0.11	-0.08	B11	0.2	PS122-1_6-SYI 3				-7.1	911.6	0	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.150	-0.200	-0.11	-0.16	-0.13	B12	0.2	PS122-1_6-SYI 4				-6.2	913.3	0	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.200	-0.250	-0.16	-0.21	-0.19	B6	0.2	PS122-1_6-SYI 5				-5.4	909.9	0	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.250	-0.300	-0.21	-0.26	-0.24	A7	0.7	PS122-1_6-SYI 6				-5.0	901.2	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.300	-0.400	-0.26	-0.36	-0.31	A3	0.7	PS122-1_6-SYI 7				-4.9	913.4	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.400	-0.440	-0.36	-0.40	-0.38	ODD	0.7	PS122-1_6-SYI 8				-4.4	914.8	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.440	-0.490	-0.40	-0.45	-0.43	A13	0.7	PS122-1_6-SYI 9				-4.2	909.7	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.490	-0.540	-0.45	-0.50	-0.48	B15	0.7	PS122-1_6-SYI 10				-4.6	912.3	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.540	-0.590	-0.50	-0.55	-0.52	B14	0.6	PS122-1_6-SYI 11				-3.9	913.1	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.590	-0.640	-0.55	-0.60	-0.58	B2	0.6	PS122-1_6-SYI 12				-3.6	913.5	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.640	-0.690	-0.60	-0.65	-0.63	A15	0.7	PS122-1_6-SYI 13				-3.0	912.7	1	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.690	-0.740	-0.65	-0.70	-0.67	A16	2.1	PS122-1_6-SYI 14				-2.4	908.6	4	0.180	
+PS122/1_6-36	2019-11-04T04:00:00	85.9491	120.0196	0.780	0.74	0.790	-0.740	-0.790	-0.70	-0.75	-0.73	B10	4.2	PS122-1_6-SYI 15				-1.7	903.8	12	0.180	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	0.000	-0.050	0.05	0.00	0.03	Z25	0.2	PS122/1_7-SYI-1	-4.716859909	-35.642342440	2.092536829	-14.2	915.8	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.050	-0.100	0.00	-0.05	-0.02	Z10	0.1	PS122/1_7-SYI-2	-3.834651513	-29.323179540	1.354032562	-14.0	913.7	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.100	-0.150	-0.05	-0.10	-0.08	Z12	0.1	PS122/1_7-SYI-3	-3.845038297	-29.180727130	1.579579241	-13.6	912.1	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.150	-0.200	-0.10	-0.15	-0.12	Z07	0.1	PS122/1_7-SYI-4	-3.404083140	-25.863561130	1.369103991	-12.9	910.9	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.200	-0.250	-0.15	-0.20	-0.18	Z24	0.1	PS122/1_7-SYI-5	-3.317585362	-25.061600650	1.479082238	-12.0	912.8	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.250	-0.310	-0.20	-0.26	-0.23	Z17	0.3	PS122/1_7-SYI-6	-3.713298269	-28.878508230	0.827877925	-10.8	911.5	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.310	-0.350	-0.26	-0.30	-0.28	Z23	1.0	PS122/1_7-SYI-7	-4.276240126	-32.250398020	1.959522981	-9.6	908.1	1	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.350	-0.400	-0.30	-0.35	-0.33	Z29	0.9	PS122/1_7-SYI-8	-3.559971529	-27.684500570	0.795271665	-7.8	913.8	1	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.400	-0.490	-0.35	-0.44	-0.40	ODD	0.5	PS122/1_7-SYI-9	-2.969092024	-22.948805240	0.803930953	-7.3	912.8	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.490	-0.510	-0.44	-0.46	-0.45	Z21	0.4	PS122/1_7-SYI-10	-2.846360697	-22.232677670	0.538207904	-7.5	913.4	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.540	-0.590	-0.49	-0.54	-0.51	Z28	0.4	PS122/1_7-SYI-11	-3.094865637	-25.927840220	-1.168915122	-6.8	915.0	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.590	-0.640	-0.54	-0.59	-0.57	Z15	0.5	PS122/1_7-SYI-12	-3.934689398	-31.537931600	-0.060416421	-5.2	911.6	0	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.640	-0.690	-0.59	-0.64	-0.62	Z09	0.5	PS122/1_7-SYI-13	-4.510949156	-37.530036390	-1.442443141	-4.7	910.3	1	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.690	-0.740	-0.64	-0.69	-0.66	Z22	2.7	PS122/1_7-SYI-14	-2.982545229	-23.001407700	0.858954132	-4.4	907.0	3	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.740	-0.790	-0.69	-0.74	-0.72	Z26	5.4	PS122/1_7-SYI-15	0.943393351	6.925714947	-0.621431865	-3.9	915.6	7	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.790	-0.840	-0.74	-0.79	-0.76	Z03	5.6	PS122/1_7-SYI-16	0.879253468	6.061116507	-0.972911239	-3.1	915.5	9	0.114	
+PS122/1_7-9	2019-11-11T02:29:00	85.8690	116.2093	0.880	0.83	0.890	-0.840	-0.890	-0.79	-0.84	-0.82	Z04	8.7	PS122/1_7-SYI-17	0.779248983	4.845887783	-1.388104082	-1.9	894.8	25	0.114	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	0.000	-0.050	0.06	0.01	0.03	A8	0.3					-6.6		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.050	-0.100	0.01	-0.04	-0.02	Z04	0.1					-5.6		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.100	-0.150	-0.04	-0.09	-0.07	A11	0.1					-5.4		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.150	-0.200	-0.09	-0.14	-0.11	Z13	0.2					-5.2		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.200	-0.250	-0.14	-0.19	-0.17	A16	0.1					-5.1		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.250	-0.300	-0.19	-0.24	-0.22	Z08	0.1					-4.7		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.300	-0.350	-0.24	-0.29	-0.27	Z14	0.1					-4.0		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.350	-0.400	-0.29	-0.34	-0.32	A21	0.2					-3.8		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.400	-0.470	-0.34	-0.41	-0.38	ODD	0.3					-3.7		0	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.470	-0.520	-0.41	-0.46	-0.44	Z19	0.4					-3.5		1	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.520	-0.570	-0.46	-0.51	-0.49	Z07	0.5					-3.3		1	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.570	-0.620	-0.51	-0.56	-0.53	A26	0.6					-2.9		1	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.620	-0.670	-0.56	-0.61	-0.59	A14	0.6					-2.4		1	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.670	-0.720	-0.61	-0.66	-0.64	A12	0.8					-2.2		2	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.720	-0.770	-0.66	-0.71	-0.69	Z16	2.0					-2.1		5	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.770	-0.820	-0.71	-0.76	-0.74	A24	5.6					-2.0		14	0.124	
+PS122/1_7-53	2019-11-16T03:29:00	85.8787	120.8528	0.870	0.81	0.870	-0.820	-0.870	-0.76	-0.81	-0.78	A6	7.4					-1.8		20	0.124	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	0.000	-0.050	0.06	0.00	0.03	Z-08	0.2	PS122 1_9 SYI 1	-4.270235338	-33.966784920	0.195097787	-9.2	912.0	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.050	-0.100	0.00	-0.05	-0.02	Z-09	0.1	PS122 1_9 SYI 2	-3.424257419	-27.093870650	0.300188700	-8.6	912.5	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.100	-0.150	-0.05	-0.10	-0.07	Z-10	0.1	PS122 1_9 SYI 3	-3.595981576	-28.260752740	0.507099873	-7.9	914.0	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.150	-0.200	-0.10	-0.15	-0.12	Z-11	0.2	PS122 1_9 SYI 4	-3.669062085	-27.914524040	1.437972638	-7.2	912.6	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.200	-0.250	-0.15	-0.20	-0.17	Z-12	0.2	PS122 1_9 SYI 5	-3.898351312	-29.590758150	1.596052348	-6.5	913.2	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.250	-0.300	-0.20	-0.25	-0.22	Z-13	0.3	PS122 1_9 SYI 6	-3.966307509	-29.981397010	1.749063054	-6.3	912.6	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.300	-0.350	-0.25	-0.30	-0.27	Z-14	0.6	PS122 1_9 SYI 7	-4.166317421	-31.530575930	1.799963433	-6.2	904.3	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.350	-0.400	-0.30	-0.35	-0.32	Z-15	0.6	PS122 1_9 SYI 8	-3.893146661	-30.929347830	0.215825463	-5.9	903.8	1	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.400	-0.450	-0.35	-0.40	-0.37	Z-16	0.4	PS122 1_9 SYI 9	-3.424371293	-27.946972970	-0.552002620	-5.4	911.9	0	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.450	-0.500	-0.40	-0.45	-0.42	Z-17	0.8	PS122 1_9 SYI 10	-3.039365967	-22.943127390	1.371800347	-5.0	915.6	1	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.500	-0.550	-0.45	-0.50	-0.47	Z-18	0.5	PS122 1_9 SYI 11	-3.453621541	-27.515445520	0.113526810	-4.6	938.6	1	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.550	-0.600	-0.50	-0.54	-0.52	Z-19	0.7	PS122 1_9 SYI 12	-2.912679622	-23.314994960	-0.013557987	-4.2	914.7	1	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.600	-0.650	-0.54	-0.60	-0.57	Z-20	1.2	PS122 1_9 SYI 13	-4.155572897	-32.505564500	0.739018681	-3.9	913.1	2	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.650	-0.700	-0.60	-0.64	-0.62	Z-21	1.8	PS122 1_9 SYI 14	-4.766845347	-36.673513580	1.461249196	-3.7	905.7	2	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.700	-0.750	-0.64	-0.70	-0.67	Z-22	4.8	PS122 1_9 SYI 15	0.216231952	0.931722257	-0.798133360	-3.4	914.9	7	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.750	-0.800	-0.70	-0.75	-0.72	Z-23	4.9	PS122 1_9 SYI 16	0.903069986	6.219780517	-1.004779374	-2.9	917.6	8	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.800	-0.850	-0.75	-0.79	-0.77	Z-24	5.0	PS122 1_9 SYI 17	0.860461739	6.504546699	-0.379147212	-2.4	917.3	10	0.142	
+PS122/1_9-11	2019-11-25T06:32:00	86.0275	120.6121	0.875	0.82	0.900	-0.850	-0.900	-0.79	-0.85	-0.82	Z-25	6.6	PS122 1_9 SYI 18	0.643693449	5.559553322	0.410005728	-1.8	906.4	18	0.142	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	0.000	-0.050	0.11	0.06	0.08	A22	0.9	PS122-1_10-FYI-DO18-1				-11.7	910.6	0	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.050	-0.100	0.06	0.01	0.04	A21	0.5	PS122-1_10-FYI-DO18-2				-8.1	914.1	0	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.100	-0.150	0.01	-0.04	-0.02	A20	0.9	PS122-1_10-FYI-DO18-3				-7.9	913.5	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.150	-0.200	-0.04	-0.09	-0.06	A19	1.1	PS122-1_10-FYI-DO18-4				-7.5	913.6	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.200	-0.250	-0.09	-0.14	-0.12	A18	1.2	PS122-1_10-FYI-DO18-5				-6.8	911.8	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.250	-0.290	-0.14	-0.18	-0.16	A17	2.4	PS122-1_10-FYI-DO18-6				-6.4	901.1	2	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.290	-0.350	-0.18	-0.24	-0.21	A16	2.3	PS122-1_10-FYI-DO18-7				-6.2	900.4	2	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.350	-0.400	-0.24	-0.29	-0.27	A15	3.9	PS122-1_10-FYI-DO18-8				-6.1	913.1	3	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.400	-0.450	-0.29	-0.34	-0.32	A14	1.7	PS122-1_10-FYI-DO18-9				-6.1	915.3	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.450	-0.500	-0.34	-0.39	-0.37	A13	1.2	PS122-1_10-FYI-DO18-10				-5.6	910.4	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.500	-0.550	-0.39	-0.44	-0.42	A12	3.1	PS122-1_10-FYI-DO18-11				-5.3	908.1	3	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.550	-0.600	-0.44	-0.49	-0.46	A11	1.6	PS122-1_10-FYI-DO18-12				-5.0	911.0	2	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.600	-0.650	-0.49	-0.54	-0.52	A10	1.2	PS122-1_10-FYI-DO18-13				-4.7	913.6	1	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.650	-0.700	-0.54	-0.59	-0.57	A09	1.5	PS122-1_10-FYI-DO18-14				-4.3	914.8	2	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.700	-0.750	-0.59	-0.64	-0.62	A08	3.4	PS122-1_10-FYI-DO18-15				-3.8	918.1	4	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.750	-0.800	-0.64	-0.69	-0.67	A07	4.3	PS122-1_10-FYI-DO18-16				-3.3	918.8	7	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.800	-0.850	-0.69	-0.74	-0.72	A06	5.3	PS122-1_10-FYI-DO18-17				-2.7	918.7	10	0.100	
+PS122/1_10-16	2019-12-02T05:52:00	85.9294	113.5318	0.860	0.75	0.900	-0.850	-0.900	-0.74	-0.79	-0.77	A05	8.0	PS122-1_10-FYI-DO18-18				-1.9	895.9	23	0.100	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	0.000	-0.050	0.09	0.04	0.07	Z26	0.1	PS122-2_20-SYI-DO18-31				-15.1	908.0	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.050	-0.100	0.04	-0.01	0.02	Z25	0.1	PS122-2_20-SYI-DO18-30				-18.8	908.8	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.100	-0.150	-0.01	-0.06	-0.04	Z24	0.2	PS122-2_20-SYI-DO18-29				-16.8	909.7	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.150	-0.200	-0.06	-0.11	-0.08	Z23	0.2	PS122-2_20-SYI-DO18-28				-15.7	913.2	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.200	-0.250	-0.11	-0.16	-0.14	Z22	0.2	PS122-2_20-SYI-DO18-27				-15.2	915.4	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.250	-0.300	-0.16	-0.21	-0.19	Z21	0.3	PS122-2_20-SYI-DO18-26				-14.7	916.2	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.300	-0.350	-0.21	-0.26	-0.24	Z20	0.2	PS122-2_20-SYI-DO18-25				-14.3	913.8	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.350	-0.400	-0.26	-0.31	-0.29	Z19	0.1	PS122-2_20-SYI-DO18-24				-13.8	913.5	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.400	-0.450	-0.31	-0.36	-0.33	Z18	0.7	PS122-2_20-SYI-DO18-23				-13.3	914.3	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.450	-0.500	-0.36	-0.41	-0.39	Z17	0.2	PS122-2_20-SYI-DO18-22				-12.7	915.1	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.500	-0.550	-0.41	-0.46	-0.44	Z16	0.2	PS122-2_20-SYI-DO18-21				-12.2	914.8	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.550	-0.600	-0.46	-0.51	-0.49	Z15	0.2	PS122-2_20-SYI-DO18-20				-12.0	914.2	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.600	-0.640	-0.51	-0.55	-0.53	Z14	0.3	PS122-2_20-SYI-DO18-19				-11.7	913.9	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.640	-0.720	-0.55	-0.63	-0.59	SYI odd	0.7	PS122-2_20-SYI-DO18-18				-11.2	913.6	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.720	-0.770	-0.63	-0.68	-0.66	Z13	0.7	PS122-2_20-SYI-DO18-17				-10.4	914.3	0	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.770	-0.820	-0.68	-0.73	-0.71	Z11	1.2	PS122-2_20-SYI-DO18-16				-9.4	913.4	1	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.820	-0.870	-0.73	-0.78	-0.76	Z10	2.1	PS122-2_20-SYI-DO18-15				-8.3	909.5	1	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.870	-0.920	-0.78	-0.83	-0.81	Z09	3.4	PS122-2_20-SYI-DO18-14				-6.9	912.1	2	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.920	-0.970	-0.83	-0.88	-0.86	Z08	4.1	PS122-2_20-SYI-DO18-13				-5.8	913.9	3	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-0.970	-1.020	-0.88	-0.93	-0.91	Z07	3.7	PS122-2_20-SYI-DO18-12				-5.0	914.1	3	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.020	-1.070	-0.93	-0.98	-0.96	Z06	3.9	PS122-2_20-SYI-DO18-11				-4.3	914.9	4	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.070	-1.120	-0.98	-1.03	-1.01	Z05	4.3	PS122-2_20-SYI-DO18-10				-3.7	914.5	5	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.120	-1.170	-1.03	-1.08	-1.06	Z04	4.4	PS122-2_20-SYI-DO18-9				-3.2	913.7	6	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.170	-1.220	-1.08	-1.13	-1.11	Z03	4.7	PS122-2_20-SYI-DO18-8				-2.7	916.0	8	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.220	-1.270	-1.13	-1.18	-1.16	Z02	5.1	PS122-2_20-SYI-DO18-7				-2.3	912.8	10	0.137	
+PS122/2_20-5	2020-01-13T08:23:00	87.3324	107.1549	1.300	1.21	1.310	-1.270	-1.320	-1.18	-1.23	-1.20	Z01	6.1	PS122-2_20-SYI-DO18-6				-2.0	906.9	14	0.137	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	0.000	-0.050	0.10	0.05	0.08	Z30	0.5	PS122-2_22-SYI-DO18-30				-12.0	857.2	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.050	-0.100	0.05	0.00	0.03	Z29	0.1	PS122-2_22-SYI-DO18-29				-14.2	898.2	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.100	-0.150	0.00	-0.05	-0.02	Z28	0.1	PS122-2_22-SYI-DO18-28				-13.4	909.3	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.150	-0.200	-0.05	-0.10	-0.07	Z27	0.1	PS122-2_22-SYI-DO18-27				-12.9	909.8	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.200	-0.250	-0.10	-0.15	-0.13	Z26	0.2	PS122-2_22-SYI-DO18-26				-12.5	914.4	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.250	-0.300	-0.15	-0.20	-0.18	Z25	0.3	PS122-2_22-SYI-DO18-25				-12.4	915.2	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.300	-0.350	-0.20	-0.25	-0.23	Z24	0.2	PS122-2_22-SYI-DO18-24				-12.3	915.5	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.350	-0.400	-0.25	-0.30	-0.28	Z23	0.2	PS122-2_22-SYI-DO18-23				-12.2	915.4	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.400	-0.450	-0.30	-0.35	-0.32	Z22	0.2	PS122-2_22-SYI-DO18-22				-11.7	927.8	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.450	-0.500	-0.35	-0.40	-0.38	Z21	0.3	PS122-2_22-SYI-DO18-21				-11.2	925.5	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.500	-0.550	-0.40	-0.45	-0.43	Z20	1.0	PS122-2_22-SYI-DO18-20				-10.7	917.8	1	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.550	-0.600	-0.45	-0.50	-0.48	Z19	0.7	PS122-2_22-SYI-DO18-19				-10.6	923.9	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.600	-0.650	-0.50	-0.55	-0.53	Z18	0.9	PS122-2_22-SYI-DO18-18				-10.5	911.9	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.650	-0.700	-0.55	-0.60	-0.58	Z17	0.8	PS122-2_22-SYI-DO18-17				-10.4	913.7	0	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.700	-0.750	-0.60	-0.65	-0.63	Z16	1.0	PS122-2_22-SYI-DO18-16				-10.0	916.2	1	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.750	-0.800	-0.65	-0.70	-0.68	Z15	1.2	PS122-2_22-SYI-DO18-15				-9.5	916.6	1	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.800	-0.870	-0.70	-0.77	-0.74	SYI ODD	2.1	PS122-2_22-SYI-DO18-14				-8.8	916.9	1	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.870	-0.920	-0.77	-0.82	-0.80	Z14	2.0	PS122-2_22-SYI-DO18-13				-8.0	916.3	1	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.920	-0.970	-0.82	-0.87	-0.85	Z13	2.0	PS122-2_22-SYI-DO18-12				-7.2	915.6	2	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-0.970	-1.020	-0.87	-0.92	-0.90	Z11	2.4	PS122-2_22-SYI-DO18-11				-6.4	914.7	2	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.020	-1.070	-0.92	-0.97	-0.95	Z10	3.0	PS122-2_22-SYI-DO18-10				-5.8	918.1	3	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.070	-1.120	-0.97	-1.02	-1.00	Z9	4.8	PS122-2_22-SYI-DO18-9				-5.2	916.7	5	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.120	-1.170	-1.02	-1.07	-1.05	Z8	4.4	PS122-2_22-SYI-DO18-8				-4.7	916.4	5	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.170	-1.220	-1.07	-1.12	-1.10	Z7	4.0	PS122-2_22-SYI-DO18-7				-4.3	915.7	5	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.220	-1.270	-1.12	-1.17	-1.15	Z6	4.6	PS122-2_22-SYI-DO18-6				-3.9	914.2	6	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.270	-1.320	-1.17	-1.22	-1.19	Z5	4.9	PS122-2_22-SYI-DO18-5				-3.5	916.4	7	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.320	-1.370	-1.22	-1.27	-1.24	Z4	4.6	PS122-2_22-SYI-DO18-4				-3.1	917.5	8	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.370	-1.420	-1.27	-1.32	-1.30	Z3	4.8	PS122-2_22-SYI-DO18-3				-2.7	917.8	10	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.420	-1.470	-1.32	-1.37	-1.35	Z2	5.1	PS122-2_22-SYI-DO18-2				-2.3	913.8	13	0.193	
+PS122/2_22-7	2020-01-27T07:54:00	87.4523	95.3482	1.460	1.36	1.520	-1.470	-1.520	-1.37	-1.42	-1.40	Z1	7.4	PS122-2_22-SYI-DO18-1				-1.8	903.5	25	0.193	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	0.000	-0.050	0.17	0.12	0.15	Z01	0.2	PS122-2_25-SYI-DO18-1				-19.4	830.9	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.050	-0.100	0.12	0.07	0.10	Z02	0.1	PS122-2_25-SYI-DO18-2				-18.3	840.6	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.100	-0.150	0.07	0.02	0.05	Z03	0.0	PS122-2_25-SYI-DO18-3				-18.2	867.3	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.150	-0.200	0.02	-0.03	0.00	Z04	0.0	PS122-2_25-SYI-DO18-4				-17.9	911.2	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.200	-0.250	-0.03	-0.08	-0.05	Z05	0.1	PS122-2_25-SYI-DO18-5				-17.3	905.6	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.250	-0.300	-0.08	-0.13	-0.11	Z06	0.1	PS122-2_25-SYI-DO18-6				-16.7	908.7	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.300	-0.350	-0.13	-0.18	-0.16	Z07	0.1	PS122-2_25-SYI-DO18-7				-16.2	915.2	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.350	-0.400	-0.18	-0.23	-0.21	Z08	0.2	PS122-2_25-SYI-DO18-8				-15.8	908.5	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.400	-0.450	-0.23	-0.28	-0.26	Z09	0.3	PS122-2_25-SYI-DO18-9				-15.6	913.0	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.450	-0.500	-0.28	-0.33	-0.30	Z10	0.1	PS122-2_25-SYI-DO18-10				-15.3	912.1	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.500	-0.550	-0.33	-0.38	-0.36	Z11	0.3	PS122-2_25-SYI-DO18-11				-14.9	912.5	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.550	-0.600	-0.38	-0.43	-0.40	Z13	0.3	PS122-2_25-SYI-DO18-12				-14.3	912.2	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.600	-0.650	-0.43	-0.48	-0.45	Z14	0.5	PS122-2_25-SYI-DO18-13				-13.7	908.0	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.650	-0.700	-0.48	-0.53	-0.51	Z15	1.0	PS122-2_25-SYI-DO18-14				-13.4	910.3	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.700	-0.750	-0.53	-0.58	-0.55	Z16	0.9	PS122-2_25-SYI-DO18-15				-13.1	909.5	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.750	-0.800	-0.58	-0.63	-0.61	Z17	1.1	PS122-2_25-SYI-DO18-16				-12.8	911.5	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.800	-0.850	-0.63	-0.68	-0.65	Z18	0.7	PS122-2_25-SYI-DO18-17				-12.4	914.6	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.850	-0.900	-0.68	-0.73	-0.71	Z19	1.2	PS122-2_25-SYI-DO18-18				-12.1	916.9	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.900	-0.950	-0.73	-0.78	-0.76	Z20	1.0	PS122-2_25-SYI-DO18-19				-11.7	916.4	0	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-0.950	-1.000	-0.78	-0.83	-0.80	Z21	1.2	PS122-2_25-SYI-DO18-20				-11.0	916.5	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.000	-1.050	-0.83	-0.88	-0.85	Z22	1.5	PS122-2_25-SYI-DO18-21				-9.8	916.4	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.050	-1.100	-0.88	-0.93	-0.90	Z23	1.5	PS122-2_25-SYI-DO18-22				-8.3	916.3	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.100	-1.150	-0.93	-0.98	-0.96	Z24	1.4	PS122-2_25-SYI-DO18-23				-6.8	917.2	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.150	-1.200	-0.98	-1.03	-1.01	Z25	1.6	PS122-2_25-SYI-DO18-24				-6.4	916.6	1	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.200	-1.250	-1.03	-1.08	-1.06	Z27	2.4	PS122-2_25-SYI-DO18-25				-6.1	914.8	2	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.250	-1.300	-1.08	-1.13	-1.11	Z28	4.9	PS122-2_25-SYI-DO18-26				-6.0	908.7	4	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.300	-1.350	-1.13	-1.18	-1.16	Z29	5.4	PS122-2_25-SYI-DO18-27				-5.8	913.4	5	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.350	-1.400	-1.18	-1.23	-1.21	Z30	6.0	PS122-2_25-SYI-DO18-28				-5.4	916.5	6	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.400	-1.450	-1.23	-1.28	-1.26	A11	5.8	PS122-2_25-SYI-DO18-29				-4.7	917.8	6	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.450	-1.500	-1.28	-1.33	-1.31	A12	5.6	PS122-2_25-SYI-DO18-30				-4.5	917.8	6	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.500	-1.550	-1.33	-1.38	-1.36	A14	5.9	PS122-2_25-SYI-DO18-31				-4.2	916.4	7	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.550	-1.600	-1.38	-1.43	-1.41	A15	5.0	PS122-2_25-SYI-DO18-32				-3.9	915.9	6	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.600	-1.650	-1.43	-1.48	-1.46	B2	5.1	PS122-2_25-SYI-DO18-33				-3.6	916.7	7	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.650	-1.700	-1.48	-1.53	-1.51	B3	5.4	PS122-2_25-SYI-DO18-34				-3.2	918.0	8	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.700	-1.750	-1.53	-1.58	-1.56	ODD SYI	4.8	PS122-2_25-SYI-DO18-35				-2.8	916.0	8	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.750	-1.800	-1.58	-1.63	-1.61	A6	4.8	PS122-2_25-SYI-DO18-36				-2.4	916.0	10	0.130	
+PS122/2_25-15	2020-02-17T07:43:00	88.0708	78.6129	1.810	1.64	1.850	-1.800	-1.850	-1.63	-1.68	-1.66	A8	7.5	PS122-2_25-SYI-DO18-37				-1.9	899.5	19	0.130	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	0.000	-0.050	0.22	0.17	0.20	B-4	0.5	PS122-3_33-SYI-DO18-1				-21.0	912.6	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.050	-0.100	0.17	0.12	0.15	B-2	0.3	PS122-3_33-SYI-DO18-2				-21.2	913.7	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.100	-0.150	0.12	0.07	0.10	B-3	0.1	PS122-3_33-SYI-DO18-3				-21.1	913.0	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.150	-0.200	0.07	0.02	0.05	B-6	0.0	PS122-3_33-SYI-DO18-4				-20.8	912.3	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.200	-0.250	0.02	-0.03	-0.01	B-7	0.0	PS122-3_33-SYI-DO18-5				-20.2	911.9	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.250	-0.300	-0.03	-0.08	-0.06	B-8	0.2	PS122-3_33-SYI-DO18-6				-19.6	911.3	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.300	-0.350	-0.08	-0.13	-0.11	B-9	0.3	PS122-3_33-SYI-DO18-7				-19.0	908.8	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.350	-0.400	-0.13	-0.18	-0.16	B-10	0.2	PS122-3_33-SYI-DO18-8				-18.5	908.8	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.400	-0.450	-0.18	-0.23	-0.21	B-11	0.8	PS122-3_33-SYI-DO18-9				-18.0	911.6	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.450	-0.500	-0.23	-0.28	-0.26	B-13	0.6	PS122-3_33-SYI-DO18-10				-17.8	915.0	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.500	-0.550	-0.28	-0.33	-0.31	B-14	0.7	PS122-3_33-SYI-DO18-11				-17.6	916.2	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.550	-0.600	-0.33	-0.38	-0.36	B-20	1.2	PS122-3_33-SYI-DO18-12				-17.1	916.0	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.600	-0.650	-0.38	-0.43	-0.41	B-24	1.2	PS122-3_33-SYI-DO18-13				-16.3	914.4	0	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.650	-0.700	-0.43	-0.48	-0.46	B-40	1.4	PS122-3_33-SYI-DO18-14				-15.9	915.0	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.700	-0.750	-0.48	-0.53	-0.51	B-21	2.3	PS122-3_33-SYI-DO18-15				-15.7	925.3	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.750	-0.800	-0.53	-0.58	-0.56	B-41	2.6	PS122-3_33-SYI-DO18-16				-15.5	915.0	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.800	-0.850	-0.58	-0.63	-0.61	B-33	1.6	PS122-3_33-SYI-DO18-17				-15.1	904.6	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.850	-0.900	-0.63	-0.68	-0.66	B-39	1.3	PS122-3_33-SYI-DO18-18				-14.1	908.7	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.900	-0.950	-0.68	-0.73	-0.71	B-42	1.4	PS122-3_33-SYI-DO18-19				-13.0	918.4	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-0.950	-1.000	-0.73	-0.78	-0.76	B-38	1.4	PS122-3_33-SYI-DO18-20				-12.5	912.5	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.000	-1.050	-0.78	-0.83	-0.80	B-17	1.6	PS122-3_33-SYI-DO18-21				-12.2	911.9	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.050	-1.100	-0.83	-0.88	-0.86	B-22	1.5	PS122-3_33-SYI-DO18-22				-11.9	912.9	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.100	-1.150	-0.88	-0.93	-0.91	B-18	1.7	PS122-3_33-SYI-DO18-23				-11.6	911.4	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.150	-1.200	-0.93	-0.98	-0.96	B-43	1.3	PS122-3_33-SYI-DO18-24				-11.2	912.4	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.200	-1.250	-0.98	-1.03	-1.01	B-30	2.4	PS122-3_33-SYI-DO18-25				-10.8	913.3	1	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.250	-1.300	-1.03	-1.08	-1.06	B-16	4.3	PS122-3_33-SYI-DO18-26				-10.3	914.2	2	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.300	-1.350	-1.08	-1.13	-1.11	B-25	5.6	PS122-3_33-SYI-DO18-27				-9.8	916.7	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.350	-1.400	-1.13	-1.18	-1.16	B-31	5.1	PS122-3_33-SYI-DO18-28				-9.2	915.3	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.400	-1.450	-1.18	-1.23	-1.21	B-46	5.3	PS122-3_33-SYI-DO18-29				-8.5	915.2	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.450	-1.500	-1.23	-1.28	-1.26	B-27	4.8	PS122-3_33-SYI-DO18-30				-7.9	917.1	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.500	-1.550	-1.28	-1.33	-1.31	B-32	4.5	PS122-3_33-SYI-DO18-31				-7.4	916.6	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.550	-1.600	-1.33	-1.38	-1.36	B-47	4.8	PS122-3_33-SYI-DO18-32				-7.1	913.7	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.600	-1.650	-1.38	-1.43	-1.41	B-28	4.1	PS122-3_33-SYI-DO18-33				-6.9	913.8	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.650	-1.700	-1.43	-1.48	-1.46	B-33	4.5	PS122-3_33-SYI-DO18-34				-6.2	913.6	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.700	-1.750	-1.48	-1.53	-1.51	B-36	4.2	PS122-3_33-SYI-DO18-35				-5.4	913.5	3	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.750	-1.800	-1.53	-1.58	-1.56	B-35	4.4	PS122-3_33-SYI-DO18-36				-5.0	914.3	4	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.800	-1.850	-1.58	-1.63	-1.61	B-26	4.3	PS122-3_33-SYI-DO18-37				-4.5	914.4	4	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.850	-1.900	-1.63	-1.68	-1.66	B-45	4.5	PS122-3_33-SYI-DO18-38				-3.9	913.8	5	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.900	-1.950	-1.68	-1.73	-1.71	B-1	4.3	PS122-3_33-SYI-DO18-39				-3.3	913.3	5	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-1.950	-2.000	-1.73	-1.78	-1.76	B-34	4.9	PS122-3_33-SYI-DO18-40				-2.5	908.0	7	0.143	
+PS122/3_33-18	2020-03-24T08:47:00	86.1774	15.5163	2.110	1.89	2.030	-2.000	-2.030	-1.78	-1.81	-1.80	B-44	8.8	PS122-3_33-SYI-DO18-41				-1.9	894.1	14	0.143	
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	0.000	-0.050	0.20	0.15	0.18	A1	0.1	PS122-3_35-SYI-DO18-1				-17.0	866.8	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.050	-0.100	0.15	0.10	0.13	A2	0.1	PS122-3_35-SYI-DO18-2				-16.8	836.9	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.100	-0.150	0.10	0.05	0.08	A3	0.0	PS122-3_35-SYI-DO18-3				-16.5	847.0	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.150	-0.200	0.05	0.00	0.03	A5	0.1	PS122-3_35-SYI-DO18-4				-16.2	911.4	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.200	-0.250	0.00	-0.05	-0.02	A6	0.1	PS122-3_35-SYI-DO18-5				-15.9	909.6	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.250	-0.300	-0.05	-0.10	-0.08	A7	0.1	PS122-3_35-SYI-DO18-6				-15.6	913.6	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.300	-0.350	-0.10	-0.15	-0.13	A8	0.1	PS122-3_35-SYI-DO18-7				-15.3	903.2	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.350	-0.400	-0.15	-0.20	-0.18	A9	0.2	PS122-3_35-SYI-DO18-8				-15.0	910.7	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.400	-0.450	-0.20	-0.25	-0.22	A10	0.3	PS122-3_35-SYI-DO18-9				-14.7	913.7	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.450	-0.500	-0.25	-0.30	-0.27	A11	0.3	PS122-3_35-SYI-DO18-10				-14.5	914.0	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.500	-0.550	-0.30	-0.35	-0.33	A12	0.6	PS122-3_35-SYI-DO18-11				-14.4	911.8	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.550	-0.600	-0.35	-0.40	-0.37	A13	0.6	PS122-3_35-SYI-DO18-12				-14.2	914.4	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.600	-0.650	-0.40	-0.45	-0.43	A14	0.6	PS122-3_35-SYI-DO18-13				-14.0	913.9	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.650	-0.700	-0.45	-0.50	-0.48	A15	0.9	PS122-3_35-SYI-DO18-14				-13.7	914.3	0		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.700	-0.750	-0.50	-0.55	-0.52	A16	1.1	PS122-3_35-SYI-DO18-15				-13.3	915.8	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.750	-0.800	-0.55	-0.60	-0.58	A17	1.1	PS122-3_35-SYI-DO18-16				-12.9	916.5	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.800	-0.850	-0.60	-0.65	-0.63	A18	1.4	PS122-3_35-SYI-DO18-17				-12.7	910.1	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.850	-0.900	-0.65	-0.70	-0.68	A19	1.6	PS122-3_35-SYI-DO18-18				-12.6	912.8	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.900	-0.950	-0.70	-0.75	-0.73	A20	1.8	PS122-3_35-SYI-DO18-19				-12.4	912.9	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-0.950	-1.000	-0.75	-0.80	-0.77	A21	1.6	PS122-3_35-SYI-DO18-20				-12.1	913.4	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.000	-1.050	-0.80	-0.85	-0.83	A22	2.1	PS122-3_35-SYI-DO18-21				-11.7	906.7	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.050	-1.100	-0.85	-0.90	-0.88	A23	2.2	PS122-3_35-SYI-DO18-22				-11.3	913.0	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.100	-1.150	-0.90	-0.95	-0.93	A24	2.2	PS122-3_35-SYI-DO18-23				-11.0	904.3	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.150	-1.200	-0.95	-1.00	-0.98	A25	2.4	PS122-3_35-SYI-DO18-24				-10.6	911.8	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.200	-1.250	-1.00	-1.05	-1.03	A26	2.3	PS122-3_35-SYI-DO18-25				-10.4	915.2	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.250	-1.300	-1.05	-1.10	-1.08	A27	2.3	PS122-3_35-SYI-DO18-26				-10.1	913.9	1		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.300	-1.350	-1.10	-1.15	-1.13	A28	3.6	PS122-3_35-SYI-DO18-27				-9.7	916.1	2		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.350	-1.400	-1.15	-1.20	-1.18	A29	3.8	PS122-3_35-SYI-DO18-28				-9.2	918.2	2		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.400	-1.450	-1.20	-1.25	-1.23	A30	4.2	PS122-3_35-SYI-DO18-29				-8.9	910.4	3		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.450	-1.500	-1.25	-1.30	-1.28	A31	4.1	PS122-3_35-SYI-DO18-30				-8.6	914.3	3		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.500	-1.550	-1.30	-1.35	-1.33	A32	4.0	PS122-3_35-SYI-DO18-31				-8.2	916.4	3		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.550	-1.600	-1.35	-1.40	-1.38	A33	4.2	PS122-3_35-SYI-DO18-32				-7.8	916.9	3		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.600	-1.650	-1.40	-1.45	-1.43	A34	4.4	PS122-3_35-SYI-DO18-33				-7.1	917.3	4		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.650	-1.700	-1.45	-1.50	-1.48	A35	4.7	PS122-3_35-SYI-DO18-34				-6.3	910.7	4		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.700	-1.750	-1.50	-1.55	-1.53	A36	4.2	PS122-3_35-SYI-DO18-35				-5.9	916.5	4		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.750	-1.800	-1.55	-1.60	-1.58	A37	4.2	PS122-3_35-SYI-DO18-36				-5.5	914.5	4		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.800	-1.850	-1.60	-1.65	-1.63	A38	4.2	PS122-3_35-SYI-DO18-37				-5.1	911.9	4		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.850	-1.900	-1.65	-1.70	-1.68	A39	4.4	PS122-3_35-SYI-DO18-38				-4.8	916.0	5		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.900	-1.950	-1.70	-1.75	-1.73	A46	4.2	PS122-3_35-SYI-DO18-39				-4.3	914.5	5		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-1.950	-2.000	-1.75	-1.80	-1.78	A47	4.5	PS122-3_35-SYI-DO18-40				-3.9	916.5	7		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-2.000	-2.050	-1.80	-1.85	-1.83	A48	4.2	PS122-3_35-SYI-DO18-41				-3.4	916.7	7		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-2.050	-2.100	-1.85	-1.90	-1.88	X02	4.9	PS122-3_35-SYI-DO18-42				-2.9	914.7	10		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-2.100	-2.150	-1.90	-1.95	-1.93	Z06	4.6	PS122-3_35-SYI-DO18-43				-2.4	910.5	12		
+PS122/3_35-4	2020-04-06T10:53:00	84.5161	14.2289	2.140	1.94	2.200	-2.150	-2.200	-1.95	-2.00	-1.97	X01	6.4	PS122-3_35-SYI-DO18-44				-1.9	915.6	24		
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	0.000	-0.050	0.15	0.10	0.13	A1	0.1	PS122-3_36-SYI-DO18-1				-18.5	910.3	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.050	-0.100	0.10	0.05	0.08	A2	0.2	PS122-3_36-SYI-DO18-2				-18.5	916.8	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.100	-0.150	0.05	0.00	0.02	A3	0.2	PS122-3_36-SYI-DO18-3				-17.5	916.6	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.150	-0.200	0.00	-0.05	-0.02	A5	0.3	PS122-3_36-SYI-DO18-4				-16.7	914.8	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.200	-0.250	-0.05	-0.10	-0.08	A6	0.3	PS122-3_36-SYI-DO18-5				-16.2	900.5	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.250	-0.300	-0.10	-0.15	-0.13	A7	0.5	PS122-3_36-SYI-DO18-6				-15.7	884.5	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.300	-0.350	-0.15	-0.20	-0.18	A8	0.8	PS122-3_36-SYI-DO18-7				-15.3	894.0	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.350	-0.400	-0.20	-0.25	-0.23	A9	1.6	PS122-3_36-SYI-DO18-8				-14.9	901.2	1	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.400	-0.450	-0.25	-0.30	-0.28	A10	0.5	PS122-3_36-SYI-DO18-9				-14.6	909.8	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.450	-0.500	-0.30	-0.35	-0.32	A11	0.4	PS122-3_36-SYI-DO18-10				-14.3	911.2	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.500	-0.550	-0.35	-0.40	-0.38	A12	0.4	PS122-3_36-SYI-DO18-11				-13.8	913.4	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.550	-0.600	-0.40	-0.45	-0.42	A13	0.5	PS122-3_36-SYI-DO18-12				-13.3	911.9	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.600	-0.650	-0.45	-0.50	-0.48	A14	0.6	PS122-3_36-SYI-DO18-13				-12.9	911.6	0	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.650	-0.700	-0.50	-0.55	-0.53	A15	1.1	PS122-3_36-SYI-DO18-14				-12.7	910.9	1	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.700	-0.750	-0.55	-0.60	-0.58	A16	1.6	PS122-3_36-SYI-DO18-15				-12.4	911.2	1	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.750	-0.800	-0.60	-0.65	-0.63	A17	3.8	PS122-3_36-SYI-DO18-16				-11.7	914.8	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.800	-0.850	-0.65	-0.70	-0.67	A18	3.7	PS122-3_36-SYI-DO18-17				-11.2	911.1	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.850	-0.900	-0.70	-0.75	-0.73	A19	3.8	PS122-3_36-SYI-DO18-18				-10.9	913.8	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.900	-0.950	-0.75	-0.80	-0.78	A20	4.0	PS122-3_36-SYI-DO18-19				-10.7	916.7	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-0.950	-1.020	-0.80	-0.87	-0.84	SYI-ODD	3.9	PS122-3_36-SYI-DO18-20				-10.2	916.2	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.020	-1.070	-0.87	-0.92	-0.89	A21	4.0	PS122-3_36-SYI-DO18-21				-9.7	917.1	2	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.070	-1.120	-0.92	-0.97	-0.95	A22	4.1	PS122-3_36-SYI-DO18-22				-9.3	917.9	3	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.120	-1.170	-0.97	-1.02	-1.00	A23	4.0	PS122-3_36-SYI-DO18-23				-8.9	915.4	3	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.170	-1.220	-1.02	-1.07	-1.05	A24	3.9	PS122-3_36-SYI-DO18-24				-8.5	915.6	3	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.220	-1.270	-1.07	-1.12	-1.10	A25	4.0	PS122-3_36-SYI-DO18-25				-8.1	913.3	3	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.270	-1.320	-1.12	-1.17	-1.15	A26	4.5	PS122-3_36-SYI-DO18-26				-7.9	914.6	4	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.320	-1.370	-1.17	-1.22	-1.20	A27	5.1	PS122-3_36-SYI-DO18-27				-7.7	912.9	5	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.370	-1.420	-1.22	-1.27	-1.25	A28	4.7	PS122-3_36-SYI-DO18-28				-6.8	913.2	5	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.420	-1.470	-1.27	-1.32	-1.30	A29	5.0	PS122-3_36-SYI-DO18-29				-5.5	903.0	6	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.470	-1.520	-1.32	-1.37	-1.35	A30	4.4	PS122-3_36-SYI-DO18-30				-4.9	910.9	6	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.520	-1.570	-1.37	-1.42	-1.40	A31	4.7	PS122-3_36-SYI-DO18-31				-4.6	911.1	7	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.570	-1.620	-1.42	-1.47	-1.45	A32	4.9	PS122-3_36-SYI-DO18-32				-4.2	914.5	8	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.620	-1.670	-1.47	-1.52	-1.50	A33	5.1	PS122-3_36-SYI-DO18-33				-3.8	913.1	9	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.670	-1.720	-1.52	-1.57	-1.55	A34	4.5	PS122-3_36-SYI-DO18-34				-3.5	914.9	10	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.720	-1.770	-1.57	-1.62	-1.60	A35	5.3	PS122-3_36-SYI-DO18-35				-3.1	918.1	15	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.770	-1.820	-1.62	-1.67	-1.65	A36	4.7	PS122-3_36-SYI-DO18-36				-2.7	917.9	19	0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.820	-1.870	-1.67	-1.72	-1.70	A37	5.1	PS122-3_36-SYI-DO18-37				-2.3	917.4		0.121	
+PS122/3_36-4	2020-04-13T12:15:00	84.2739	14.9177	1.920	1.77	1.920	-1.870	-1.920	-1.72	-1.77	-1.75	A38	8.0	PS122-3_36-SYI-DO18-38				-1.9	892.7		0.121	
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	0.000	-0.050	0.22	0.17	0.20	A1	0.1	PS122-3_38-SYI-DO18-1				-8.9	910.5	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.050	-0.100	0.17	0.12	0.15	A2	0.1	PS122-3_38-SYI-DO18-2				-8.9	913.3	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.100	-0.150	0.12	0.07	0.10	A3	0.1	PS122-3_38-SYI-DO18-3				-8.7	914.2	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.150	-0.200	0.07	0.02	0.05	A4	0.2	PS122-3_38-SYI-DO18-4				-8.3	911.1	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.200	-0.250	0.02	-0.03	-0.01	A5	0.3	PS122-3_38-SYI-DO18-5				-7.7	908.4	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.250	-0.300	-0.03	-0.08	-0.06	A6	0.4	PS122-3_38-SYI-DO18-6				-7.6	901.6	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.300	-0.350	-0.08	-0.13	-0.11	A7	0.7	PS122-3_38-SYI-DO18-7				-7.8	902.2	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.350	-0.400	-0.13	-0.18	-0.16	A8	0.4	PS122-3_38-SYI-DO18-8				-7.7	909.9	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.400	-0.450	-0.18	-0.23	-0.21	A9	0.3	PS122-3_38-SYI-DO18-9				-7.4	911.8	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.450	-0.500	-0.23	-0.28	-0.26	A10	0.3	PS122-3_38-SYI-DO18-10				-7.0	914.0	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.500	-0.550	-0.28	-0.33	-0.31	A11	0.3	PS122-3_38-SYI-DO18-11				-6.5	914.6	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.550	-0.600	-0.33	-0.38	-0.36	A12	0.4	PS122-3_38-SYI-DO18-12				-6.5	913.0	0		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.600	-0.650	-0.38	-0.43	-0.41	A13	1.2	PS122-3_38-SYI-DO18-13				-6.4	909.7	1		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.650	-0.700	-0.43	-0.48	-0.46	A14	1.8	PS122-3_38-SYI-DO18-14				-6.1	908.9	1		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.700	-0.750	-0.48	-0.53	-0.51	A15	4.3	PS122-3_38-SYI-DO18-15				-5.7	910.4	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.750	-0.800	-0.53	-0.58	-0.56	A16	4.3	PS122-3_38-SYI-DO18-16				-5.7	914.0	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.800	-0.850	-0.58	-0.63	-0.61	A17	4.2	PS122-3_38-SYI-DO18-17				-5.8	918.2	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.850	-0.900	-0.63	-0.68	-0.66	A18	4.6	PS122-3_38-SYI-DO18-18				-5.6	912.2	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.900	-0.950	-0.68	-0.73	-0.71	A19	4.1	PS122-3_38-SYI-DO18-19				-5.4	911.7	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-0.950	-1.000	-0.73	-0.78	-0.76	A20	4.5	PS122-3_38-SYI-DO18-20				-5.2	913.6	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.000	-1.050	-0.78	-0.83	-0.80	A21	4.1	PS122-3_38-SYI-DO18-21				-5.0	913.9	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.050	-1.105	-0.83	-0.89	-0.86	A22	4.3	PS122-3_38-SYI-DO18-22				-4.9	917.1	4		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.105	-1.150	-0.89	-0.93	-0.91	A23	4.6	PS122-3_38-SYI-DO18-23				-4.7	918.7	5		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.150	-1.200	-0.93	-0.98	-0.96	A24	4.9	PS122-3_38-SYI-DO18-24				-4.3	915.7	5		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.200	-1.250	-0.98	-1.03	-1.01	A25	4.5	PS122-3_38-SYI-DO18-25				-4.0	905.3	5		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.250	-1.300	-1.03	-1.08	-1.06	A26	4.3	PS122-3_38-SYI-DO18-26				-3.8	916.9	5		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.300	-1.350	-1.08	-1.13	-1.11	A27	4.4	PS122-3_38-SYI-DO18-27				-3.6	918.4	6		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.350	-1.400	-1.13	-1.18	-1.16	A28	4.6	PS122-3_38-SYI-DO18-28				-3.4	919.9	6		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.400	-1.450	-1.18	-1.23	-1.21	A29	5.2	PS122-3_38-SYI-DO18-29				-3.1	917.1	7		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.450	-1.500	-1.23	-1.28	-1.26	A30	4.7	PS122-3_38-SYI-DO18-30				-2.8	918.2	7		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.500	-1.550	-1.28	-1.33	-1.31	A31	4.9	PS122-3_38-SYI-DO18-31				-2.6	919.2	8		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.550	-1.600	-1.33	-1.38	-1.36	A32	4.8	PS122-3_38-SYI-DO18-32				-2.4	916.8	8		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.600	-1.650	-1.38	-1.43	-1.41	A33	5.4	PS122-3_38-SYI-DO18-33				-2.2	914.5	10		
+PS122/3_38-16	2020-04-27T11:40:00	83.9127	15.6035	1.770	1.55	1.710	-1.650	-1.710	-1.43	-1.49	-1.46	A34	7.2	PS122-3_38-SYI-DO18-34				-1.9	912.7	15		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	0.000	-0.050	0.31	0.26	0.29	A-1	0.4	PS122-3_39-SYI-DO18-1				-9.6	850.8	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.050	-0.100	0.26	0.21	0.24	A-2	0.1	PS122-3_39-SYI-DO18-2				-9.4	829.7	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.100	-0.150	0.21	0.16	0.19	A-3	0.0	PS122-3_39-SYI-DO18-3				-9.1	836.9	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.150	-0.200	0.16	0.11	0.14	A-4	0.1	PS122-3_39-SYI-DO18-4				-8.8	906.8	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.200	-0.250	0.11	0.06	0.08	A-5	0.0	PS122-3_39-SYI-DO18-5				-8.5	911.6	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.250	-0.300	0.06	0.01	0.03	A-6	0.1	PS122-3_39-SYI-DO18-6				-8.0	913.0	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.300	-0.350	0.01	-0.04	-0.02	A-7	0.1	PS122-3_39-SYI-DO18-7				-7.5	915.0	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.350	-0.400	-0.04	-0.09	-0.07	A-8	0.1	PS122-3_39-SYI-DO18-8				-7.5	915.5	0		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.400	-0.450	-0.09	-0.14	-0.11	A-9	0.2	PS122-3_39-SYI-DO18-9				-7.6	913.7	1		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.450	-0.500	-0.14	-0.19	-0.16	A-10	0.3	PS122-3_39-SYI-DO18-10				-7.7	914.6	1		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.500	-0.550	-0.19	-0.24	-0.22	A-11	0.3	PS122-3_39-SYI-DO18-11				-7.9	915.1	1		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.550	-0.600	-0.24	-0.29	-0.26	A-12	0.8	PS122-3_39-SYI-DO18-12				-8.0	914.8	2		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.600	-0.650	-0.29	-0.34	-0.32	A-13	0.7	PS122-3_39-SYI-DO18-13				-8.1	915.5	2		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.650	-0.700	-0.34	-0.39	-0.37	A-14	1.2	PS122-3_39-SYI-DO18-14				-7.7	916.2	3		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.700	-0.750	-0.39	-0.44	-0.42	A-15	0.7	PS122-3_39-SYI-DO18-15				-7.2	909.9	2		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.750	-0.800	-0.44	-0.49	-0.47	A-16	1.1	PS122-3_39-SYI-DO18-16				-6.9	911.2	3		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.800	-0.850	-0.49	-0.54	-0.51	A-17	1.4	PS122-3_39-SYI-DO18-17				-6.7	910.9	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.850	-0.900	-0.54	-0.59	-0.57	A-18	1.7	PS122-3_39-SYI-DO18-18				-6.6	912.6	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.900	-0.950	-0.59	-0.64	-0.62	A-19	1.6	PS122-3_39-SYI-DO18-19				-6.5	914.1	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-0.950	-1.000	-0.64	-0.69	-0.67	A-20	1.5	PS122-3_39-SYI-DO18-20				-6.3	911.3	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.000	-1.050	-0.69	-0.74	-0.71	A-21	1.3	PS122-3_39-SYI-DO18-21				-6.3	909.7	3		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.050	-1.100	-0.74	-0.79	-0.76	A-22	1.7	PS122-3_39-SYI-DO18-22				-6.6	908.5	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.100	-1.150	-0.79	-0.84	-0.82	A-23	1.9	PS122-3_39-SYI-DO18-23				-6.6	910.8	5		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.150	-1.200	-0.84	-0.89	-0.87	A-24	2.5	PS122-3_39-SYI-DO18-24				-6.3	915.2	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.200	-1.250	-0.89	-0.94	-0.92	A-25	2.7	PS122-3_39-SYI-DO18-25				-6.0	916.9	7		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.250	-1.300	-0.94	-0.99	-0.96	A-26	2.3	PS122-3_39-SYI-DO18-26				-5.8	916.2	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.300	-1.350	-0.99	-1.04	-1.02	A-27	3.1	PS122-3_39-SYI-DO18-27				-5.6	916.2	8		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.350	-1.400	-1.04	-1.09	-1.07	A-28	2.2	PS122-3_39-SYI-DO18-28				-5.5	917.8	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.400	-1.450	-1.09	-1.14	-1.12	A-29	1.7	PS122-3_39-SYI-DO18-29				-5.2	916.2	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.450	-1.500	-1.14	-1.19	-1.17	A-30	1.9	PS122-3_39-SYI-DO18-30				-4.8	917.2	5		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.500	-1.550	-1.19	-1.24	-1.21	A-31	1.6	PS122-3_39-SYI-DO18-31				-4.7	919.4	4		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.550	-1.600	-1.24	-1.29	-1.27	A-32	2.5	PS122-3_39-SYI-DO18-32				-4.7	916.5	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.600	-1.650	-1.29	-1.34	-1.32	A-33	2.2	PS122-3_39-SYI-DO18-33				-4.6	916.2	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.650	-1.700	-1.34	-1.39	-1.37	A-34	3.4	PS122-3_39-SYI-DO18-34				-4.5	916.2	9		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.700	-1.750	-1.39	-1.44	-1.42	A-35	3.1	PS122-3_39-SYI-DO18-35				-4.6	917.6	8		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.750	-1.800	-1.44	-1.49	-1.46	A-36	4.8	PS122-3_39-SYI-DO18-36				-4.7	918.6	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.800	-1.850	-1.49	-1.54	-1.52	A-37	4.7	PS122-3_39-SYI-DO18-37				-4.2	917.2	12		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.850	-1.900	-1.54	-1.59	-1.57	A-38	4.9	PS122-3_39-SYI-DO18-38				-3.8	912.8	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.900	-1.950	-1.59	-1.64	-1.62	A-39	5.4	PS122-3_39-SYI-DO18-39				-3.6	915.0	14		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-1.950	-2.000	-1.64	-1.69	-1.67	A-40	5.8	PS122-3_39-SYI-DO18-40				-3.4	919.8	15		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.000	-2.050	-1.69	-1.74	-1.71	A-41	4.7	PS122-3_39-SYI-DO18-41				-3.1	919.6	12		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.050	-2.100	-1.74	-1.79	-1.77	A-43	5.3	PS122-3_39-SYI-DO18-42				-3.0	920.4	14		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.100	-2.150	-1.79	-1.84	-1.82	A-44	5.1	PS122-3_39-SYI-DO18-43				-2.9	922.5	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.150	-2.200	-1.84	-1.89	-1.86	A-45	5.6	PS122-3_39-SYI-DO18-44				-2.8	922.3	15		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.200	-2.250	-1.89	-1.94	-1.92	A-46	5.0	PS122-3_39-SYI-DO18-45				-2.3	921.5	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.250	-2.300	-1.94	-1.99	-1.96	A-47	5.1	PS122-3_39-SYI-DO18-46				-2.1	921.6	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.300	-2.335	-1.99	-2.03	-2.01	A-48	4.8	PS122-3_39-SYI-DO18-47				-1.9	921.4	13		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.335	-2.385	-2.03	-2.07	-2.05	A-ODD	2.2	PS122-3_39-SYI-DO18-48				-1.9	918.3	6		
+PS122/3_39-18	2020-05-04T11:29:00	83.8859	18.3088	2.470	2.16	2.440	-2.385	-2.435	-2.07	-2.13	-2.10	Z-22	8.1	PS122-3_39-SYI-DO18-49				-1.9	872.0	21		
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	0.000	-0.050	0.22	0.17	0.20	A1	0.0	PS122/4_45-29_DO18-01	-10.690000000	-82.400000000	3.100000000	0.1	890.7	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.050	-0.090	0.17	0.13	0.15	A2	0.1	PS122/4_45-29_DO18-02				0.0	883.0		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.090	-0.140	0.13	0.08	0.11	A3	0.1	PS122/4_45-29_DO18-03	-9.230000000	-71.200000000	2.600000000	0.0	874.9		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.140	-0.190	0.08	0.03	0.05	A4	0.0	PS122/4_45-29_DO18-04	-9.190000000	-70.400000000	3.100000000	0.0	885.2	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.190	-0.240	0.03	-0.02	0.01	A5	0.3	PS122/4_45-29_DO18-05	-8.860000000	-68.200000000	2.700000000	0.0	891.1		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.240	-0.290	-0.02	-0.07	-0.05	A6	0.2	PS122/4_45-29_DO18-06	-7.100000000	-55.900000000	0.900000000	0.0	893.1		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.290	-0.340	-0.07	-0.12	-0.10	A7	0.1	PS122/4_45-29_DO18-07	-5.310000000	-41.400000000	1.100000000	0.0	899.8		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.340	-0.390	-0.12	-0.17	-0.15	A8	0.1	PS122/4_45-29_DO18-08	-4.960000000	-40.600000000	-0.900000000	0.0	899.2		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.390	-0.440	-0.17	-0.22	-0.19	A9	0.0	PS122/4_45-29_DO18-09	-4.960000000	-39.400000000	0.300000000	0.0	896.3	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.440	-0.490	-0.22	-0.27	-0.25	A10	0.0	PS122/4_45-29_DO18-10	-5.020000000	-40.000000000	0.100000000	0.0	903.3	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.490	-0.540	-0.27	-0.32	-0.30	A11	0.0	PS122/4_45-29_DO18-11	-5.100000000	-40.100000000	0.700000000	0.0	905.5	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.540	-0.590	-0.32	-0.37	-0.35	A12	0.0	PS122/4_45-29_DO18-12	-5.230000000	-40.300000000	1.600000000	0.0	910.9	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.590	-0.640	-0.37	-0.42	-0.40	A13	0.0	PS122/4_45-29_DO18-13	-5.170000000	-41.000000000	0.300000000	0.0	911.4	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.640	-0.690	-0.42	-0.47	-0.45	A14	0.0	PS122/4_45-29_DO18-14	-5.340000000	-41.100000000	1.600000000	0.0	909.7	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.690	-0.740	-0.47	-0.52	-0.50	A15	0.0	PS122/4_45-29_DO18-15	-5.400000000	-43.300000000	-0.100000000	0.0	906.6	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.740	-0.790	-0.52	-0.57	-0.55	A16	0.0	PS122/4_45-29_DO18-16	-5.650000000	-43.700000000	1.500000000	0.0	905.0	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.790	-0.840	-0.57	-0.62	-0.60	A17	0.0	PS122/4_45-29_DO18-17	-5.770000000	-44.300000000	1.900000000	0.0	903.8	0	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.840	-0.890	-0.62	-0.67	-0.65	A18	0.1	PS122/4_45-29_DO18-18	-6.000000000	-46.800000000	1.200000000	0.0	907.1		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.890	-0.940	-0.67	-0.72	-0.70	A19	0.1	PS122/4_45-29_DO18-19	-6.290000000	-49.000000000	1.300000000	0.0	914.0		0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.940	-0.990	-0.72	-0.77	-0.75	A20	0.2	PS122/4_45-29_DO18-20	-6.520000000	-50.300000000	1.800000000	0.0	909.9	11	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-0.990	-1.040	-0.77	-0.82	-0.79	A21	0.2	PS122/4_45-29_DO18-21	-6.620000000	-50.100000000	2.900000000	-0.1	908.1	4	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.040	-1.090	-0.82	-0.87	-0.85	A22	0.5	PS122/4_45-29_DO18-22	-6.860000000	-51.900000000	2.900000000	-0.3	887.7	7	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.090	-1.140	-0.87	-0.92	-0.90	A23	0.5	PS122/4_45-29_DO18-23	-7.120000000	-52.900000000	4.100000000	-0.4	871.4	6	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.140	-1.190	-0.92	-0.97	-0.95	A24	0.5	PS122/4_45-29_DO18-24	-7.590000000	-56.900000000	3.800000000	-0.4	862.9	6	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.190	-1.240	-0.97	-1.02	-1.00	A25	1.0	PS122/4_45-29_DO18-25	-8.180000000	-60.600000000	4.900000000	-0.4	855.4	13	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.240	-1.290	-1.02	-1.07	-1.05	A26	0.8	PS122/4_45-29_DO18-26	-7.420000000	-55.500000000	3.900000000	-0.4	869.5	11	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.290	-1.340	-1.07	-1.12	-1.10	A27	0.6	PS122/4_45-29_DO18-27	-7.140000000	-54.900000000	2.200000000	-0.4	898.4	10	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.340	-1.390	-1.12	-1.17	-1.15	A28	0.4	PS122/4_45-29_DO18-28	-6.900000000	-52.700000000	2.500000000	-0.3	902.2	6	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.390	-1.440	-1.17	-1.22	-1.20	A29	0.6	PS122/4_45-29_DO18-29	-6.310000000	-47.900000000	2.600000000	-0.4	894.8	6	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.440	-1.490	-1.22	-1.27	-1.25	A30	0.4	PS122/4_45-29_DO18-30	-6.430000000	-49.400000000	2.000000000	-0.5	904.1	4	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.490	-1.540	-1.27	-1.32	-1.30	A31	0.5	PS122/4_45-29_DO18-31	-6.830000000	-52.500000000	2.100000000	-0.5	903.8	4	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.540	-1.590	-1.32	-1.37	-1.35	A34	0.5	PS122/4_45-29_DO18-32	-6.180000000	-47.300000000	2.200000000	-0.6	911.6	3	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.590	-1.640	-1.37	-1.42	-1.40	A35	3.1	PS122/4_45-29_DO18-33	-1.200000000	-8.700000000	0.900000000	-0.7	911.3	16	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.640	-1.690	-1.42	-1.47	-1.45	B1	2.7	PS122/4_45-29_DO18-34	-2.410000000	-17.400000000	1.800000000	-1.0	913.0	12	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.690	-1.750	-1.47	-1.53	-1.50	B2	3.2	PS122/4_45-29_DO18-35	-2.390000000	-17.700000000	1.400000000	-1.1	908.6	12	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.750	-1.800	-1.53	-1.58	-1.56	B3	2.8	PS122/4_45-29_DO18-36	-3.250000000	-24.600000000	1.400000000	-1.3	899.6	10	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.800	-1.850	-1.58	-1.63	-1.61	B4	3.0	PS122/4_45-29_DO18-37	-2.570000000	-19.200000000	1.300000000	-1.4	908.6	10	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.850	-1.900	-1.63	-1.68	-1.66	B5	3.7	PS122/4_45-29_DO18-38	0.070000000	1.100000000	0.600000000	-1.5	909.7	12	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.900	-1.950	-1.68	-1.73	-1.71	B6	4.5	PS122/4_45-29_DO18-39	-1.260000000	-8.800000000	1.300000000	-1.5	902.7	16	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-1.950	-2.000	-1.73	-1.78	-1.76	B7	3.9	PS122/4_45-29_DO18-40	-2.580000000	-19.800000000	0.800000000	-1.4	903.2	14	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-2.000	-2.050	-1.78	-1.83	-1.81	B8	3.8	PS122/4_45-29_DO18-41	1.070000000	8.900000000	0.300000000	-1.4	901.6	13	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-2.050	-2.100	-1.83	-1.88	-1.86	B9	2.6	PS122/4_45-29_DO18-42	0.850000000	7.200000000	0.400000000	-1.4	912.6	9	0.080	new coring site location
+PS122/4_45-29	2020-06-30T10:00:00	81.8018	8.9747	2.080	1.86	2.150	-2.100	-2.150	-1.88	-1.93	-1.91	B10	2.6	PS122/4_45-29_DO18-43	-2.600000000	-19.400000000	1.400000000	-1.4	895.0	9	0.080	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	0.000	-0.050	0.20	0.15	0.18	A1	0.2	PS122/4_46-20_DO18-01	-4.490000000	-35.800000000	0.100000000	-0.1	856.8		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.050	-0.100	0.15	0.10	0.13	A2	0.0	PS122/4_46-20_DO18-02	-4.620000000	-35.700000000	1.300000000	0.3	888.7	0	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.090	-0.150	0.11	0.05	0.08	A3	0.0	PS122/4_46-20_DO18-03	-4.360000000	-33.500000000	1.400000000	0.5	896.2	0	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.140	-0.200	0.06	0.00	0.03	A4	0.1	PS122/4_46-20_DO18-04	-4.210000000	-33.800000000	-0.100000000	0.4	903.0		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.190	-0.250	0.01	-0.05	-0.02	A5	0.1	PS122/4_46-20_DO18-05	-4.010000000	-31.700000000	0.400000000	0.1	904.7		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.240	-0.300	-0.04	-0.10	-0.07	A6	0.1	PS122/4_46-20_DO18-06	-3.460000000	-27.800000000	-0.100000000	0.0	908.0		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.290	-0.350	-0.09	-0.15	-0.12	A7	0.1	PS122/4_46-20_DO18-07	-3.310000000	-25.800000000	0.700000000	0.0	907.8		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.340	-0.400	-0.14	-0.20	-0.17	A8	0.1	PS122/4_46-20_DO18-08	-3.240000000	-23.800000000	2.100000000	0.0	895.2		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.390	-0.450	-0.19	-0.25	-0.22	A9	0.1	PS122/4_46-20_DO18-09	-3.070000000	-22.700000000	1.800000000	0.0	864.0		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.440	-0.500	-0.24	-0.30	-0.27	A10	0.1	PS122/4_46-20_DO18-10	-2.770000000	-20.100000000	1.500000000	0.0	912.8		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.490	-0.550	-0.29	-0.35	-0.32	A11	0.1	PS122/4_46-20_DO18-11	-2.320000000	-17.100000000	1.500000000	0.0	915.9		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.540	-0.600	-0.34	-0.40	-0.37	A12	0.1	PS122/4_46-20_DO18-12	-2.650000000	-20.900000000	0.400000000	0.0	912.0		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.590	-0.650	-0.39	-0.45	-0.42	A13	0.1	PS122/4_46-20_DO18-13	-2.680000000	-21.100000000	0.400000000	0.0	912.5		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.640	-0.700	-0.44	-0.50	-0.47	A14	0.2	PS122/4_46-20_DO18-14	-2.450000000	-19.300000000	0.300000000	0.0	910.2		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.690	-0.750	-0.49	-0.55	-0.52	A15	0.2	PS122/4_46-20_DO18-15	-2.780000000	-21.900000000	0.300000000	0.0	908.5		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.740	-0.800	-0.54	-0.60	-0.57	A16	0.4	PS122/4_46-20_DO18-16	-3.450000000	-25.700000000	1.900000000	0.0	912.1		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.790	-0.850	-0.59	-0.65	-0.62	A17	0.3	PS122/4_46-20_DO18-17	-3.870000000	-30.200000000	0.800000000	0.0	913.9		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.840	-0.900	-0.64	-0.70	-0.67	A18	0.1	PS122/4_46-20_DO18-18	-4.200000000	-32.900000000	0.700000000	0.0	913.2		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.890	-0.950	-0.69	-0.75	-0.72	A19	0.1	PS122/4_46-20_DO18-19	-4.320000000	-33.400000000	1.200000000	0.0	912.2		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.940	-1.000	-0.74	-0.80	-0.77	A20	0.2	PS122/4_46-20_DO18-20	-4.430000000	-33.200000000	2.200000000	-0.1	910.3	25	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-0.990	-1.050	-0.79	-0.85	-0.82	A21	0.2	PS122/4_46-20_DO18-21	-4.610000000	-35.000000000	1.500000000	-0.1	905.7	10	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.040	-1.100	-0.84	-0.90	-0.87	A22	0.2	PS122/4_46-20_DO18-22	-5.060000000	-38.700000000	1.500000000	0.0	898.3		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.090	-1.150	-0.89	-0.95	-0.92	A23	0.2	PS122/4_46-20_DO18-23	-5.090000000	-41.400000000	-0.600000000	-0.1	910.1		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.140	-1.210	-0.94	-1.01	-0.98	A24	0.2	PS122/4_46-20_DO18-24	-5.330000000	-41.900000000	0.800000000	-0.1	912.0	10	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.190	-1.260	-0.99	-1.06	-1.03	A25	0.3	PS122/4_46-20_DO18-25	-6.500000000	-50.200000000	1.800000000	-0.2	911.5	15	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.240	-1.310	-1.04	-1.11	-1.08	A26	0.2	PS122/4_46-20_DO18-26	-6.020000000	-46.900000000	1.300000000	-0.3	912.1	5	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.290	-1.360	-1.09	-1.16	-1.13	A27	1.1	PS122/4_46-20_DO18-27	-6.760000000	-51.100000000	2.900000000	-0.3	911.4	19	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.340	-1.410	-1.14	-1.21	-1.18	A28	1.7	PS122/4_46-20_DO18-28	-6.770000000	-50.900000000	3.300000000	-0.2	897.1		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.390	-1.460	-1.19	-1.26	-1.23	A29	1.0	PS122/4_46-20_DO18-29	-7.030000000	-53.100000000	3.200000000	-0.1	896.3	26	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.440	-1.510	-1.24	-1.31	-1.28	A30	2.3	PS122/4_46-20_DO18-30	-6.240000000	-46.600000000	3.300000000	-0.1	897.9		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.490	-1.560	-1.29	-1.36	-1.33	A31	2.0	PS122/4_46-20_DO18-31	-6.190000000	-47.100000000	2.400000000	-0.2	905.9		0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.540	-1.610	-1.34	-1.41	-1.38	A32	0.2	PS122/4_46-20_DO18-32	-6.680000000	-50.900000000	2.400000000	-0.5	909.8	4	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.590	-1.660	-1.39	-1.46	-1.43	A33	0.5	PS122/4_46-20_DO18-33	-6.630000000	-50.100000000	3.000000000	-0.8	910.0	5	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.640	-1.710	-1.44	-1.51	-1.48	A34	1.1	PS122/4_46-20_DO18-34	-6.280000000	-46.700000000	3.300000000	-0.9	875.9	7	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.690	-1.760	-1.49	-1.56	-1.53	A35	1.3	PS122/4_46-20_DO18-35	-6.150000000	-46.300000000	3.000000000	-1.0	885.0	7	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.750	-1.810	-1.55	-1.61	-1.58	A36	1.3	PS122/4_46-20_DO18-36	-6.740000000	-50.600000000	3.300000000	-1.0	887.0	7	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.800	-1.860	-1.60	-1.66	-1.63	A37	1.4	PS122/4_46-20_DO18-37	-3.850000000	-28.400000000	2.300000000	-1.1	892.2	7	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.850	-1.910	-1.65	-1.71	-1.68	A38	3.3	PS122/4_46-20_DO18-38	-0.250000000	-1.300000000	0.700000000	-1.3	894.4	15	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.900	-1.960	-1.70	-1.76	-1.73	A39	3.2	PS122/4_46-20_DO18-39	0.150000000	0.500000000	-0.700000000	-1.4	900.2	13	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-1.950	-2.010	-1.75	-1.81	-1.78	A40	3.4	PS122/4_46-20_DO18-40	0.200000000	1.700000000	0.100000000	-1.4	909.0	13	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-2.000	-2.060	-1.80	-1.86	-1.83	A41	3.3	PS122/4_46-20_DO18-41	0.270000000	3.100000000	1.000000000	-1.4	900.8	12	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-2.050	-2.110	-1.85	-1.91	-1.88	A42	2.9	PS122/4_46-20_DO18-42	0.830000000	6.800000000	0.200000000	-1.4	897.2	10	0.054	new coring site location
+PS122/4_46-20	2020-07-06T10:00:00	81.6956	5.5072	2.170	1.97	2.170	-2.100	-2.160	-1.90	-1.96	-1.93	A43	3.1	PS122/4_46-20_DO18-43	0.920000000	7.200000000	-0.200000000	-1.2	888.6	11	0.054	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	0.000	-0.050	0.19	0.14	0.17	A1	0.2	PS122-4_47-18_DO18-01	-5.330000000	-41.300000000	1.400000000	-0.2	861.1	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.050	-0.100	0.14	0.09	0.12	A2	0.1	PS122-4_47-18_DO18-02	-5.190000000	-39.700000000	1.900000000	-0.2	851.0	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.100	-0.150	0.09	0.04	0.07	A3	0.1	PS122-5_47-18_DO18-03	-5.000000000	-39.400000000	0.600000000	-0.1	855.4	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.150	-0.200	0.04	-0.01	0.02	A4	0.1	PS122-5_47-18_DO18-04	-4.380000000	-35.400000000	-0.300000000	-0.2	841.2	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.200	-0.250	-0.01	-0.06	-0.04	A5	0.1	PS122-5_47-18_DO18-05	-4.560000000	-35.900000000	0.500000000	-0.2	871.2	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.250	-0.300	-0.06	-0.11	-0.09	A6	0.0	PS122-5_47-18_DO18-06	-4.490000000	-34.800000000	1.100000000	-0.2	851.1	0	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.300	-0.350	-0.11	-0.16	-0.14	A7	0.1	PS122-5_47-18_DO18-07	-4.450000000	-34.800000000	0.800000000	-0.2	859.5	2	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.350	-0.400	-0.16	-0.21	-0.19	A8	0.2	PS122-5_47-18_DO18-08	-4.370000000	-32.700000000	2.300000000	-0.2	882.2	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.400	-0.450	-0.21	-0.26	-0.24	A9	0.2	PS122-5_47-18_DO18-09	-4.230000000	-33.700000000	0.100000000	-0.2	881.7	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.450	-0.500	-0.26	-0.31	-0.29	A10	0.4	PS122-5_47-18_DO18-10	-4.100000000	-31.800000000	1.000000000	-0.2	891.0	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.500	-0.550	-0.31	-0.36	-0.34	A11	0.3	PS122-5_47-18_DO18-11	-3.870000000	-30.800000000	0.200000000	-0.3	898.2	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.550	-0.600	-0.36	-0.41	-0.38	A12	0.4	PS122-5_47-18_DO18-12	-3.730000000	-29.300000000	0.600000000	-0.3	895.3	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.600	-0.650	-0.41	-0.46	-0.44	A13	0.5	PS122-5_47-18_DO18-13	-3.580000000	-28.300000000	0.400000000	-0.4	905.6	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.650	-0.700	-0.46	-0.51	-0.49	A14	0.6	PS122-5_47-18_DO18-14	-3.380000000	-26.500000000	0.600000000	-0.4	910.0	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.700	-0.750	-0.51	-0.56	-0.53	A15	1.1	PS122-5_47-18_DO18-15	-3.240000000	-25.300000000	0.600000000	-0.4	907.5	12	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.750	-0.800	-0.56	-0.61	-0.59	A16	0.7	PS122-5_47-18_DO18-16	-2.990000000	-24.200000000	-0.300000000	-0.4	907.2	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.800	-0.850	-0.61	-0.66	-0.64	A17	0.9	PS122-5_47-18_DO18-17	-2.860000000	-23.000000000	-0.100000000	-0.5	910.6	8	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.850	-0.900	-0.66	-0.71	-0.69	X07	1.2	PS122-5_47-18_DO18-18	-3.030000000	-21.900000000	2.500000000	-0.5	913.2	10	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.900	-0.950	-0.71	-0.76	-0.74	A19	0.9	PS122-5_47-18_DO18-19	-2.570000000	-20.300000000	0.100000000	-0.6	910.4	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-0.950	-1.000	-0.76	-0.81	-0.78	A20	1.0	PS122-5_47-18_DO18-20	-2.470000000	-19.300000000	0.400000000	-0.6	911.8	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.000	-1.050	-0.81	-0.86	-0.84	A21	1.0	PS122-5_47-18_DO18-21	-2.340000000	-18.900000000	-0.200000000	-0.7	901.2	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.050	-1.100	-0.86	-0.91	-0.89	A22	1.0	PS122-5_47-18_DO18-22	-2.550000000	-19.200000000	1.200000000	-0.7	906.0	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.100	-1.150	-0.91	-0.96	-0.94	A23	1.1	PS122-5_47-18_DO18-23	-2.050000000	-17.000000000	-0.600000000	-0.7	913.3	7	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.150	-1.200	-0.96	-1.01	-0.99	A24	1.0	PS122-5_47-18_DO18-24	-2.100000000	-16.400000000	0.400000000	-0.8	912.4	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.200	-1.250	-1.01	-1.06	-1.04	A25	0.9	PS122-5_47-18_DO18-25	-2.040000000	-16.100000000	0.200000000	-0.9	915.9	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.250	-1.300	-1.06	-1.11	-1.09	A26	1.2	PS122-5_47-18_DO18-26	-1.610000000	-13.000000000	-0.100000000	-0.9	915.8	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.300	-1.350	-1.11	-1.16	-1.14	A27	1.4	PS122-5_47-18_DO18-27	-1.250000000	-11.200000000	-1.200000000	-1.0	912.3	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.350	-1.400	-1.16	-1.21	-1.19	A28	1.3	PS122-5_47-18_DO18-28	-1.170000000	-10.200000000	-0.800000000	-1.1	917.3	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.400	-1.450	-1.21	-1.26	-1.24	A29	1.4	PS122-5_47-18_DO18-29	-1.310000000	-11.300000000	-0.900000000	-1.2	915.8	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.450	-1.500	-1.26	-1.31	-1.29	A30	1.3	PS122-5_47-18_DO18-30	-1.310000000	-11.500000000	-1.000000000	-1.3	915.8	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.500	-1.550	-1.31	-1.36	-1.34	A31	1.0	PS122-5_47-18_DO18-31	-1.380000000	-11.400000000	-0.300000000	-1.3	912.0	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.550	-1.600	-1.36	-1.41	-1.39	A32	1.6	PS122-5_47-18_DO18-32	-0.470000000	-4.500000000	-0.800000000	-1.4	913.0	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.600	-1.650	-1.41	-1.46	-1.44	A33	1.6	PS122-5_47-18_DO18-33	-0.110000000	-1.300000000	-0.500000000	-1.5	915.2	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.650	-1.700	-1.46	-1.51	-1.49	A34	1.8	PS122-5_47-18_DO18-34	-0.020000000	0.400000000	0.500000000	-1.6	916.5	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.700	-1.750	-1.51	-1.56	-1.54	A35	1.7	PS122-5_47-18_DO18-35	0.020000000	0.100000000	-0.100000000	-1.6	915.3	5	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.750	-1.800	-1.56	-1.61	-1.59	A36	0.9	PS122-5_47-18_DO18-36	-0.350000000	-4.300000000	-1.500000000	-1.6	915.6	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.800	-1.880	-1.61	-1.69	-1.65	X13	1.0	PS122-5_47-18_DO18-53	0.000000000	0.000000000	0.000000000	-1.6	909.8	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.880	-1.930	-1.69	-1.74	-1.72	A37	1.3	PS122-5_47-18_DO18-37	-0.200000000	-3.000000000	-1.400000000	-1.6	911.8	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.930	-1.980	-1.74	-1.79	-1.77	A38	1.3	PS122-5_47-18_DO18-38	-0.310000000	-3.700000000	-1.200000000	-1.6	912.5	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-1.980	-2.030	-1.79	-1.84	-1.82	A39	1.2	PS122-5_47-18_DO18-39	-0.540000000	-5.200000000	-0.900000000	-1.5	916.0	4	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.030	-2.080	-1.84	-1.89	-1.87	A40	1.1	PS122-5_47-18_DO18-40	-0.940000000	-8.700000000	-1.200000000	-1.6	915.7	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.080	-2.130	-1.89	-1.94	-1.92	A41	0.8	PS122-5_47-18_DO18-41	-1.760000000	-13.100000000	1.000000000	-1.7	915.4	2	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.130	-2.180	-1.94	-1.99	-1.96	X17	0.6	PS122-5_47-18_DO18-42	-3.150000000	-23.100000000	2.000000000	-1.7	917.1	2	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.180	-2.230	-1.99	-2.04	-2.02	A43	0.4	PS122-5_47-18_DO18-43	-4.420000000	-33.500000000	1.900000000	-1.6	919.6	1	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.230	-2.280	-2.04	-2.09	-2.07	A44	0.4	PS122-5_47-18_DO18-44	-4.840000000	-37.700000000	0.900000000	-1.5	921.5	1	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.280	-2.330	-2.09	-2.14	-2.12	A45	1.0	PS122-5_47-18_DO18-45	-4.470000000	-35.000000000	0.800000000	-1.5	915.0	3	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.330	-2.380	-2.14	-2.19	-2.17	A46	3.1	PS122-5_47-18_DO18-46	-2.000000000	-16.200000000	-0.200000000	-1.5	917.6	9	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.380	-2.430	-2.19	-2.24	-2.22	A47	3.3	PS122-5_47-18_DO18-47	-0.500000000	-3.700000000	0.300000000	-1.7	920.6	11	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.430	-2.480	-2.24	-2.29	-2.27	A48	3.2	PS122-5_47-18_DO18-48	-0.140000000	-0.200000000	0.900000000	-1.5	919.9	11	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.480	-2.530	-2.29	-2.34	-2.32	X01	2.3	PS122-5_47-18_DO18-49	0.180000000	1.000000000	-0.400000000	-1.4	919.6	8	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.530	-2.580	-2.34	-2.39	-2.37	X04	3.7	PS122-5_47-18_DO18-50	0.570000000	5.000000000	0.500000000	-1.3	918.3	14	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.580	-2.630	-2.39	-2.44	-2.42	X06	1.9	PS122-5_47-18_DO18-51	0.860000000	7.200000000	0.400000000	-1.3	913.6	6	0.042	new coring site location
+PS122/4_47-18	2020-07-15T08:09:00	81.3139	0.3332	2.640	2.45	2.675	-2.630	-2.680	-2.44	-2.49	-2.47	X15	1.5	PS122-5_47-18_DO18-52	1.270000000	8.800000000	-1.000000000	-1.7	894.1	4	0.042	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	0.000	-0.050	0.30	0.25	0.27	A1	0.2	PS122_48_25-SYI-DO18-01	-4.450000000	-35.600000000	0.000000000	-0.1	866.9	16	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.050	-0.100	0.25	0.20	0.22	A2	0.1	PS122_48_25-SYI-DO18-02	-4.580000000	-35.100000000	1.600000000	-0.2	854.8	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.100	-0.150	0.20	0.15	0.18	A3	0.0	PS122_48_25-SYI-DO18-03	-4.690000000	-36.300000000	1.200000000	-0.3	875.3	0	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.150	-0.200	0.15	0.10	0.13	A4	0.0	PS122_48_25-SYI-DO18-04	-4.790000000	-37.100000000	1.100000000	-0.3	893.4	0	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.200	-0.250	0.10	0.05	0.07	A5	0.0	PS122_48_25-SYI-DO18-05	-4.800000000	-36.900000000	1.500000000	-0.2	883.9	0	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.250	-0.300	0.05	0.00	0.02	A6	0.1	PS122_48_25-SYI-DO18-06	-4.620000000	-35.300000000	1.600000000	-0.2	893.8	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.300	-0.350	0.00	-0.05	-0.03	A7	0.1	PS122_48_25-SYI-DO18-07	-4.380000000	-34.000000000	1.100000000	-0.2	896.0	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.350	-0.400	-0.05	-0.10	-0.08	A8	0.1	PS122_48_25-SYI-DO18-08	-4.240000000	-32.700000000	1.200000000	-0.2	881.5	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.400	-0.450	-0.10	-0.15	-0.13	A9	0.2	PS122_48_25-SYI-DO18-09	-4.080000000	-31.800000000	0.900000000	-0.3	885.4	4	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.450	-0.500	-0.15	-0.20	-0.18	A10	0.1	PS122_48_25-SYI-DO18-10	-3.690000000	-28.300000000	1.200000000	-0.3	901.6	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.500	-0.550	-0.20	-0.25	-0.23	A11	0.1	PS122_48_25-SYI-DO18-11	-3.380000000	-25.800000000	1.200000000	-0.3	900.0	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.550	-0.600	-0.25	-0.30	-0.27	A12	0.1	PS122_48_25-SYI-DO18-12	-3.130000000	-22.900000000	2.100000000	-0.3	906.5	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.600	-0.650	-0.30	-0.35	-0.33	A13	0.1	PS122_48_25-SYI-DO18-13	-3.130000000	-24.400000000	0.600000000	-0.3	909.8	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.650	-0.700	-0.35	-0.40	-0.38	A14	0.2	PS122_48_25-SYI-DO18-14	-3.350000000	-25.800000000	1.000000000	-0.4	910.0	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.700	-0.750	-0.40	-0.45	-0.43	A15	0.2	PS122_48_25-SYI-DO18-15	-3.420000000	-26.200000000	1.200000000	-0.4	909.3	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.750	-0.800	-0.45	-0.50	-0.48	A16	0.2	PS122_48_25-SYI-DO18-16	-3.390000000	-26.100000000	1.000000000	-0.4	909.7	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.800	-0.850	-0.50	-0.55	-0.52	A17	0.2	PS122_48_25-SYI-DO18-17	-3.020000000	-24.200000000	-0.100000000	-0.4	910.1	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.850	-0.900	-0.55	-0.60	-0.58	A18	0.2	PS122_48_25-SYI-DO18-18	-2.450000000	-19.000000000	0.600000000	-0.4	910.0	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.900	-0.950	-0.60	-0.65	-0.63	A19	0.2	PS122_48_25-SYI-DO18-19	-1.910000000	-13.700000000	1.500000000	-0.5	908.8	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-0.950	-1.000	-0.65	-0.70	-0.68	A20	0.2	PS122_48_25-SYI-DO18-20	-2.180000000	-16.500000000	0.900000000	-0.5	909.6	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.000	-1.050	-0.70	-0.75	-0.72	A21	0.4	PS122_48_25-SYI-DO18-21	-2.080000000	-15.800000000	0.900000000	-0.5	909.6	4	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.050	-1.100	-0.75	-0.80	-0.77	A22	0.7	PS122_48_25-SYI-DO18-22	-2.000000000	-15.000000000	1.100000000	-0.5	911.2	7	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.100	-1.150	-0.80	-0.85	-0.83	A23	0.5	PS122_48_25-SYI-DO18-23	-1.660000000	-12.000000000	1.300000000	-0.6	912.4	4	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.150	-1.200	-0.85	-0.90	-0.88	A24	0.3	PS122_48_25-SYI-DO18-24	-1.470000000	-11.400000000	0.400000000	-0.6	911.9	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.200	-1.250	-0.90	-0.95	-0.93	A25	0.5	PS122_48_25-SYI-DO18-25	-1.920000000	-14.800000000	0.500000000	-0.7	912.2	4	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.250	-1.300	-0.95	-1.00	-0.97	A26	0.4	PS122_48_25-SYI-DO18-26	-2.580000000	-19.400000000	1.200000000	-0.7	909.5	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.300	-1.350	-1.00	-1.05	-1.03	A27	0.4	PS122_48_25-SYI-DO18-27	-5.120000000	-40.200000000	0.800000000	-0.8	902.2	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.350	-1.400	-1.05	-1.10	-1.08	A28	0.3	PS122_48_25-SYI-DO18-28	-6.780000000	-53.500000000	0.800000000	-0.8	911.8	2	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.400	-1.450	-1.10	-1.15	-1.13	A29	0.7	PS122_48_25-SYI-DO18-29	-5.280000000	-42.100000000	0.200000000	-1.0	912.4	4	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.450	-1.480	-1.15	-1.18	-1.17	A30	0.7	PS122_48_25-SYI-DO18-30	-4.580000000	-35.900000000	0.700000000	-1.1	912.0	3	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.480	-1.530	-1.18	-1.23	-1.20	A31	1.9	PS122_48_25-SYI-DO18-31	-4.680000000	-35.100000000	2.300000000	-1.1	912.5	8	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.530	-1.600	-1.23	-1.30	-1.27	A32	3.2	PS122_48_25-SYI-DO18-32	-5.200000000	-37.500000000	4.100000000	-1.2	912.0	13	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.600	-1.630	-1.30	-1.33	-1.32	A33	2.8	PS122_48_25-SYI-DO18-33	-4.780000000	-35.600000000	2.600000000	-1.2	911.8	11	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.630	-1.680	-1.33	-1.38	-1.36	A34	2.6	PS122_48_25-SYI-DO18-34	-4.390000000	-32.700000000	2.400000000	-1.2	911.2	10	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.680	-1.730	-1.38	-1.43	-1.41	A35	1.5	PS122_48_25-SYI-DO18-35	-4.610000000	-35.800000000	1.100000000	-1.3	910.4	5	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.730	-1.780	-1.43	-1.48	-1.45	A36	2.1	PS122_48_25-SYI-DO18-36	-2.600000000	-19.700000000	1.100000000	-1.5	907.7	7	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.780	-1.830	-1.48	-1.53	-1.51	A37	2.8	PS122_48_25-SYI-DO18-37	-0.770000000	-6.000000000	0.200000000	-1.6	899.7	9	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.830	-1.880	-1.53	-1.58	-1.56	A38	3.2	PS122_48_25-SYI-DO18-38	-0.370000000	-2.700000000	0.300000000	-1.6	895.2	10	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.880	-1.930	-1.58	-1.63	-1.61	A39	3.5	PS122_48_25-SYI-DO18-39	-0.160000000	-0.300000000	1.000000000	-1.6	902.2	11	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.930	-1.980	-1.63	-1.68	-1.66	A40	2.9	PS122_48_25-SYI-DO18-40	0.030000000	0.800000000	0.600000000	-1.7	910.2	9	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-1.980	-2.030	-1.68	-1.73	-1.70	A41	3.5	PS122_48_25-SYI-DO18-41	0.170000000	2.200000000	0.800000000	-1.7	910.7	10	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-2.030	-2.080	-1.73	-1.78	-1.76	A43	3.4	PS122_48_25-SYI-DO18-42	0.370000000	4.300000000	1.300000000	-1.7	902.8	10	0.041	new coring site location
+PS122/4_48-25	2020-07-20T10:00:00	80.7709	-0.4850	2.060	1.76	2.070	-2.080	-2.130	-1.78	-1.83	-1.81	A44	3.6	PS122_48_25-SYI-DO18-43	0.590000000	5.600000000	0.900000000	-1.7	902.4	11	0.041	new coring site location
