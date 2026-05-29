@@ -308,8 +308,19 @@ end
 
 ice_age = repmat("SYI",n,1);
 
-idxFYI = file_sud == "MOSAiC_ice_station_14.06.2020.xlsx";
-ice_age(idxFYI) = "FYI";
+idxMOSAiC = file_sud == "MOSAiC_ice_station_14.06.2020.xlsx";
+ice_age(idxMOSAiC) = "FYI";
+dataset_sud(idxMOSAiC) = "MOSAiC FYI";
+
+ice_age(file_sud == "AO2023-I-IceStation_2_day1_with_density_final.xlsx") = "FYI";
+ice_age(file_sud == "AO2023-I-IceStation_3_day1_with_density_final.xlsx") = "MYI";
+ice_age(file_sud == "AO2023-I-IceStation_4_day1_with_density_final.xlsx") = "MYI";
+ice_age(file_sud == "AO2023-I-IceStation_5_day1_with_density_final.xlsx") = "FYI";
+
+ice_age(file_sud == "Polhavet2022_Ice_Station_1_NP_ver110323_with_density_stratigraphy_final.xlsx") = "FYI";
+ice_age(file_sud == "Polhavet2022_Ice_Station_6_Amundsen_Basin_ver150223_with_density.xlsx") = "SYI";
+ice_age(file_sud == "Polhavet2022_Ice_Station_8_Nansen_Basin_ver030223_with_density_final.xlsx") = "SYI";
+ice_age(file_sud == "Polhavet2022_Ice_Station_10_ver291123with_density_final.xlsx") = "FYI";
 
 SUDARCO_core_summary = table( ...
     file_sud, ...

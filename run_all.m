@@ -1,85 +1,122 @@
 clear; clc
 
+%% Workflow switches
+
+doProcessing = false;   % Reprocess raw observational datasets
+doMerge = false;        % Merge processed datasets
+doSnowMatchups = false; % Add ERA5/MERRA2 SnowModel-LG snow products
+doStatistics = true;    % Generate manuscript statistics
+doFigures = false;      % Reproduce manuscript figures
+
 %% Repository setup
 
-% Repository root directory
 repoRoot = fileparts(mfilename('fullpath'));
 
-% Add repository scripts and external packages to MATLAB path
 addpath(genpath(fullfile(repoRoot, 'scripts')))
 addpath(genpath(fullfile(repoRoot, 'external')))
 
 %% Process observational datasets
 
-CONTRASTS_processing(repoRoot)      % CONTRASTS
-GoNorth_processing(repoRoot)        % GoNorth
-MOSAIC_FYI_processing(repoRoot)     % MOSAiC FYI
-MOSAiC_leg5_processing(repoRoot)    % MOSAiC Leg 5
-MOSAiC_SYI_processing(repoRoot)     % MOSAiC SYI
-Nansen_Legacy_processing(repoRoot)  % Nansen Legacy
-SUDARCO_processing(repoRoot)        % SUDARCO
-Svalbard_processing(repoRoot)       % Svalbard
+if doProcessing
+
+    CONTRASTS_processing(repoRoot)
+    GoNorth_processing(repoRoot)
+    MOSAIC_FYI_processing(repoRoot)
+    MOSAiC_leg5_processing(repoRoot)
+    MOSAiC_SYI_processing(repoRoot)
+    Nansen_Legacy_processing(repoRoot)
+    SUDARCO_processing(repoRoot)
+    Svalbard_processing(repoRoot)
+
+end
 
 %% Merge processed datasets
 
-merge_processed_summaries(repoRoot)
+if doMerge
+
+    merge_processed_summaries(repoRoot)
+
+end
 
 %% Add external snow products
 
-finalDir = fullfile(repoRoot, 'data', 'final');
+if doSnowMatchups
 
-modelFile = fullfile(finalDir, ...
-    'snow_model_matchups_with_models.mat');
+    finalDir = fullfile(repoRoot, 'data', 'final');
 
-era5File = fullfile(repoRoot, 'data', 'model', 'ERA5', ...
-    'SM_snod_ERA5_01Aug1980-31Jul2021_v01.nc');
+    modelFile = fullfile(finalDir, ...
+        'snow_model_matchups_with_models.mat');
 
-merraFiles = { ...
-    fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
-    'SM_snod_MERRA2_ease_01Aug1980-31Jul2018.nc')
-    fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
-    'SM_snod_MERRA2_ease_01Aug2018-31Jul2021.nc')
-    fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
-    'SM_snod_MERRA2_ease_01Aug2021-31Jul2022.nc')
-    fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
-    'SM_snod_MERRA2_ease_01Aug2022-31Jul2023.nc')
-    };
+    era5File = fullfile(repoRoot, 'data', 'model', 'ERA5', ...
+        'SM_snod_ERA5_01Aug1980-31Jul2021_v01.nc');
 
-requiredModelFiles = [{era5File}; merraFiles];
+    merraFiles = { ...
+        fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
+        'SM_snod_MERRA2_ease_01Aug1980-31Jul2018.nc')
+        fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
+        'SM_snod_MERRA2_ease_01Aug2018-31Jul2021.nc')
+        fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
+        'SM_snod_MERRA2_ease_01Aug2021-31Jul2022.nc')
+        fullfile(repoRoot, 'data', 'model', 'MERRA2', ...
+        'SM_snod_MERRA2_ease_01Aug2022-31Jul2023.nc')
+        };
 
-haveModelFiles = all(cellfun(@(f) exist(f,'file'), ...
-    requiredModelFiles));
+    requiredModelFiles = [{era5File}; merraFiles];
 
-if haveModelFiles
+    haveModelFiles = all(cellfun(@(f) exist(f,'file'), ...
+        requiredModelFiles));
 
-    fprintf('SM-LG source files found. Regenerating snow matchups.\n')
-    add_SMLG_model_snow(repoRoot)
+    if haveModelFiles
 
-elseif exist(modelFile,'file')
+        fprintf('SM-LG source files found. Regenerating snow matchups.\n')
+        add_SMLG_model_snow(repoRoot)
 
-    fprintf(['SM-LG source files missing. Using existing ' ...
-        'processed matchup file:\n%s\n'], modelFile)
+    elseif exist(modelFile,'file')
 
-else
+        fprintf(['SM-LG source files missing. Using existing ' ...
+            'processed matchup file:\n%s\n'], modelFile)
 
-    error(['SM-LG source files are missing and no processed ' ...
-        'matchup file was found.\n' ...
-        'Provide the NetCDF files in data/model/ or provide:\n%s'], ...
-        modelFile)
+    else
+
+        error(['SM-LG source files are missing and no processed ' ...
+            'matchup file was found.\n' ...
+            'Provide the NetCDF files in data/model/ or provide:\n%s'], ...
+            modelFile)
+
+    end
+
+end
+
+%% Generate manuscript statistics
+
+if doStatistics
+
+    resultsDir = fullfile(repoRoot, 'results');
+
+    if ~exist(resultsDir, 'dir')
+        mkdir(resultsDir)
+    end
+
+    diary(fullfile(resultsDir, 'manuscript_statistics.txt'))
+    manuscript_statistics(repoRoot)
+    diary off
 
 end
 
 %% Generate manuscript figures
 
-% Reuse existing map if available to avoid requiring the large ETOPO1 topography dataset for reruns.
-mapFile = fullfile(repoRoot, ...
-    'figures', 'Map_density_lab.png');
+if doFigures
 
-if exist(mapFile,'file')
-    fprintf('Using existing density map:\n%s\n', mapFile)
-else
-    plot_density_map(repoRoot)
+    mapFile = fullfile(repoRoot, ...
+        'figures', 'Map_density_lab.png');
+
+    if exist(mapFile,'file')
+        fprintf('Using existing density map:\n%s\n', mapFile)
+    else
+        plot_density_map(repoRoot)
+    end
+
+    analyze_density_model(repoRoot)
+    analyze_snow_dependence(repoRoot)
+
 end
-
-analyze_density_model(repoRoot)     % Figure 1
-analyze_snow_dependence(repoRoot)   % Figure 2

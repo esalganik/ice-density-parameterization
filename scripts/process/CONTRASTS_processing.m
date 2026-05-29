@@ -201,6 +201,8 @@ Tavg = movevars(Tavg,'DateTime','After','Core');
 
 TavgInput.IceAge = upper(string(TavgInput.IceAge));
 
+TavgInput.IceAge(TavgInput.IceAge == "SMYI") = "MYI";
+
 [G,coreList] = findgroups(TavgInput.Core);
 
 iceAgeFirst = splitapply(@(x) x(find(x ~= "",1,'first')), ...

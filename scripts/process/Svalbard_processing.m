@@ -272,7 +272,11 @@ for k = 1:nCores
     file_sva(k) = string(cores(k).file);
     source_sva(k) = string(cores(k).source);
 
-    dataset_sva(k) = "Svalbard";
+    if strcmp(cores(k).file,'N-ICE_Ice_Station_2015_02_12_with_density_100426.xlsx')
+        dataset_sva(k) = "N-ICE2015";
+    else
+        dataset_sva(k) = "Svalbard";
+    end
 
     coreDate(k) = cores(k).date;
 
