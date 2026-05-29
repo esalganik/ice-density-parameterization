@@ -16,6 +16,9 @@ repository/
 ├── scripts/
 │   ├── process/
 │   ├── analysis/
+│   │   ├── manuscript_statistics.m
+│   │   ├── analyze_density_model.m
+│   │   └── analyze_snow_dependence.m
 │   └── helpers/
 ├── data/
 │   ├── raw/
@@ -28,6 +31,7 @@ repository/
 │   └── topo/
 ├── figures/
 ├── results/
+│   └── manuscript_statistics.txt
 ├── README.md
 └── LICENSE
 ```
@@ -47,8 +51,9 @@ The workflow consists of:
 1. Import and processing of observational datasets
 2. Merging of processed datasets
 3. Addition of SnowModel-LG snow products
-4. Generation of map and analysis figures
-5. Derivation of sea-ice density parameterizations
+4. Generation of manuscript statistics
+5. Generation of manuscript figures
+6. Derivation of sea-ice density parameterizations
 
 Large auxiliary datasets (ETOPO1 topography and SnowModel-LG files) are optional for lightweight reruns if previously processed outputs already exist.
 
