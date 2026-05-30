@@ -2,9 +2,11 @@
 
 This repository contains MATLAB scripts used to process observational sea-ice density datasets, generate a merged Arctic sea-ice density database, derive observation-based density parameterizations, and reproduce the figures presented in:
 
-> Salganik, E., Divine, D., Landy, J. C., Kauker, F., Nicolaus, M., & Stroeve, J.  
-> *An observation-based year-round parameterization of Arctic sea-ice density.*  
+> Salganik, E., Divine, D., Landy, J. C., Kauker, F., Nicolaus, M., & Stroeve, J.
+> *An observation-based year-round parameterization of Arctic sea-ice density.*
 > Geophysical Research Letters (submitted).
+
+The repository reproduces all manuscript figures, Supporting Information figures, summary statistics, and cross-validation tables from the submitted study.
 
 ---
 
@@ -13,12 +15,15 @@ This repository contains MATLAB scripts used to process observational sea-ice de
 ```text
 repository/
 ├── run_all.m
-├── scripts/
+scripts/
 │   ├── process/
 │   ├── analysis/
 │   │   ├── manuscript_statistics.m
 │   │   ├── analyze_density_model.m
-│   │   └── analyze_snow_dependence.m
+│   │   ├── analyze_snow_dependence.m
+│   │   ├── make_cross_validation_table.m
+│   │   ├── make_mosaic_coring_density_figure.m
+│   │   └── make_si_ridge_density_figure.m
 │   └── helpers/
 ├── data/
 │   ├── raw/
@@ -32,6 +37,7 @@ repository/
 ├── figures/
 ├── results/
 │   └── manuscript_statistics.txt
+│   └── TableS2_leave_one_campaign_out_cross_validation.csv
 ├── README.md
 └── LICENSE
 ```
@@ -52,8 +58,8 @@ The workflow consists of:
 2. Merging of processed datasets
 3. Addition of SnowModel-LG snow products
 4. Generation of manuscript statistics
-5. Generation of manuscript figures
-6. Derivation of sea-ice density parameterizations
+5. Derivation and cross-validation of sea-ice density parameterizations
+6. Generation of manuscript and supporting information figures
 
 Large auxiliary datasets (ETOPO1 topography and SnowModel-LG files) are optional for lightweight reruns if previously processed outputs already exist.
 
@@ -187,10 +193,16 @@ and
 
 ## Figures
 
-The repository reproduces:
+The repository reproduces the figures presented in the manuscript and Supporting Information:
 
+Manuscript:
 - Figure 1: Arctic sea-ice density map and temperature-thickness parameterization
 - Figure 2: Snow-thickness and freeboard-dependent density parameterizations
+
+Supporting Information:
+- Figure S1: Hydrostatically derived effective sea-ice density during MOSAiC
+- Figure S2: Directly measured MOSAiC ridge-core densities
+- Table S2: Leave-one-campaign-out cross-validation statistics
 
 Generated figures are exported to:
 
