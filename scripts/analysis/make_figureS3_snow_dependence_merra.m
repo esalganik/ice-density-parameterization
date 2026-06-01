@@ -1,6 +1,10 @@
-function analyze_snow_dependence(repoRoot)
+function make_figureS3_snow_dependence_merra(repoRoot)
 
 close all
+
+if nargin < 1 || isempty(repoRoot)
+    repoRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+end
 
 finalDir = fullfile(repoRoot, ...
     'data', 'final');
@@ -41,7 +45,7 @@ lipari = lipari(1:end-ntrim,:);
 lipari = flipud(lipari);
 lipari = interp1(linspace(0,1,size(lipari,1)),lipari,linspace(0,1,256));
 
-requiredVars = ["date","ice_age","dataset","ice_thickness_m","hs","hs_smlg",rho_col];
+requiredVars = ["date","ice_age","dataset","ice_thickness_m","hs","hs_merra",rho_col];
 missingVars = requiredVars(~ismember(requiredVars,string(D.Properties.VariableNames)));
 if ~isempty(missingVars)
     error('D is missing required variables: %s',strjoin(cellstr(missingVars),', '))
@@ -62,14 +66,14 @@ rho_all = D.(rho_col)(mask);
 date_all = D.date(mask);
 age_all = D.ice_age(mask);
 hs_meas0 = D.hs(mask);
-hs_smlg0 = D.hs_smlg(mask);
+hs_merra0 = D.hs_merra(mask);
 
 % Thickness parametrization from script 1
 [x_hi_meas,hs_hi_meas,rho_hi_meas,valid_hi_meas] = hi_prepare_thickness_data(hi_all,rho_all,hs_meas0);
-[x_hi_smlg,hs_hi_smlg,rho_hi_smlg,valid_hi_smlg] = hi_prepare_thickness_data(hi_all,rho_all,hs_smlg0);
+[x_hi_merra,hs_hi_smlg,rho_hi_merra,valid_hi_merra] = hi_prepare_thickness_data(hi_all,rho_all,hs_merra0);
 
 age_hi_meas = age_all(valid_hi_meas);
-age_hi_smlg = age_all(valid_hi_smlg);
+age_hi_merra = age_all(valid_hi_merra);
 
 hi_ref_thick = 1.1;
 rho_thick_at_ref = 911;
@@ -100,32 +104,32 @@ B_hi_meas = hi_bootstrap_panel1( ...
     rho_thick_0_bounds,hi0_low_bounds,rho_low_const_bounds_hi, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
-[p_hi_smlg,RMSE_hi_smlg,R2_hi_smlg] = hi_fit_panel2_thresholds_only( ...
-    x_hi_smlg,hs_hi_smlg,rho_hi_smlg,p_hi_meas, ...
+[p_hi_merra,RMSE_hi_merra,R2_hi_merra] = hi_fit_panel2_thresholds_only( ...
+    x_hi_merra,hs_hi_smlg,rho_hi_merra,p_hi_meas, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
-B_hi_smlg = hi_bootstrap_panel2_thresholds_only( ...
-    x_hi_smlg,hs_hi_smlg,rho_hi_smlg,nboot_hi,p_hi_meas,p_hi_smlg, ...
+B_hi_merra = hi_bootstrap_panel2_thresholds_only( ...
+    x_hi_merra,hs_hi_smlg,rho_hi_merra,nboot_hi,p_hi_meas,p_hi_merra, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
 stats_hi_meas = hi_bootstrap_skill_ci(B_hi_meas,x_hi_meas,hs_hi_meas,rho_hi_meas,RMSE_hi_meas,R2_hi_meas, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual);
-stats_hi_smlg = hi_bootstrap_skill_ci_with_ref(B_hi_smlg,B_hi_meas,x_hi_smlg,hs_hi_smlg,rho_hi_smlg,RMSE_hi_smlg,R2_hi_smlg, ...
+stats_hi_merra = hi_bootstrap_skill_ci_with_ref(B_hi_merra,B_hi_meas,x_hi_merra,hs_hi_smlg,rho_hi_merra,RMSE_hi_merra,R2_hi_merra, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual);
 
 xline_hi_meas = linspace(hi_lim(1),hi_lim(2),300);
 hs_cases_hi_meas = [p_hi_meas(3), mean(p_hi_meas(3:4)), p_hi_meas(4)];
-xline_hi_smlg = linspace(hi_lim(1),hi_lim(2),300);
-hs_cases_hi_smlg = [p_hi_smlg(3), mean(p_hi_smlg(3:4)), p_hi_smlg(4)];
+xline_hi_merra = linspace(hi_lim(1),hi_lim(2),300);
+hs_cases_hi_merra = [p_hi_merra(3), mean(p_hi_merra(3:4)), p_hi_merra(4)];
 
 % Freeboard parametrization from script 2
 [x_hf_meas,hs_hf_meas,rho_hf_meas,valid_hf_meas] = hf_prepare_freeboard_data(hi_all,rho_all,hs_meas0,date_all,rho_w);
-[x_hf_smlg,hs_hf_smlg,rho_hf_smlg,valid_hf_smlg] = hf_prepare_freeboard_data(hi_all,rho_all,hs_smlg0,date_all,rho_w);
+[x_hf_merra,hs_hf_smlg,rho_hf_merra,valid_hf_merra] = hf_prepare_freeboard_data(hi_all,rho_all,hs_merra0,date_all,rho_w);
 
 age_hf_meas = age_all(valid_hf_meas);
-age_hf_smlg = age_all(valid_hf_smlg);
+age_hf_merra = age_all(valid_hf_merra);
 
 hf0_low_bounds = [0.15 0.35];
 rho_low_const_bounds_hf = [895 905];
@@ -150,58 +154,42 @@ B_hf_meas = hf_bootstrap_full_model( ...
     hf0_low_bounds,rho_low_const_bounds_hf, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
-[p_hf_smlg,RMSE_hf_smlg,R2_hf_smlg] = hf_fit_thresholds_only( ...
-    x_hf_smlg,hs_hf_smlg,rho_hf_smlg,p_hf_meas, ...
+[p_hf_merra,RMSE_hf_merra,R2_hf_merra] = hf_fit_thresholds_only( ...
+    x_hf_merra,hs_hf_smlg,rho_hf_merra,p_hf_meas, ...
     hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual_hf, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
-B_hf_smlg = hf_bootstrap_thresholds_only( ...
-    x_hf_smlg,hs_hf_smlg,rho_hf_smlg,nboot_hf,p_hf_meas,p_hf_smlg, ...
+B_hf_merra = hf_bootstrap_thresholds_only( ...
+    x_hf_merra,hs_hf_smlg,rho_hf_merra,nboot_hf,p_hf_meas,p_hf_merra, ...
     hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual_hf, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
 stats_hf_meas = hf_get_stats(B_hf_meas,RMSE_hf_meas,R2_hf_meas,numel(rho_hf_meas));
-stats_hf_smlg = hf_get_stats(B_hf_smlg,RMSE_hf_smlg,R2_hf_smlg,numel(rho_hf_smlg));
+stats_hf_merra = hf_get_stats(B_hf_merra,RMSE_hf_merra,R2_hf_merra,numel(rho_hf_merra));
 
 xline_hf_meas = linspace(hf_lim(1),hf_lim(2),300);
 hs_cases_hf_meas = [p_hf_meas(3), mean(p_hf_meas(3:4)), p_hf_meas(4)];
-xline_hf_smlg = linspace(hf_lim(1),hf_lim(2),300);
-hs_cases_hf_smlg = [p_hf_smlg(3), mean(p_hf_smlg(3:4)), p_hf_smlg(4)];
+xline_hf_merra = linspace(hf_lim(1),hf_lim(2),300);
+hs_cases_hf_merra = [p_hf_merra(3), mean(p_hf_merra(3:4)), p_hf_merra(4)];
 
-% Plot, matching the 2 x 2 design of script 3
+% Plot only the MERRA-2 SnowModel-LG panels for Supporting Figure S3
 fig = figure;
-tiledlayout(2,2,'TileSpacing','compact','Padding','compact');
+tiledlayout(1,2,'TileSpacing','compact','Padding','compact');
 
 ax1 = nexttile;
-hi_plot_panel(x_hi_meas,rho_hi_meas,hs_hi_meas,age_hi_meas,p_hi_meas,B_hi_meas,[],xline_hi_meas,hs_cases_hi_meas, ...
+hi_plot_panel(x_hi_merra,rho_hi_merra,hs_hi_smlg,age_hi_merra,p_hi_merra,B_hi_merra,B_hi_meas,xline_hi_merra,hs_cases_hi_merra, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     lipari,hs_color_max, ...
-    sprintf('Measured snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hi_meas,RMSE_hi_meas), ...
-    stats_hi_meas,hi_lim,rho_lim,"full");
+    sprintf('MERRA-2 SM-LG snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hi_merra,RMSE_hi_merra), ...
+    stats_hi_merra,hi_lim,rho_lim,"full");
 xlabel('Sea-ice thickness{\it h_i} (m)','Interpreter','tex','FontSize',11)
 
 ax2 = nexttile;
-hi_plot_panel(x_hi_smlg,rho_hi_smlg,hs_hi_smlg,age_hi_smlg,p_hi_smlg,B_hi_smlg,B_hi_meas,xline_hi_smlg,hs_cases_hi_smlg, ...
-    hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
-    lipari,hs_color_max, ...
-    sprintf('ERA5 SM-LG snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hi_smlg,RMSE_hi_smlg), ...
-    stats_hi_smlg,hi_lim,rho_lim,"thresholds");
-xlabel('Sea-ice thickness{\it h_i} (m)','Interpreter','tex','FontSize',11)
-
-ax3 = nexttile;
-hf_plot_panel(x_hf_meas,rho_hf_meas,hs_hf_meas,age_hf_meas,p_hf_meas,B_hf_meas,[],xline_hf_meas,hs_cases_hf_meas, ...
+hf_plot_panel(x_hf_merra,rho_hf_merra,hs_hf_smlg,age_hf_merra,p_hf_merra,B_hf_merra,B_hf_meas,xline_hf_merra,hs_cases_hf_merra, ...
     hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual_hf, ...
     lipari,hs_color_max, ...
-    sprintf('Measured snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hf_meas,RMSE_hf_meas), ...
-    stats_hf_meas,hf_lim,rho_lim,"full");
-xlabel('Sea-ice freeboard{\it h_f} (m)','Interpreter','tex','FontSize',11)
-
-ax4 = nexttile;
-hf_plot_panel(x_hf_smlg,rho_hf_smlg,hs_hf_smlg,age_hf_smlg,p_hf_smlg,B_hf_smlg,B_hf_meas,xline_hf_smlg,hs_cases_hf_smlg, ...
-    hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual_hf, ...
-    lipari,hs_color_max, ...
-    sprintf('ERA5 SM-LG snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hf_smlg,RMSE_hf_smlg), ...
-    stats_hf_smlg,hf_lim,rho_lim,"thresholds");
+    sprintf('MERRA-2 SM-LG snow thickness: R^2 = %.2f, RMSE = %.1f kg m^{-3}',R2_hf_merra,RMSE_hf_merra), ...
+    stats_hf_merra,hf_lim,rho_lim,"full");
 xlabel('Sea-ice freeboard{\it h_f} (m)','Interpreter','tex','FontSize',11)
 
 cb = colorbar;
@@ -213,21 +201,18 @@ cb.Limits = [0 hs_color_max];
 fsz = 11;
 text(ax1,-0.125,1.035,'(a)','Units','normalized','FontSize',fsz,'FontWeight','normal')
 text(ax2,-0.125,1.035,'(b)','Units','normalized','FontSize',fsz,'FontWeight','normal')
-text(ax3,-0.125,1.035,'(c)','Units','normalized','FontSize',fsz,'FontWeight','normal')
-text(ax4,-0.125,1.035,'(d)','Units','normalized','FontSize',fsz,'FontWeight','normal')
 
-set(fig,'Units','inches','Position',[1 1 12.0 10.0])
+set(fig,'Units','inches','Position',[1 1 12.0 5.2])
+set(findall(fig,'Type','axes'),'Toolbar',[])
 
 outputFigure = fullfile(figureDir, ...
-    'Fig2.png');
-
-set(findall(fig,'Type','axes'),'Toolbar',[])
+    'FigS3.png');
 
 exportgraphics(fig, outputFigure, 'Resolution',300)
 
 close(fig)
 
-fprintf('Generated Figure 2 using %s density.\n', ...
+fprintf('Generated Figure S3 using MERRA-2 SM-LG snow thickness and %s density.\n', ...
     rho_names{densityMode})
 
 fprintf('Saved figure to:\n%s\n', ...

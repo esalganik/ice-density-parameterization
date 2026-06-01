@@ -2,11 +2,12 @@ clear; clc
 
 %% Workflow switches
 
-doProcessing = false;   % Reprocess raw observational datasets
-doMerge = false;        % Merge processed datasets
-doSnowMatchups = false; % Add ERA5/MERRA2 SnowModel-LG snow products
-doStatistics = true;    % Generate manuscript statistics
-doFigures = false;      % Reproduce manuscript figures
+doProcessing = false;     % Reprocess raw observational datasets
+doMerge = false;          % Merge processed datasets
+doSnowMatchups = false;   % Add ERA5/MERRA2 SnowModel-LG snow products
+doStatistics = true;     % Generate manuscript statistics
+doFigures = false;        % Reproduce manuscript figures
+doSupportingInfo = false; % Generate Supporting Information figures and tables
 
 %% Repository setup
 
@@ -27,6 +28,14 @@ if doProcessing
     Nansen_Legacy_processing(repoRoot)
     SUDARCO_processing(repoRoot)
     Svalbard_processing(repoRoot)
+
+end
+
+%% Process Supporting Information datasets
+
+if doSupportingInfo
+
+    Ridges_processing(repoRoot)
 
 end
 
@@ -97,8 +106,21 @@ if doStatistics
         mkdir(resultsDir)
     end
 
-    diary(fullfile(resultsDir, 'manuscript_statistics.txt'))
-    manuscript_statistics(repoRoot)
+    statisticsFile = fullfile(resultsDir, 'manuscript_statistics.txt');
+
+    if exist(statisticsFile,'file')
+        delete(statisticsFile)
+    end
+
+    diary(statisticsFile)
+
+    try
+        manuscript_statistics(repoRoot)
+    catch ME
+        diary off
+        rethrow(ME)
+    end
+
     diary off
 
 end
@@ -118,5 +140,16 @@ if doFigures
 
     analyze_density_model(repoRoot)
     analyze_snow_dependence(repoRoot)
+
+end
+
+%% Generate Supporting Information figures and tables
+
+if doSupportingInfo
+
+    make_cross_validation_table(repoRoot)
+    make_mosaic_coring_density_figure(repoRoot)
+    make_si_ridge_density_figure(repoRoot)
+    make_figureS3_snow_dependence_merra(repoRoot)
 
 end

@@ -1,4 +1,16 @@
 
+Dataset overview
+----------------
+Dataset        Years       Months                 Region               Ice type         Ice thickness (m)     N
+N-ICE2015      2015        Feb                    Arctic Ocean (AO)    FYI              0.3--0.3             1
+MOSAiC         2019--2020  Jan--Dec               Arctic Ocean (AO)    FYI, SYI         0.4--3.3            46
+GoNorth        2022        Oct                    Arctic Ocean (AO)    FYI, SYI         0.3--1.1             2
+SUDARCO        2022--2023  Jun--Aug               Arctic Ocean (AO)    FYI, MYI, SYI    0.7--3.0             8
+CONTRASTS      2025        Jul--Aug               Arctic Ocean (AO)    FYI, MYI, SYI    0.4--1.8            14
+Nansen Legacy  2021--2022  Feb, Mar, May, Aug, Sep AO, Barents Sea      FYI              0.2--1.7            27
+Svalbard       2018--2025  Apr--May               Kongsfjorden         FYI              0.2--0.7            19
+
+
 Seasonal coverage
 -----------------
             Winter  Spring  Summer  Autumn   Total
@@ -43,114 +55,35 @@ Svalbard : 898 +/- 15 kg m^-3 (N = 19)
 Snow thickness models vs observations (non-Svalbard)
 ----------------------------------------------------
 Model     r      R2     RMSE_m   Bias_m   Bias_pct    N
-ERA5     0.70   0.49    0.071   +0.020     +25.7   98
-MERRA2   0.61   0.38    0.112   +0.060     +78.2   98
+ERA5     0.71   0.50    0.071   +0.024     +30.6   98
+MERRA2   0.62   0.38    0.115   +0.067     +86.2   98
 
-Parameterization sample sizes
+SnowModel-LG snow bias by season group (non-Svalbard)
+-----------------------------------------------------
+Group                 Model     MeanObs  MeanModel  Bias_m  Bias_cm  Bias_pct  RMSE_m   R2     N
+All seasons           ERA5       0.077      0.101  +0.024     +2.4     +30.6   0.071   0.50    98
+All seasons           MERRA2     0.077      0.144  +0.067     +6.7     +86.2   0.115   0.38    98
+Non-summer            ERA5       0.110      0.146  +0.037     +3.7     +33.3   0.086   0.21    63
+Non-summer            MERRA2     0.110      0.183  +0.073     +7.3     +66.8   0.119   0.12    63
+Winter                ERA5       0.104      0.208  +0.103    +10.3     +98.9   0.121   0.38    13
+Winter                MERRA2     0.104      0.257  +0.152    +15.2    +145.6   0.158   0.44    13
+Spring                ERA5       0.141      0.156  +0.015     +1.5     +10.5   0.087   0.03    29
+Spring                MERRA2     0.141      0.179  +0.037     +3.7     +26.3   0.105   0.02    29
+Summer                ERA5       0.018      0.019  +0.000     +0.0      +1.3   0.028   0.75    35
+Summer                MERRA2     0.018      0.073  +0.054     +5.4    +294.9   0.108   0.55    35
+Autumn                ERA5       0.069      0.094  +0.025     +2.5     +36.2   0.051   0.49    21
+Autumn                MERRA2     0.069      0.144  +0.074     +7.4    +107.1   0.109   0.30    21
+
+Empirical density uncertainty
 -----------------------------
-Temperature-based parameterization N : 117
-Snow-based parameterization N        : 98
-
-
-Seasonal coverage
------------------
-            Winter  Spring  Summer  Autumn   Total
-Arctic          13      29      35      21      98
-Svalbard         0      19       0       0      19
-
-Dataset characteristics
------------------------
-Total valid observations     : 117
-Arctic observations          : 98
-Svalbard observations        : 19
-
-FYI                          : 83
-SYI/MYI                      : 34
-
-Ice thickness (m)
-  Range       : 0.18 - 3.31
-  Mean +/- SD : 1.08 +/- 0.70
-
-Temperature (deg C)
-  Range       : -12.5 - -0.4
-  Mean +/- SD : -3.6 +/- 3.1
-
-Density (kg m^-3)
-  Range       : 852 - 920
-  Mean +/- SD : 900 +/- 14
-
-Observed snow thickness (m)
-  Range       : 0.00 - 0.30
-  Mean +/- SD : 0.07 +/- 0.07
-
-Ice-age density summary
------------------------
-FYI      : 899 +/- 15 kg m^-3 (N = 83)
-SYI/MYI  : 904 +/- 8 kg m^-3 (N = 34)
-
-Regional density summary
-------------------------
-Arctic   : 901 +/- 14 kg m^-3 (N = 98)
-Svalbard : 898 +/- 15 kg m^-3 (N = 19)
-
-Snow thickness models vs observations (non-Svalbard)
-----------------------------------------------------
-Model     r      R2     RMSE_m   Bias_m   Bias_pct    N
-ERA5     0.70   0.49    0.071   +0.020     +25.7   98
-MERRA2   0.61   0.38    0.112   +0.060     +78.2   98
-
-Parameterization sample sizes
------------------------------
-Temperature-based parameterization N : 117
-Snow-based parameterization N        : 98
-
-
-Seasonal coverage
------------------
-            Winter  Spring  Summer  Autumn   Total
-Arctic          13      29      35      21      98
-Svalbard         0      19       0       0      19
-
-Dataset characteristics
------------------------
-Total valid observations     : 117
-Arctic observations          : 98
-Svalbard observations        : 19
-
-FYI                          : 83
-SYI/MYI                      : 34
-
-Ice thickness (m)
-  Range       : 0.18 - 3.31
-  Mean +/- SD : 1.08 +/- 0.70
-
-Temperature (deg C)
-  Range       : -12.5 - -0.4
-  Mean +/- SD : -3.6 +/- 3.1
-
-Density (kg m^-3)
-  Range       : 852 - 920
-  Mean +/- SD : 900 +/- 14
-
-Observed snow thickness (m)
-  Range       : 0.00 - 0.30
-  Mean +/- SD : 0.07 +/- 0.07
-
-Ice-age density summary
------------------------
-FYI      : 899 +/- 15 kg m^-3 (N = 83)
-SYI/MYI  : 904 +/- 8 kg m^-3 (N = 34)
-
-Regional density summary
-------------------------
-Arctic   : 901 +/- 14 kg m^-3 (N = 98)
-Svalbard : 898 +/- 15 kg m^-3 (N = 19)
-
-Snow thickness models vs observations (non-Svalbard)
-----------------------------------------------------
-Model     r      R2     RMSE_m   Bias_m   Bias_pct    N
-ERA5     0.70   0.49    0.071   +0.020     +25.7   98
-MERRA2   0.61   0.38    0.112   +0.060     +78.2   98
+Using density mode: lab
+Valid panel (d) data points: N = 98
+Saved empirical density uncertainty table: C:\Users\evsalg001\Documents\MATLAB\Density parametrization\script\data\final\Empirical_density_uncertainty.csv
+N = 98
+Residual bias = -1.3 kg m^-3
+Residual RMSE = 9.5 kg m^-3
+Residual std  = 9.5 kg m^-3
+Number of uncertainty bins = 8
 
 Parameterization sample sizes
 -----------------------------

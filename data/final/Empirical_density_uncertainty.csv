@@ -1,0 +1,10 @@
+Freeboard_interval,Freeboard_midpoint,Snow_regime,Snow_reference,N,Density,Density_p025,Density_p975,RMSE_residual,Bias_residual,Note
+m,m,"-",m,-,kg m^-3,kg m^-3,kg m^-3,kg m^-3,kg m^-3,-
+0.00-0.10,0.05,"h_s < h_{s,crit}",0.00,10,871.5,849.7,897.9,16.7,3.4,
+0.00-0.10,0.05,"h_s >= h_{s,crit}",0.08,34,911.0,890.5,919.4,7.3,-3.0,
+0.10-0.20,0.15,"h_s < h_{s,crit}",0.00,23,884.4,858.8,902.1,10.5,-1.2,
+0.10-0.20,0.15,"h_s >= h_{s,crit}",0.08,12,911.0,903.5,915.1,3.1,0.3,
+0.20-0.30,0.25,"h_s < h_{s,crit}",0.00,14,897.3,869.6,906.7,10.7,-2.7,
+0.20-0.30,0.25,"h_s >= h_{s,crit}",0.08,2,910.0,887.7,928.1,0.9,0.1,pooled residual percentiles used
+0.30-0.35,0.33,"h_s < h_{s,crit}",0.00,1,900.0,877.7,918.1,3.5,3.5,pooled residual percentiles used
+0.30-0.35,0.33,"h_s >= h_{s,crit}",0.08,1,908.5,886.2,926.6,0.8,-0.8,pooled residual percentiles used

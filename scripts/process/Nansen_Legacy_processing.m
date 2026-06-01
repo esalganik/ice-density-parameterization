@@ -70,11 +70,6 @@ for i = 1:max(n)
     hT(i) = hT0{i}(1);
 end
 
-for i = 24:27
-    t0{i} = t0{i} - 365;
-    t(i) = t(i) - 365;
-end
-
 for i = 1:max(n)
 
     zrho{i} = mean(zzrho{i},2) * hrho(i) / zzrho{i}(end,2);

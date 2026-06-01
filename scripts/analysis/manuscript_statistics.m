@@ -69,6 +69,7 @@ T = T(valid);
 rho = rho(valid);
 h = h(valid);
 age = age(valid);
+dataset_id = dataset_id(valid);
 
 is_svalbard = is_svalbard(valid);
 
@@ -78,6 +79,72 @@ snow_merra2 = snow_merra2(valid);
 
 isFYI = strcmpi(age,'FYI');
 isSYIMYI = strcmpi(age,'SYI') | strcmpi(age,'MYI');
+
+%% Dataset overview
+
+fprintf('\n')
+fprintf('Dataset overview\n')
+fprintf('----------------\n')
+fprintf(['%-14s %-11s %-22s %-20s %-16s %-18s %4s\n'], ...
+    'Dataset','Years','Months','Region','Ice type','Ice thickness (m)','N')
+
+datasetOrder = ["N-ICE2015", ...
+                "MOSAiC", ...
+                "GoNorth", ...
+                "SUDARCO", ...
+                "CONTRASTS", ...
+                "Nansen Legacy", ...
+                "Svalbard"];
+
+for i = 1:numel(datasetOrder)
+
+    ds = datasetOrder(i);
+    switch ds
+    case "N-ICE2015"
+        idx = contains(dataset_id,"N-ICE","IgnoreCase",true);
+    case "MOSAiC"
+        idx = contains(dataset_id,"MOSAiC","IgnoreCase",true);
+    case "GoNorth"
+        idx = contains(dataset_id,"GoNorth","IgnoreCase",true);
+    case "SUDARCO"
+        idx = contains(dataset_id,"SUDARCO","IgnoreCase",true);
+    case "CONTRASTS"
+        idx = contains(dataset_id,"CONTRASTS","IgnoreCase",true);
+    case "Nansen Legacy"
+        idx = contains(dataset_id,"Nansen","IgnoreCase",true);
+    case "Svalbard"
+        idx = contains(dataset_id,"Svalbard","IgnoreCase",true);
+    end
+
+    if ~any(idx)
+        continue
+    end
+
+    yearsStr = format_years_for_table(year(t(idx)));
+    monthsStr = format_months_for_table(month(t(idx)));
+    iceTypeStr = strjoin(unique(age(idx))',', ');
+
+    if ds == "Svalbard"
+        regionStr = "Kongsfjorden";
+    elseif ds == "Nansen Legacy"
+        regionStr = "AO, Barents Sea";
+    else
+        regionStr = "Arctic Ocean (AO)";
+    end
+
+    fprintf('%-14s %-11s %-22s %-20s %-16s %.1f--%.1f          %4d\n', ...
+        ds, ...
+        yearsStr, ...
+        monthsStr, ...
+        regionStr, ...
+        iceTypeStr, ...
+        min(h(idx)), ...
+        max(h(idx)), ...
+        sum(idx))
+
+end
+
+fprintf('\n')
 
 %% Seasonal coverage
 
@@ -201,43 +268,112 @@ fprintf('Snow thickness models vs observations (non-Svalbard)\n')
 fprintf('----------------------------------------------------\n')
 fprintf('Model     r      R2     RMSE_m   Bias_m   Bias_pct    N\n')
 
-idx = ~is_svalbard & ...
-      isfinite(snow_obs) & ...
-      isfinite(snow_era5);
+model_names = {'ERA5','MERRA2'};
+model_snow = {snow_era5, snow_merra2};
 
-x = snow_obs(idx);
-y = snow_era5(idx);
+for k = 1:numel(model_names)
 
-N = numel(x);
+    idx = ~is_svalbard & ...
+          isfinite(snow_obs) & ...
+          isfinite(model_snow{k});
 
-RMSE = sqrt(mean((y - x).^2));
-bias = mean(y - x);
-bias_pct = 100 * bias / mean(x);
+    x = snow_obs(idx);
+    y = model_snow{k}(idx);
 
-r = corr(x,y,'rows','complete');
-R2 = r^2;
+    N = numel(x);
+    RMSE = sqrt(mean((y - x).^2));
+    bias = mean(y - x);
+    bias_pct = 100 * bias / mean(x);
 
-fprintf('ERA5    %5.2f  %5.2f   %6.3f   %+6.3f   %+7.1f   %d\n', ...
-    r,R2,RMSE,bias,bias_pct,N)
+    r = corr(x,y,'rows','complete');
+    R2 = r^2;
 
-idx = ~is_svalbard & ...
-      isfinite(snow_obs) & ...
-      isfinite(snow_merra2);
+    fprintf('%-7s %5.2f  %5.2f   %6.3f   %+6.3f   %+7.1f   %d\n', ...
+        model_names{k},r,R2,RMSE,bias,bias_pct,N)
 
-x = snow_obs(idx);
-y = snow_merra2(idx);
+end
 
-N = numel(x);
+fprintf('\n')
 
-RMSE = sqrt(mean((y - x).^2));
-bias = mean(y - x);
-bias_pct = 100 * bias / mean(x);
+%% SnowModel-LG seasonal snow-bias evaluation
 
-r = corr(x,y,'rows','complete');
-R2 = r^2;
+fprintf('SnowModel-LG snow bias by season group (non-Svalbard)\n')
+fprintf('-----------------------------------------------------\n')
+fprintf('Group                 Model     MeanObs  MeanModel  Bias_m  Bias_cm  Bias_pct  RMSE_m   R2     N\n')
 
-fprintf('MERRA2  %5.2f  %5.2f   %6.3f   %+6.3f   %+7.1f   %d\n', ...
-    r,R2,RMSE,bias,bias_pct,N)
+groups = { ...
+    true(size(season)), ...
+    season ~= "Summer", ...
+    season == "Winter", ...
+    season == "Spring", ...
+    season == "Summer", ...
+    season == "Autumn"};
+
+group_names = { ...
+    'All seasons', ...
+    'Non-summer', ...
+    'Winter', ...
+    'Spring', ...
+    'Summer', ...
+    'Autumn'};
+
+for g = 1:numel(groups)
+
+    for k = 1:numel(model_names)
+
+        idx = ~is_svalbard & ...
+              groups{g} & ...
+              isfinite(snow_obs) & ...
+              isfinite(model_snow{k});
+
+        x = snow_obs(idx);
+        y = model_snow{k}(idx);
+
+        N = numel(x);
+
+        if N > 1
+            mean_obs = mean(x);
+            mean_model = mean(y);
+            bias = mean(y - x);
+            bias_cm = 100 * bias;
+            bias_pct = 100 * bias / mean_obs;
+            RMSE = sqrt(mean((y - x).^2));
+            r = corr(x,y,'rows','complete');
+            R2 = r^2;
+        else
+            mean_obs = NaN;
+            mean_model = NaN;
+            bias = NaN;
+            bias_cm = NaN;
+            bias_pct = NaN;
+            RMSE = NaN;
+            R2 = NaN;
+        end
+
+        fprintf('%-20s  %-7s  %7.3f  %9.3f  %+6.3f  %+7.1f  %+8.1f  %6.3f  %5.2f  %4d\n', ...
+            group_names{g}, ...
+            model_names{k}, ...
+            mean_obs, ...
+            mean_model, ...
+            bias, ...
+            bias_cm, ...
+            bias_pct, ...
+            RMSE, ...
+            R2, ...
+            N)
+
+    end
+
+end
+
+fprintf('\n')
+
+%% Empirical density uncertainty
+
+fprintf('Empirical density uncertainty\n')
+fprintf('-----------------------------\n')
+
+empirical_density_uncertainty(repoRoot)
 
 fprintf('\n')
 
@@ -253,5 +389,34 @@ fprintf('Snow-based parameterization N        : %d\n', ...
     sum(~is_svalbard))
 
 fprintf('\n')
+
+function yearsStr = format_years_for_table(years)
+
+years = unique(sort(years(:)'));
+
+if isscalar(years)
+    yearsStr = string(years);
+else
+    yearsStr = string(years(1)) + "--" + string(years(end));
+end
+
+end
+
+function monthsStr = format_months_for_table(months)
+
+monthNames = ["Jan","Feb","Mar","Apr","May","Jun", ...
+              "Jul","Aug","Sep","Oct","Nov","Dec"];
+
+months = unique(sort(months(:)'));
+
+if isscalar(months)
+    monthsStr = monthNames(months);
+elseif all(diff(months) == 1)
+    monthsStr = monthNames(months(1)) + "--" + monthNames(months(end));
+else
+    monthsStr = strjoin(monthNames(months),", ");
+end
+
+end
 
 end
