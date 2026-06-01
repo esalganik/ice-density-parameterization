@@ -202,6 +202,7 @@ Manuscript:
 Supporting Information:
 - Figure S1: Hydrostatically derived effective sea-ice density during MOSAiC
 - Figure S2: Directly measured MOSAiC ridge-core densities
+- Figure S3: Snow-thickness and freeboard-dependent density parameterizations using MERRA-2 SM-LG
 - Table S2: Leave-one-campaign-out cross-validation statistics
 
 Generated figures are exported to:
