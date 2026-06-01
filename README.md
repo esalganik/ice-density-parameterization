@@ -24,7 +24,7 @@ scripts/
 │   │   ├── make_cross_validation_table.m
 │   │   ├── make_mosaic_coring_density_figure.m
 │   │   └── make_si_ridge_density_figure.m
-│   └── helpers/
+│   └── checks/
 ├── data/
 │   ├── raw/
 │   ├── processed/
