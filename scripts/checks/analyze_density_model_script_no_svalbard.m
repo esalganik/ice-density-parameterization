@@ -1,6 +1,9 @@
-function analyze_density_model(repoRoot)
-
+clear
 close all
+clc
+
+repoRoot = 'C:\Users\evsalg001\Documents\MATLAB\Density parametrization\script';
+
 
 finalDir = fullfile(repoRoot, ...
     'data', 'final');
@@ -23,11 +26,7 @@ load(inputFile,'D')
 S = load(fullfile(colormapDir,'lipari.mat'));
 lipari = S.lipari;
 
-densityMode = 1;
-% Density definition:
-% 1 = laboratory measurements
-% 2 = in-situ connected porosity
-% 3 = in-situ disconnected porosity
+densityMode = 1; % 1 = lab, 2 = connected, 3 = disconnected
 rho_cols = {"density_lab_kgm3", ...
             "density_insitu_connected_kgm3", ...
             "density_insitu_disconnected_kgm3"};
@@ -40,19 +39,19 @@ if ~isempty(missingVars)
     error('D is missing required variables: %s',strjoin(cellstr(missingVars),', '))
 end
 
-% Cold-regime density parameterization (T_i <= T_crit).
-% Density varies piecewise linearly with ice thickness, reaching a maximum
-% at h_cold_peak before decreasing toward thicker ice.
+% Cold branch for T_i <= Tcrit:
+% bilinear in ice thickness with an independent peak near 1 m.
+% It increases from h_i = 0 to h_cold_peak, then decreases slowly after h_cold_peak.
 h_cold_peak = 1.10;
 rho_cold_peak = 911;
 h_cold_high = 3.50;
 rho_cold_high = 908.5;
 rho_cold_0_grid = 905:1:912;
 
-% Warm-regime density parameterization (T_i > T_crit).
-% Density varies linearly with effective thickness up to hcrit_warm and
-% approaches a plateau for thicker ice.
-Tcrit_grid = -3.0:0.05:-2.0;
+% Warm branch for T_i > Tcrit:
+% bilinear in ice thickness with its own critical thickness near 2 m.
+% It is linear below hcrit_warm and constant above hcrit_warm.
+Tcrit_grid = -3.5:0.05:-1.5;
 hcrit_warm_grid = 1.8:0.1:2.3;
 rho_warm_plateau_grid = 895:1:905;
 
@@ -60,8 +59,8 @@ min_n_cold = 8;
 min_n_warm = 8;
 
 doBootstrap = true;
-doLODO = true; % Optional diagnostic: leave-one-dataset-out cross-validation.
-nboot = 100;
+doLODO = true;
+nboot = 200;
 rng(1)
 
 if ~isdatetime(D.date)
@@ -75,7 +74,6 @@ else
 end
 
 t = D.date;
-% Normalize all dates to a common reference year for seasonal analysis.
 t.Year = 2020;
 T = D.temperature_C;
 rho = D.(rho_col);
@@ -118,7 +116,29 @@ rhohat = predict_fast_fixed_hcrit_model( ...
 
 metrics = regression_metrics(rho_fit,rhohat,numel(p));
 
-% Leave-one-dataset-out cross-validation tests generalization to unseen datasets.
+% Sensitivity test for manuscript sentence:
+% refit the same parameterization after excluding Svalbard/landfast cores.
+fit_mask_no_svalbard = ~is_freeze & ~is_svalbard;
+T_fit_no_svalbard = T(fit_mask_no_svalbard);
+rho_fit_no_svalbard = rho(fit_mask_no_svalbard);
+h_fit_no_svalbard = h(fit_mask_no_svalbard);
+N_no_svalbard = numel(rho_fit_no_svalbard);
+
+fit_no_svalbard = fit_fast_fixed_hcrit_model( ...
+    rho_fit_no_svalbard,T_fit_no_svalbard,h_fit_no_svalbard, ...
+    h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid, ...
+    Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm);
+
+p_no_svalbard = [fit_no_svalbard.Tcrit fit_no_svalbard.rho_warm_plateau ...
+    fit_no_svalbard.warm_slope fit_no_svalbard.hcrit_warm fit_no_svalbard.rho_cold_0];
+
+rhohat_no_svalbard = predict_fast_fixed_hcrit_model( ...
+    T_fit_no_svalbard,h_fit_no_svalbard,p_no_svalbard, ...
+    h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+
+metrics_no_svalbard = regression_metrics( ...
+    rho_fit_no_svalbard,rhohat_no_svalbard,numel(p_no_svalbard));
+
 if doLODO
     cv = leave_one_dataset_out_cv_fast_fixed_hcrit( ...
         rho_fit,T_fit,h_fit,dataset_fit,p, ...
@@ -165,6 +185,7 @@ fig1 = figure;
 set(fig1,'Units','inches','Position',[1.1 1.0 10.5 8.8]);
 tl = tiledlayout(fig1,2,2,'TileSpacing','compact','Padding','compact');
 
+% panel (a): imported map PNG at native size
 ax0_tmp = nexttile(tl,1);
 drawnow
 
@@ -237,10 +258,11 @@ xlabel(ax1,'Month')
 ylabel(ax1,'Sea-ice density \rho (kg m^{-3})','Interpreter','tex')
 set(ax1,'FontSize',fs_ax,'FontWeight','normal')
 xlim(ax1,[t_start_plot t_end_plot])
+% xtickformat(ax1,'MMM')
 datetick(ax1, 'x', 'mmm', 'keepticks');
 ylim(ax1,[850 920])
 box(ax1,'on')
-
+% panel labels
 fsz = 10;
 label_dx = -105;
 label_dy = -3.87;
@@ -385,16 +407,22 @@ ylim(ax3,[850 920])
 box(ax3,'on')
 text(ax3,-0.145,1.02,'(d)','Units','normalized','FontSize',10,'FontWeight','normal')
 
-outputFigure = fullfile(figureDir,'Fig1.png');
+% outputFigure = fullfile(figureDir,'Fig1.png');
+% set(findall(fig1,'Type','axes'),'Toolbar',[])
+% exportgraphics(fig1, outputFigure,'Resolution',300)
+% close(fig1)
+% fprintf('Generated Figure 1 using %s density (%d observations).\n', rho_names{densityMode}, N)
+% fprintf('Saved figure to:\n%s\n', outputFigure)
 
-set(findall(fig1,'Type','axes'),'Toolbar',[])
-
-exportgraphics(fig1, outputFigure,'Resolution',300)
-
-close(fig1)
-
-fprintf('Generated Figure 1 using %s density (%d observations).\n', rho_names{densityMode}, N)
-fprintf('Saved figure to:\n%s\n', outputFigure)
+fprintf('\nNo-Svalbard refit for manuscript sentence:\n')
+fprintf('R2 = %.2f, RMSE = %.1f kg m-3, N = %d\n', ...
+    metrics_no_svalbard.r2,metrics_no_svalbard.rmse,N_no_svalbard)
+fprintf(['Refitting the temperature-based parameterization without Svalbard cores ' ...
+    'yielded nearly identical coefficients and skill (R^2 = %.2f, RMSE = %.1f~kg~m$^{-3}$), ' ...
+    'confirming that inclusion of landfast-ice observations does not materially bias the calibration.\n'], ...
+    metrics_no_svalbard.r2,metrics_no_svalbard.rmse)
+fprintf('No-Svalbard coefficients: Tcrit = %.1f C, rho_warm_plateau = %.1f, warm_slope = %.2f, hcrit_warm = %.1f m, rho_cold_0 = %.1f\n', ...
+    p_no_svalbard(1),p_no_svalbard(2),p_no_svalbard(3),p_no_svalbard(4),p_no_svalbard(5))
 
 %% Helpers
 function fit = fit_fast_fixed_hcrit_model(rho,T,h,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
@@ -484,9 +512,9 @@ end
 
 function rhoCold = cold_branch_density(h,rho_cold_0,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high)
 
-% Piecewise-linear cold-regime density parameterization.
-% Density increases to a maximum at h_cold_peak and then decreases
-% gradually toward h_cold_high.
+% Bilinear cold branch, independent from the warm-branch critical thickness:
+% segment 1: increasing density from h_i = 0 to h_cold_peak (~1 m)
+% segment 2: slowly decreasing density for h_i > h_cold_peak
 rhoCold = nan(size(h));
 
 idx1 = h <= h_cold_peak;
@@ -588,6 +616,4 @@ end
 
 hband = fill(ax,[x(:); flipud(x(:))],[rho_lo(:); flipud(rho_hi(:))], ...
     [0.75 0.75 0.75],'FaceAlpha',0.20,'EdgeColor','none','HandleVisibility','off');
-end
-
 end

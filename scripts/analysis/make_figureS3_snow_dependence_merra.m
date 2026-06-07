@@ -27,7 +27,11 @@ load(inputFile,'D')
 S = load(fullfile(colormapDir,'lipari.mat'));
 lipari = S.lipari;
 
-densityMode = 1; % 1 = lab, 2 = connected, 3 = disconnected
+densityMode = 1;
+% Density definition:
+% 1 = laboratory measurements
+% 2 = in-situ connected porosity
+% 3 = in-situ disconnected porosity
 rho_cols = {"density_lab_kgm3", ...
             "density_insitu_connected_kgm3", ...
             "density_insitu_disconnected_kgm3"};
@@ -38,8 +42,10 @@ hs_color_max = 0.08;
 hi_lim = [0 3.5];
 hf_lim = [0 0.35];
 rho_lim = [850 930];
+% Seawater density used for hydrostatic freeboard estimation (kg m^-3).
 rho_w = 1024;
 
+% Enhance color contrast at low snow thickness.
 ntrim = 25;
 lipari = lipari(1:end-ntrim,:);
 lipari = flipud(lipari);
@@ -53,13 +59,8 @@ end
 
 dataset_all = string(D.dataset);
 
-if ismember("is_freeze",string(D.Properties.VariableNames))
-    is_freeze = logical(D.is_freeze);
-else
-    is_freeze = false(height(D),1);
-end
-
-mask = ~(is_freeze | contains(lower(dataset_all),"svalbard"));
+is_svalbard = contains(lower(dataset_all),"svalbard");
+mask = ~is_svalbard;
 
 hi_all = D.ice_thickness_m(mask);
 rho_all = D.(rho_col)(mask);
@@ -68,7 +69,7 @@ age_all = D.ice_age(mask);
 hs_meas0 = D.hs(mask);
 hs_merra0 = D.hs_merra(mask);
 
-% Thickness parametrization from script 1
+% Density parameterization as a function of ice thickness and snow thickness.
 [x_hi_meas,hs_hi_meas,rho_hi_meas,valid_hi_meas] = hi_prepare_thickness_data(hi_all,rho_all,hs_meas0);
 [x_hi_merra,hs_hi_smlg,rho_hi_merra,valid_hi_merra] = hi_prepare_thickness_data(hi_all,rho_all,hs_merra0);
 
@@ -89,6 +90,7 @@ hs_high_min = 0.05;
 hs_high_max = 0.12;
 
 p0_hi = [857, 908, 0.015, 0.07, 1.9, 905];
+% Bootstrap resampling parameters.
 nboot_hi = 1000;
 rng(1)
 
@@ -104,6 +106,7 @@ B_hi_meas = hi_bootstrap_panel1( ...
     rho_thick_0_bounds,hi0_low_bounds,rho_low_const_bounds_hi, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max);
 
+% Refit snow-thickness transition thresholds for MERRA-2 SM-LG snow.
 [p_hi_merra,RMSE_hi_merra,R2_hi_merra] = hi_fit_panel2_thresholds_only( ...
     x_hi_merra,hs_hi_smlg,rho_hi_merra,p_hi_meas, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
@@ -124,7 +127,7 @@ hs_cases_hi_meas = [p_hi_meas(3), mean(p_hi_meas(3:4)), p_hi_meas(4)];
 xline_hi_merra = linspace(hi_lim(1),hi_lim(2),300);
 hs_cases_hi_merra = [p_hi_merra(3), mean(p_hi_merra(3:4)), p_hi_merra(4)];
 
-% Freeboard parametrization from script 2
+% Density parameterization as a function of freeboard and snow thickness.
 [x_hf_meas,hs_hf_meas,rho_hf_meas,valid_hf_meas] = hf_prepare_freeboard_data(hi_all,rho_all,hs_meas0,date_all,rho_w);
 [x_hf_merra,hs_hf_smlg,rho_hf_merra,valid_hf_merra] = hf_prepare_freeboard_data(hi_all,rho_all,hs_merra0,date_all,rho_w);
 
@@ -139,7 +142,8 @@ hf_thick_high = 0.35;
 rho_thick_high_manual_hf = 908;
 
 p0_hf = [857, 908, 0.015, 0.07, 0.23];
-nboot_hf = 150;
+% Bootstrap resampling parameters.
+nboot_hf = 1000;
 rng(1)
 
 [p_hf_meas,RMSE_hf_meas,R2_hf_meas] = hf_fit_full_model( ...
@@ -172,7 +176,7 @@ hs_cases_hf_meas = [p_hf_meas(3), mean(p_hf_meas(3:4)), p_hf_meas(4)];
 xline_hf_merra = linspace(hf_lim(1),hf_lim(2),300);
 hs_cases_hf_merra = [p_hf_merra(3), mean(p_hf_merra(3:4)), p_hf_merra(4)];
 
-% Plot only the MERRA-2 SnowModel-LG panels for Supporting Figure S3
+% Generate Supporting Figure S3 using MERRA-2 SM-LG snow thickness.
 fig = figure;
 tiledlayout(1,2,'TileSpacing','compact','Padding','compact');
 
@@ -597,7 +601,7 @@ for i = 1:numel(hs_cases)
         'Color',line_color,'DisplayName',hs_labels{i});
 end
 
-ylabel('Sea-ice density \rho_i (kg m^{-3})','Interpreter','tex','FontSize',11)
+ylabel('Sea-ice density \rho (kg m^{-3})','Interpreter','tex','FontSize',11)
 title(title_text,'Interpreter','tex','FontWeight','normal','FontSize',11)
 
 if text_mode == "full"
@@ -713,6 +717,7 @@ aug1_this_year = datetime(year(date),8,1);
 aug1_next = aug1_this_year;
 aug1_next(date > aug1_this_year) = datetime(year(date(date > aug1_this_year)) + 1,8,1);
 
+% Seasonal snow-density parameterization (Mallett, 2025) used for hydrostatic freeboard estimation.
 rho_s = 0.35 .* days(aug1_next - date) + 239.78;
 
 x = hi - (rho.*hi + rho_s.*hs)./rho_w;
@@ -1022,7 +1027,7 @@ for i = 1:numel(hs_cases)
         'Color',line_color,'DisplayName',hs_labels{i});
 end
 
-ylabel('Sea-ice density \rho_i (kg m^{-3})','Interpreter','tex','FontSize',11)
+ylabel('Sea-ice density \rho (kg m^{-3})','Interpreter','tex','FontSize',11)
 title(title_text,'Interpreter','tex','FontWeight','normal','FontSize',11)
 
 if text_mode == "full"

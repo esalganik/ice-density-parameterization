@@ -1,6 +1,8 @@
-function analyze_density_model(repoRoot)
-
+clear
 close all
+clc
+
+repoRoot = 'C:\Users\evsalg001\Documents\MATLAB\Density parametrization\script';
 
 finalDir = fullfile(repoRoot, ...
     'data', 'final');
@@ -23,15 +25,10 @@ load(inputFile,'D')
 S = load(fullfile(colormapDir,'lipari.mat'));
 lipari = S.lipari;
 
-densityMode = 1;
-% Density definition:
-% 1 = laboratory measurements
-% 2 = in-situ connected porosity
-% 3 = in-situ disconnected porosity
+densityMode = 1; % 1 = lab, 2 = connected, 3 = disconnected
 rho_cols = {"density_lab_kgm3", ...
             "density_insitu_connected_kgm3", ...
             "density_insitu_disconnected_kgm3"};
-rho_names = {"lab","connected","disconnected"};
 rho_col = rho_cols{densityMode};
 
 requiredVars = ["date","ice_age","dataset","temperature_C","ice_thickness_m",rho_col];
@@ -40,28 +37,26 @@ if ~isempty(missingVars)
     error('D is missing required variables: %s',strjoin(cellstr(missingVars),', '))
 end
 
-% Cold-regime density parameterization (T_i <= T_crit).
-% Density varies piecewise linearly with ice thickness, reaching a maximum
-% at h_cold_peak before decreasing toward thicker ice.
+% Cold branch for T_i <= Tcrit:
+% bilinear in ice thickness with an independent peak near 1 m.
 h_cold_peak = 1.10;
 rho_cold_peak = 911;
 h_cold_high = 3.50;
 rho_cold_high = 908.5;
 rho_cold_0_grid = 905:1:912;
 
-% Warm-regime density parameterization (T_i > T_crit).
-% Density varies linearly with effective thickness up to hcrit_warm and
-% approaches a plateau for thicker ice.
-Tcrit_grid = -3.0:0.05:-2.0;
+% Warm branch for T_i > Tcrit:
+% bilinear in ice thickness with its own critical thickness near 2 m.
+Tcrit_grid = -3.5:0.05:-1.5;
 hcrit_warm_grid = 1.8:0.1:2.3;
 rho_warm_plateau_grid = 895:1:905;
 
 min_n_cold = 8;
 min_n_warm = 8;
 
+% Bootstrap is used only for the confidence bands in the two-panel figure.
 doBootstrap = true;
-doLODO = true; % Optional diagnostic: leave-one-dataset-out cross-validation.
-nboot = 100;
+nboot = 200;
 rng(1)
 
 if ~isdatetime(D.date)
@@ -75,7 +70,6 @@ else
 end
 
 t = D.date;
-% Normalize all dates to a common reference year for seasonal analysis.
 t.Year = 2020;
 T = D.temperature_C;
 rho = D.(rho_col);
@@ -118,17 +112,6 @@ rhohat = predict_fast_fixed_hcrit_model( ...
 
 metrics = regression_metrics(rho_fit,rhohat,numel(p));
 
-% Leave-one-dataset-out cross-validation tests generalization to unseen datasets.
-if doLODO
-    cv = leave_one_dataset_out_cv_fast_fixed_hcrit( ...
-        rho_fit,T_fit,h_fit,dataset_fit,p, ...
-        h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid, ...
-        Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm);
-else
-    cv.rmse = NaN;
-    cv.r2 = NaN;
-end
-
 if doBootstrap
     B_fit = bootstrap_fast_fixed_hcrit_model( ...
         rho_fit,T_fit,h_fit,dataset_fit,nboot, ...
@@ -162,98 +145,10 @@ Tmin_time = -8;
 Tmax_time = 0;
 
 fig1 = figure;
-set(fig1,'Units','inches','Position',[1.1 1.0 10.5 8.8]);
-tl = tiledlayout(fig1,2,2,'TileSpacing','compact','Padding','compact');
+set(fig1,'Units','inches','Position',[1.1 1.0 10.5 4.4]);
+tl = tiledlayout(fig1,1,2,'TileSpacing','compact','Padding','compact');
 
-ax0_tmp = nexttile(tl,1);
-drawnow
-
-set(ax0_tmp,'Units','inches');
-tilePos = ax0_tmp.Position;
-delete(ax0_tmp)
-
-img_map = imread(fullfile(figureDir, ...
-    'Map_density_lab.png'));
-[imgH,imgW,~] = size(img_map);
-dpi = 300;
-imgW_in = imgW / dpi;
-imgH_in = imgH / dpi;
-
-dx = -0.18;
-dy = +0.01;
-left = tilePos(1) + dx;
-top = tilePos(2) + tilePos(4) + dy;
-
-ax0 = axes(fig1, ...
-    'Units','inches', ...
-    'Position',[left, top-imgH_in, imgW_in, imgH_in]);
-
-image(ax0,img_map)
-axis(ax0,'image')
-axis(ax0,'off')
-set(ax0,'YDir','reverse')
-
-ax1 = nexttile(tl,2);
-hold(ax1,'on')
-scatter(ax1,t(is_fyi_all),rho(is_fyi_all),38,T(is_fyi_all),'o','filled','MarkerEdgeColor','flat')
-scatter(ax1,t(is_old_all),rho(is_old_all),38,T(is_old_all),'o','MarkerFaceColor','none','MarkerEdgeColor','flat','LineWidth',1.0)
-scatter(ax1,t(is_sva_all),rho(is_sva_all),38,T(is_sva_all),'>','filled','MarkerEdgeColor','flat')
-
-idxGuide = ice_type == "FYI" & ~is_svalbard & ~isnan(rho) & ~isnat(t);
-tGuide = t(idxGuide);
-rhoGuide = rho(idxGuide);
-t_start_plot = datetime(2020,1,1);
-t_end_plot = datetime(2021,1,1);
-tRef = datetime(2020,1,1);
-xGuide = days(tGuide - tRef);
-idxDec = month(tGuide) == 12;
-idxJan = month(tGuide) == 1;
-xWrap = [xGuide(idxDec)-366; xGuide; xGuide(idxJan)+366];
-rhoWrap = [rhoGuide(idxDec); rhoGuide; rhoGuide(idxJan)];
-
-if numel(xWrap) >= 5
-    [xU,~,ic] = unique(xWrap);
-    rhoDay = accumarray(ic,rhoWrap,[],@median);
-    [xU,isrt] = sort(xU);
-    rhoDay = rhoDay(isrt);
-    tCurve = (t_start_plot:days(1):t_end_plot-days(1)).';
-    xCurve = days(tCurve - tRef);
-    rhoSmooth = smooth(xU,rhoDay,0.25,'rloess');
-    rhoCurve = interp1(xU,rhoSmooth,xCurve,'pchip',nan);
-    p_mean = plot(ax1,tCurve,rhoCurve,'--','Color',[0.15 0.15 0.15],'LineWidth',1.2);
-else
-    p_mean = plot(ax1,nan,nan,'--','Color',[0.15 0.15 0.15],'LineWidth',1.2);
-end
-
-p_fyi_ca = plot(ax1,nan,nan,'o','MarkerSize',ms_ca_fyi,'MarkerFaceColor','k','MarkerEdgeColor','k','LineStyle','none');
-p_syi_ca = plot(ax1,nan,nan,'o','MarkerSize',ms_ca_syi,'MarkerFaceColor','none','MarkerEdgeColor','k','LineWidth',lw_open,'LineStyle','none');
-p_sva = plot(ax1,nan,nan,'>','MarkerSize',ms_sva,'MarkerFaceColor','k','MarkerEdgeColor','k','LineStyle','none');
-legend(ax1,[p_fyi_ca p_syi_ca p_sva p_mean],{'FYI','SYI & MYI','Svalbard','FYI seasonal mean'},'Location','southwest','Box','off','FontSize',fs_txt,'Interpreter','tex')
-colormap(ax1,lipari)
-clim(ax1,[Tmin_time Tmax_time])
-cb1 = colorbar(ax1);
-ylabel(cb1, 'Sea-ice temperature (°C)');
-xlabel(ax1,'Month')
-ylabel(ax1,'Sea-ice density \rho (kg m^{-3})','Interpreter','tex')
-set(ax1,'FontSize',fs_ax,'FontWeight','normal')
-xlim(ax1,[t_start_plot t_end_plot])
-datetick(ax1, 'x', 'mmm', 'keepticks');
-ylim(ax1,[850 920])
-box(ax1,'on')
-
-fsz = 10;
-label_dx = -105;
-label_dy = -3.87;
-text(ax0, ...
-    label_dx, imgH + label_dy*dpi, '(a)', ...
-    'Units','data', ...
-    'FontSize',fsz, ...
-    'FontWeight','normal', ...
-    'Clipping','off');
-
-text(ax1,-0.145,1.02,'(b)','Units','normalized','FontSize',10,'FontWeight','normal')
-
-ax2 = nexttile(tl,3);
+ax2 = nexttile(tl,1);
 hold(ax2,'on')
 scatter(ax2,T(is_fyi_all),rho(is_fyi_all),ms,h(is_fyi_all),'filled','MarkerEdgeColor','flat','LineWidth',0.35)
 scatter(ax2,T(is_old_all),rho(is_old_all),ms,h(is_old_all),'MarkerFaceColor','none','MarkerEdgeColor','flat','LineWidth',1.0)
@@ -291,10 +186,7 @@ leg2 = legend(ax2,[p_fyi2 p_syi2 p_sva2 p_h1 p_h2 p_h3 h_ci2], ...
     'Box','off', ...
     'FontSize',fs_txt, ...
     'Interpreter','latex');
-
-leg2.Units = 'normalized';
 leg2.ItemTokenSize = [14 4];
-leg2.Position = [0.015 0.23 0.23 0.13];
 
 eqnTxt = sprintf([ ...
     '$w_T=T_i/(%.1f),\\quad T_i>%.1f^\\circ\\mathrm{C}$' newline ...
@@ -311,15 +203,15 @@ eqnTxt = sprintf([ ...
     rho_cold_peak,(rho_cold_high-rho_cold_peak)/(h_cold_high-h_cold_peak),h_cold_peak,h_cold_peak, ...
     metrics.r2,metrics.rmse,N);
 text(ax2,0.02,0.01,eqnTxt,'Units','normalized','Interpreter','latex','HorizontalAlignment','left','VerticalAlignment','bottom','FontSize',fs_txt + 0.8)
-xlabel(ax2,'Sea-ice temperature{\it T_i} (°C)')
+xlabel(ax2,'Sea-ice temperature T_i (°C)','Interpreter','tex')
 ylabel(ax2,'Sea-ice density \rho (kg m^{-3})','Interpreter','tex')
 set(ax2,'FontSize',fs_ax,'FontWeight','normal')
 xlim(ax2,[-10 0])
 ylim(ax2,[850 920])
 box(ax2,'on')
-text(ax2,-0.145,1.02,'(c)','Units','normalized','FontSize',10,'FontWeight','normal')
+text(ax2,-0.145,1.02,'(a)','Units','normalized','FontSize',10,'FontWeight','normal')
 
-ax3 = nexttile(tl,4);
+ax3 = nexttile(tl,2);
 hold(ax3,'on')
 scatter(ax3,h(is_fyi_all),rho(is_fyi_all),ms,T(is_fyi_all),'filled','MarkerEdgeColor','flat','LineWidth',0.35)
 scatter(ax3,h(is_old_all),rho(is_old_all),ms,T(is_old_all),'MarkerFaceColor','none','MarkerEdgeColor','flat','LineWidth',1.0)
@@ -345,24 +237,9 @@ p_T1 = plot(ax3,hplot,rho_T1,'-','Color',cT1,'LineWidth',lw);
 p_T2 = plot(ax3,hplot,rho_T2,'-','Color',cT2,'LineWidth',lw);
 p_T3 = plot(ax3,hplot,rho_T3,'-','Color',cT3,'LineWidth',lw);
 
-p_fyi3 = plot(ax3,nan,nan,'o', ...
-    'MarkerSize',ms_ca_fyi, ...
-    'MarkerFaceColor','k', ...
-    'MarkerEdgeColor','k', ...
-    'LineStyle','none');
-
-p_syi3 = plot(ax3,nan,nan,'o', ...
-    'MarkerSize',ms_ca_syi, ...
-    'MarkerFaceColor','none', ...
-    'MarkerEdgeColor','k', ...
-    'LineWidth',lw_open, ...
-    'LineStyle','none');
-
-p_sva3 = plot(ax3,nan,nan,'>', ...
-    'MarkerSize',ms_sva, ...
-    'MarkerFaceColor','k', ...
-    'MarkerEdgeColor','k', ...
-    'LineStyle','none');
+p_fyi3 = plot(ax3,nan,nan,'o','MarkerSize',ms_ca_fyi,'MarkerFaceColor','k','MarkerEdgeColor','k','LineStyle','none');
+p_syi3 = plot(ax3,nan,nan,'o','MarkerSize',ms_ca_syi,'MarkerFaceColor','none','MarkerEdgeColor','k','LineWidth',lw_open,'LineStyle','none');
+p_sva3 = plot(ax3,nan,nan,'>','MarkerSize',ms_sva,'MarkerFaceColor','k','MarkerEdgeColor','k','LineStyle','none');
 
 leg3 = legend(ax3, ...
     [p_fyi3 p_syi3 p_sva3 p_T1 p_T2 p_T3 h_ci3], ...
@@ -373,28 +250,173 @@ leg3 = legend(ax3, ...
      '95\% bootstrap CI'}, ...
     'Location','southeast', ...
     'Box','off', ...
-    'FontSize',fs_txt);
-
+    'FontSize',fs_txt, ...
+    'Interpreter','latex');
 leg3.AutoUpdate = 'off';
-set(leg3,'FontSize',fs_txt,'Interpreter','latex')
-xlabel(ax3,'Sea-ice thickness{\it h_i} (m)')
+leg3.ItemTokenSize = [14 4];
+xlabel(ax3,'Sea-ice thickness h_i (m)','Interpreter','tex')
 ylabel(ax3,'Sea-ice density \rho (kg m^{-3})','Interpreter','tex')
 set(ax3,'FontSize',fs_ax,'FontWeight','normal')
 xlim(ax3,[0 3.5])
 ylim(ax3,[850 920])
 box(ax3,'on')
-text(ax3,-0.145,1.02,'(d)','Units','normalized','FontSize',10,'FontWeight','normal')
+text(ax3,-0.145,1.02,'(b)','Units','normalized','FontSize',10,'FontWeight','normal')
 
-outputFigure = fullfile(figureDir,'Fig1.png');
+% outputFigure = fullfile(figureDir,'Fig_temperature_density_two_panel.png');
+% set(findall(fig1,'Type','axes'),'Toolbar',[])
+% exportgraphics(fig1,outputFigure,'Resolution',300)
+% fprintf('Generated two-panel temperature-density figure using %s density (%d observations).\n', rho_col, N)
+% fprintf('Saved figure to:\n%s\n', outputFigure)
 
-set(findall(fig1,'Type','axes'),'Toolbar',[])
+%% Ice-type threshold sensitivity test (FYI vs SYI/MYI)
+% This test addresses whether the temperature transition can be constrained
+% separately for FYI and old ice (SYI/MYI). It should be interpreted as a
+% sensitivity analysis, not as a replacement for the pooled parameterization.
 
-exportgraphics(fig1, outputFigure,'Resolution',300)
+fprintf('\nIce-type threshold sensitivity test:\n')
 
-close(fig1)
+is_fyi_fit = ice_type(~is_freeze) == "FYI" & ~is_svalbard(~is_freeze);
+is_old_fit = ice_type(~is_freeze) ~= "FYI" & ~is_svalbard(~is_freeze);
 
-fprintf('Generated Figure 1 using %s density (%d observations).\n', rho_names{densityMode}, N)
-fprintf('Saved figure to:\n%s\n', outputFigure)
+fprintf('FYI non-Svalbard N = %d; SYI/MYI non-Svalbard N = %d\n',sum(is_fyi_fit),sum(is_old_fit))
+
+% 1) Fit the full model separately to FYI and SYI/MYI where possible.
+fit_fyi = [];
+fit_old = [];
+
+if sum(is_fyi_fit) >= 25
+    fit_fyi = fit_fast_fixed_hcrit_model( ...
+        rho_fit(is_fyi_fit),T_fit(is_fyi_fit),h_fit(is_fyi_fit), ...
+        h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid, ...
+        Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm);
+    p_fyi = [fit_fyi.Tcrit fit_fyi.rho_warm_plateau fit_fyi.warm_slope fit_fyi.hcrit_warm fit_fyi.rho_cold_0];
+    yhat_fyi = predict_fast_fixed_hcrit_model(T_fit(is_fyi_fit),h_fit(is_fyi_fit),p_fyi, ...
+        h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+    met_fyi = regression_metrics(rho_fit(is_fyi_fit),yhat_fyi,numel(p_fyi));
+    fprintf('FYI-only full refit: Tcrit = %.2f C, R2 = %.2f, RMSE = %.1f kg m-3\n', ...
+        p_fyi(1),met_fyi.r2,met_fyi.rmse)
+else
+    fprintf('FYI-only full refit skipped: too few observations.\n')
+end
+
+if sum(is_old_fit) >= 25 && sum(T_fit(is_old_fit) <= min(Tcrit_grid)) >= min_n_cold && sum(T_fit(is_old_fit) > max(Tcrit_grid)) >= min_n_warm
+    fit_old = fit_fast_fixed_hcrit_model( ...
+        rho_fit(is_old_fit),T_fit(is_old_fit),h_fit(is_old_fit), ...
+        h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid, ...
+        Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm);
+    p_old = [fit_old.Tcrit fit_old.rho_warm_plateau fit_old.warm_slope fit_old.hcrit_warm fit_old.rho_cold_0];
+    yhat_old = predict_fast_fixed_hcrit_model(T_fit(is_old_fit),h_fit(is_old_fit),p_old, ...
+        h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+    met_old = regression_metrics(rho_fit(is_old_fit),yhat_old,numel(p_old));
+    fprintf('SYI/MYI-only full refit: Tcrit = %.2f C, R2 = %.2f, RMSE = %.1f kg m-3\n', ...
+        p_old(1),met_old.r2,met_old.rmse)
+else
+    fprintf('SYI/MYI-only full refit skipped or weakly constrained: too few cold/warm observations for a stable 5-parameter fit.\n')
+end
+
+% 2) More conservative test: keep all non-threshold parameters fixed from
+% the pooled model and scan only Tcrit separately for FYI and old ice.
+% This asks whether the data support a meaningful Tcrit split without giving
+% each ice type a full independent 5-parameter model.
+non_svalbard_fit = ~is_svalbard(~is_freeze);
+T_test = T_fit(non_svalbard_fit);
+h_test = h_fit(non_svalbard_fit);
+rho_test = rho_fit(non_svalbard_fit);
+ice_test = ice_type(~is_freeze);
+ice_test = ice_test(non_svalbard_fit);
+is_fyi_test = ice_test == "FYI";
+is_old_test = ice_test ~= "FYI";
+
+p_base = p;
+
+% Common-threshold SSE using the pooled model evaluated on non-Svalbard FYI/SYI/MYI cores.
+yhat_common = predict_fast_fixed_hcrit_model(T_test,h_test,p_base, ...
+    h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+sse_common = sum((rho_test - yhat_common).^2,'omitnan');
+rmse_common = sqrt(mean((rho_test - yhat_common).^2,'omitnan'));
+
+sse_split = nan(numel(Tcrit_grid),numel(Tcrit_grid));
+
+for i = 1:numel(Tcrit_grid)
+    for j = 1:numel(Tcrit_grid)
+        p_tmp_fyi = p_base;
+        p_tmp_old = p_base;
+        p_tmp_fyi(1) = Tcrit_grid(i);
+        p_tmp_old(1) = Tcrit_grid(j);
+
+        yhat_tmp = nan(size(rho_test));
+        yhat_tmp(is_fyi_test) = predict_fast_fixed_hcrit_model(T_test(is_fyi_test),h_test(is_fyi_test),p_tmp_fyi, ...
+            h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+        yhat_tmp(is_old_test) = predict_fast_fixed_hcrit_model(T_test(is_old_test),h_test(is_old_test),p_tmp_old, ...
+            h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+
+        % Require both sides of each threshold to be represented when possible.
+        if sum(T_test(is_fyi_test) <= Tcrit_grid(i)) < min_n_cold || sum(T_test(is_fyi_test) > Tcrit_grid(i)) < min_n_warm
+            continue
+        end
+        if sum(T_test(is_old_test) <= Tcrit_grid(j)) < 3 || sum(T_test(is_old_test) > Tcrit_grid(j)) < 3
+            continue
+        end
+
+        sse_split(i,j) = sum((rho_test - yhat_tmp).^2,'omitnan');
+    end
+end
+
+[min_sse_split,idx_min] = min(sse_split(:),[],'omitnan');
+[i_best,j_best] = ind2sub(size(sse_split),idx_min);
+Tcrit_fyi_best = Tcrit_grid(i_best);
+Tcrit_old_best = Tcrit_grid(j_best);
+rmse_split = sqrt(min_sse_split/numel(rho_test));
+
+% Compare by AIC/BIC. Split-threshold model has one extra parameter.
+n_test = numel(rho_test);
+k_common = numel(p_base);
+k_split = numel(p_base) + 1;
+aic_common = n_test*log(sse_common/n_test) + 2*k_common;
+aic_split = n_test*log(min_sse_split/n_test) + 2*k_split;
+bic_common = n_test*log(sse_common/n_test) + k_common*log(n_test);
+bic_split = n_test*log(min_sse_split/n_test) + k_split*log(n_test);
+
+fprintf('Common Tcrit model: Tcrit = %.2f C, RMSE = %.2f kg m-3, AIC = %.1f, BIC = %.1f\n', ...
+    p_base(1),rmse_common,aic_common,bic_common)
+fprintf('Split Tcrit scan: FYI Tcrit = %.2f C, SYI/MYI Tcrit = %.2f C, RMSE = %.2f kg m-3, AIC = %.1f, BIC = %.1f\n', ...
+    Tcrit_fyi_best,Tcrit_old_best,rmse_split,aic_split,bic_split)
+fprintf('Delta RMSE common - split = %.2f kg m-3; Delta AIC split-common = %.1f; Delta BIC split-common = %.1f\n', ...
+    rmse_common-rmse_split,aic_split-aic_common,bic_split-bic_common)
+
+% 3) Profile curves for Tcrit by ice type with other parameters fixed.
+rmse_fyi_profile = nan(size(Tcrit_grid));
+rmse_old_profile = nan(size(Tcrit_grid));
+
+for i = 1:numel(Tcrit_grid)
+    p_tmp = p_base;
+    p_tmp(1) = Tcrit_grid(i);
+    if sum(T_test(is_fyi_test) <= Tcrit_grid(i)) >= min_n_cold && sum(T_test(is_fyi_test) > Tcrit_grid(i)) >= min_n_warm
+        yhat_tmp = predict_fast_fixed_hcrit_model(T_test(is_fyi_test),h_test(is_fyi_test),p_tmp, ...
+            h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+        rmse_fyi_profile(i) = sqrt(mean((rho_test(is_fyi_test) - yhat_tmp).^2,'omitnan'));
+    end
+    if sum(T_test(is_old_test) <= Tcrit_grid(i)) >= 3 && sum(T_test(is_old_test) > Tcrit_grid(i)) >= 3
+        yhat_tmp = predict_fast_fixed_hcrit_model(T_test(is_old_test),h_test(is_old_test),p_tmp, ...
+            h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high);
+        rmse_old_profile(i) = sqrt(mean((rho_test(is_old_test) - yhat_tmp).^2,'omitnan'));
+    end
+end
+
+fig_thr = figure;
+set(fig_thr,'Units','inches','Position',[1.2 1.0 6.0 4.0]);
+hold on
+plot(Tcrit_grid,rmse_fyi_profile,'-','LineWidth',1.4)
+plot(Tcrit_grid,rmse_old_profile,'--','LineWidth',1.4)
+xline(p_base(1),':','LineWidth',1.0)
+xlabel('Assumed transition temperature T_{crit} (°C)')
+ylabel('RMSE (kg m^{-3})')
+legend({'FYI','SYI/MYI','pooled T_{crit}'},'Location','best','Box','off')
+box on
+grid on
+% outputThresholdFigure = fullfile(figureDir,'Tcrit_profile_by_ice_type.png');
+% exportgraphics(fig_thr,outputThresholdFigure,'Resolution',300)
+% fprintf('Saved threshold profile figure to:\n%s\n',outputThresholdFigure)
 
 %% Helpers
 function fit = fit_fast_fixed_hcrit_model(rho,T,h,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
@@ -484,9 +506,9 @@ end
 
 function rhoCold = cold_branch_density(h,rho_cold_0,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high)
 
-% Piecewise-linear cold-regime density parameterization.
-% Density increases to a maximum at h_cold_peak and then decreases
-% gradually toward h_cold_high.
+% Bilinear cold branch, independent from the warm-branch critical thickness:
+% segment 1: increasing density from h_i = 0 to h_cold_peak (~1 m)
+% segment 2: slowly decreasing density for h_i > h_cold_peak
 rhoCold = nan(size(h));
 
 idx1 = h <= h_cold_peak;
@@ -588,6 +610,4 @@ end
 
 hband = fill(ax,[x(:); flipud(x(:))],[rho_lo(:); flipud(rho_hi(:))], ...
     [0.75 0.75 0.75],'FaceAlpha',0.20,'EdgeColor','none','HandleVisibility','off');
-end
-
 end
