@@ -6,7 +6,7 @@ This repository contains MATLAB scripts used to process observational sea-ice de
 > *An observation-based year-round parameterization of Arctic sea-ice density.*
 > Geophysical Research Letters (submitted).
 
-The repository reproduces all manuscript figures, Supporting Information figures, summary statistics, and cross-validation tables from the submitted study.
+The repository reproduces all manuscript figures, Supporting Information figures, summary statistics, empirical uncertainty estimates, and cross-validation tables from the submitted study.
 
 ---
 
@@ -15,16 +15,25 @@ The repository reproduces all manuscript figures, Supporting Information figures
 ```text
 repository/
 ├── run_all.m
-scripts/
+├── scripts/
 │   ├── process/
 │   ├── analysis/
 │   │   ├── manuscript_statistics.m
 │   │   ├── analyze_density_model.m
 │   │   ├── analyze_snow_dependence.m
+│   │   ├── empirical_density_uncertainty.m
 │   │   ├── make_cross_validation_table.m
-│   │   ├── make_mosaic_coring_density_figure.m
-│   │   └── make_si_ridge_density_figure.m
+│   │   ├── make_figureS1_mosaic_coring_density_figure.m
+│   │   ├── make_figureS2_ridge_density_figure.m
+│   │   ├── make_figureS3_snow_dependence_merra.m
+│   │   ├── make_figureS4_density_formulations.m
+│   │   └── make_figureS6_snow_model_evaluation.m
 │   └── checks/
+│       ├── check_temperature_thickness_independence.m
+│       ├── snow_density_source_sensitivity_freeboard_only.m
+│       ├── freezeup_skill_test.m
+│       ├── analyze_density_model_script_no_svalbard.m
+│       └── temperature_threshold_by_ice_age.m
 ├── data/
 │   ├── raw/
 │   ├── processed/
@@ -36,11 +45,15 @@ scripts/
 │   └── topo/
 ├── figures/
 ├── results/
-│   └── manuscript_statistics.txt
+│   ├── manuscript_statistics.txt
 │   └── TableS2_leave_one_campaign_out_cross_validation.csv
 ├── README.md
 └── LICENSE
 ```
+
+The scripts in `scripts/analysis/` form the main reproducibility workflow and are called by `run_all.m`.
+
+The scripts in `scripts/checks/` contain additional sensitivity tests used to support specific methodological choices and statements in the manuscript. They are not called by `run_all.m` and are not required to reproduce the final figures and tables.
 
 ---
 
@@ -58,10 +71,22 @@ The workflow consists of:
 2. Merging of processed datasets
 3. Addition of SnowModel-LG snow products
 4. Generation of manuscript statistics
-5. Derivation and cross-validation of sea-ice density parameterizations
+5. Derivation, cross-validation, and empirical uncertainty evaluation of the sea-ice density parameterizations
 6. Generation of manuscript and supporting information figures
 
 Large auxiliary datasets (ETOPO1 topography and SnowModel-LG files) are optional for lightweight reruns if previously processed outputs already exist.
+
+---
+
+## Additional checks
+
+The scripts in `scripts/checks/` are standalone diagnostic analyses. They support specific statements or methodological choices in the manuscript but are not part of the default `run_all.m` workflow.
+
+- `check_temperature_thickness_independence.m` compares temperature-only and temperature-thickness models and tests whether thickness explains residual density variability.
+- `snow_density_source_sensitivity_freeboard_only.m` tests the sensitivity of the freeboard-based parameterization to the source of snow density.
+- `freezeup_skill_test.m` evaluates the influence of October and November FYI freeze-up observations on model skill.
+- `analyze_density_model_script_no_svalbard.m` tests whether excluding Svalbard landfast-ice observations changes the fitted temperature-thickness parameterization.
+- `temperature_threshold_by_ice_age.m` tests whether separate transition temperatures are supported for FYI and SYI/MYI.
 
 ---
 
@@ -109,8 +134,7 @@ data/model/
 | MOSAiC SYI | Oggier et al. (2023b), MOSAiC second-year ice dataset | https://doi.org/10.1594/PANGAEA.959830 |
 | MOSAiC Leg 5 | Salganik et al. (2024), MOSAiC Leg 5 sea-ice density dataset | https://doi.org/10.1594/PANGAEA.971266 |
 | Nansen Legacy | Divine et al. (2025), Barents Sea and Arctic Basin sea-ice properties | https://doi.org/10.1002/gdj3.70001 |
-| Svalbard fjord ice observations | Kongsfjorden, Svalbard sea-ice density observations | See manuscript references |
-| SUDARCO | Additional observational dataset used in this study | See manuscript references |
+| N-ICE2015–SUDARCO–Svalbard compilation | Combined sea-ice density observations from N-ICE2015, SUDARCO, and Kongsfjorden landfast ice | Dataset publication in preparation |
 
 ---
 
@@ -133,7 +157,7 @@ data/model/
 
 ## External topography data
 
-`plot_density_map.m` requires the ETOPO1 global topography dataset:
+Generation of the sea-ice density map requires the ETOPO1 global topography dataset:
 
 ```text
 etopo1_ice_g_i2.bin
@@ -196,13 +220,17 @@ and
 The repository reproduces the figures presented in the manuscript and Supporting Information:
 
 Manuscript:
+
 - Figure 1: Arctic sea-ice density map and temperature-thickness parameterization
 - Figure 2: Snow-thickness and freeboard-dependent density parameterizations
 
 Supporting Information:
+
 - Figure S1: Hydrostatically derived effective sea-ice density during MOSAiC
 - Figure S2: Directly measured MOSAiC ridge-core densities
 - Figure S3: Snow-thickness and freeboard-dependent density parameterizations using MERRA-2 SM-LG
+- Figure S4: Comparison of the sea-ice density formulations used in the CryoSat-2 sensitivity analysis
+- Figure S6: Evaluation of ERA5- and MERRA-2-forced SnowModel-LG snow thickness
 - Table S2: Leave-one-campaign-out cross-validation statistics
 
 Generated figures are exported to:
