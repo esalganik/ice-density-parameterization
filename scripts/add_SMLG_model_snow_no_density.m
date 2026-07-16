@@ -2,12 +2,12 @@ function add_SMLG_model_snow(repoRoot)
 %
 % ADD_SMLG_MODEL_SNOW
 %
-% Adds SnowModel-LG snow-depth and snow-density estimates derived from
-% ERA5 and MERRA2 forcing products to the snow-model matchup dataset.
+% Adds SnowModel-LG snow-depth estimates derived from ERA5 and MERRA2
+% forcing products to the snow-model matchup dataset.
 %
 % For each observation:
 %   1. Find the nearest SnowModel-LG grid cell.
-%   2. Extract snow depth and snow density from a 5 x 5 grid-cell neighbourhood.
+%   2. Extract snow depth from a 5 x 5 grid-cell neighbourhood.
 %   3. Average values within ±2 days of the observation date.
 %   4. Use direct model output when available.
 %   5. For observations beyond the model record, use a 10-year
@@ -20,15 +20,10 @@ function add_SMLG_model_snow(repoRoot)
 %   data/final/snow_model_matchups_with_models.mat
 %
 % Added variables:
-%   hs_smlg     - SnowModel-LG snow depth from ERA5-forced simulation (m)
-%   rhos_smlg   - SnowModel-LG snow density from ERA5-forced simulation (kg m^-3)
-%   t_smlg      - Time stamp associated with hs_smlg / rhos_smlg
-%
-%   hs_merra    - SnowModel-LG snow depth from MERRA2-forced simulation (m)
-%   rhos_merra  - SnowModel-LG snow density from MERRA2-forced simulation (kg m^-3)
-%   t_merra     - Time stamp associated with hs_merra / rhos_merra
-%
-%   rhos_param  - Simple parameterized snow density (kg m^-3)
+%   hs_smlg   - SnowModel-LG snow depth from ERA5-forced simulation (m)
+%   t_smlg    - Time stamp associated with hs_smlg
+%   hs_merra  - SnowModel-LG snow depth from MERRA2-forced simulation (m)
+%   t_merra   - Time stamp associated with hs_merra
 %
 
 close all
@@ -37,7 +32,6 @@ finalDir = fullfile(repoRoot, 'data', 'final');
 
 era5Dir = fullfile(repoRoot, ...
     'data', 'model', 'ERA5');
-
 merraDir = fullfile(repoRoot, ...
     'data', 'model', 'MERRA2');
 
@@ -47,39 +41,22 @@ inputFile = fullfile(finalDir, ...
 outputFile = fullfile(finalDir, ...
     'snow_model_matchups_with_models.mat');
 
-% ERA5 / SM-LG snow depth and snow density
-ncfile_era5_snod = fullfile(era5Dir, ...
+ncfile_era5 = fullfile(era5Dir, ...
     'SM_snod_ERA5_01Aug1980-31Jul2021_v01.nc');
 
-ncfile_era5_sden = fullfile(era5Dir, ...
-    'SM_sden_ERA5_01Aug1980-31Jul2021_v01.nc');
-
-% MERRA2 snow depth files
-ncfiles_merra_snod = { ...
+ncfiles_merra = { ...
     fullfile(merraDir,'SM_snod_MERRA2_ease_01Aug1980-31Jul2018.nc')
     fullfile(merraDir,'SM_snod_MERRA2_ease_01Aug2018-31Jul2021.nc')
     fullfile(merraDir,'SM_snod_MERRA2_ease_01Aug2021-31Jul2022.nc')
     fullfile(merraDir,'SM_snod_MERRA2_ease_01Aug2022-31Jul2023.nc')
     };
 
-% MERRA2 snow density files
-ncfiles_merra_sden = { ...
-    fullfile(merraDir,'SM_sden_MERRA2_ease_01Aug1980-31Jul2018.nc')
-    fullfile(merraDir,'SM_sden_MERRA2_ease_01Aug2018-31Jul2021.nc')
-    fullfile(merraDir,'SM_sden_MERRA2_ease_01Aug2021-31Jul2022.nc')
-    fullfile(merraDir,'SM_sden_MERRA2_ease_01Aug2022-31Jul2023.nc')
-    };
-
 cutoff_date_era5  = datetime(2021,7,31);
 cutoff_date_merra = datetime(2023,7,31);
-
 n_clim_years = 10;
 
 time_half = 2;   % +/- 2 days
 grid_half = 2;   % 5x5 cells
-
-var_snod = 'snod';
-var_sden = 'sden';
 
 load(inputFile, 'D');
 
@@ -89,7 +66,6 @@ end
 
 required_vars = ["date","lat","lon","hs"];
 missing_vars = required_vars(~ismember(required_vars, string(D.Properties.VariableNames)));
-
 if ~isempty(missing_vars)
     error('Table D is missing required variables: %s', strjoin(cellstr(missing_vars), ', '));
 end
@@ -100,65 +76,49 @@ D.lon  = ensure_numeric_column(D.lon,  height(D));
 D.hs   = ensure_numeric_column(D.hs,   height(D));
 D.lon  = wrapTo180_local(D.lon);
 
-% -------------------------------------------------------------------------
-% Prepare output columns
-% -------------------------------------------------------------------------
+if ~ismember("hs_smlg", string(D.Properties.VariableNames))
+    D.hs_smlg = nan(height(D),1);
+else
+    D.hs_smlg = ensure_numeric_column(D.hs_smlg, height(D));
+    D.hs_smlg(:) = NaN;
+end
 
-D = init_numeric_column(D, "hs_smlg");
-D = init_numeric_column(D, "rhos_smlg");
-D = init_datetime_column(D, "t_smlg");
+if ~ismember("t_smlg", string(D.Properties.VariableNames))
+    D.t_smlg = NaT(height(D),1);
+else
+    D.t_smlg = ensure_datetime_column(D.t_smlg, height(D));
+    D.t_smlg(:) = NaT;
+end
 
-D = init_numeric_column(D, "hs_merra");
-D = init_numeric_column(D, "rhos_merra");
-D = init_datetime_column(D, "t_merra");
+if ~ismember("hs_merra", string(D.Properties.VariableNames))
+    D.hs_merra = nan(height(D),1);
+else
+    D.hs_merra = ensure_numeric_column(D.hs_merra, height(D));
+    D.hs_merra(:) = NaN;
+end
 
-D = init_numeric_column(D, "rhos_param");
+if ~ismember("t_merra", string(D.Properties.VariableNames))
+    D.t_merra = NaT(height(D),1);
+else
+    D.t_merra = ensure_datetime_column(D.t_merra, height(D));
+    D.t_merra(:) = NaT;
+end
 
 valid_match = ~isnat(D.date) & ~isnan(D.lat) & ~isnan(D.lon);
-
 if ~any(valid_match)
     error('No valid rows in D with non-missing date, lat, and lon.');
 end
 
-idx_valid = find(valid_match);
-
-% -------------------------------------------------------------------------
-% Simple snow-density parameterization
-% -------------------------------------------------------------------------
-%
-% Same parameterization as used in the freeboard script:
-%
-%   rho_s = 239.78 + 0.35 * days until next 1 August
-%
-% Units: kg m^-3
-
-aug1_this_year = datetime(year(D.date), 8, 1);
-aug1_next = aug1_this_year;
-
-after_aug1 = D.date > aug1_this_year;
-aug1_next(after_aug1) = datetime(year(D.date(after_aug1)) + 1, 8, 1);
-
-D.rhos_param(:) = NaN;
-D.rhos_param(valid_match) = 239.78 + ...
-    0.35 .* days(aug1_next(valid_match) - D.date(valid_match));
-
-% -------------------------------------------------------------------------
-% Read ERA5 time and grid
-% -------------------------------------------------------------------------
-
 disp('Reading ERA5 time axis...')
-
-time_raw_era5 = ncread(ncfile_era5_snod, 'time');
-t_raw_era5 = read_nc_time(ncfile_era5_snod, 'time', time_raw_era5);
+time_raw_era5 = ncread(ncfile_era5, 'time');
+t_raw_era5 = read_nc_time(ncfile_era5, 'time', time_raw_era5);
 t_day_era5 = dateshift(t_raw_era5, 'start', 'day');
 
 disp('Reading grid...')
+x = ncread(ncfile_era5, 'x');
+y = ncread(ncfile_era5, 'y');
 
-x = ncread(ncfile_era5_snod, 'x');
-y = ncread(ncfile_era5_snod, 'y');
-
-[X,Y] = ndgrid(x,y);   % correct for variable(x,y,time)
-
+[X,Y] = ndgrid(x,y);   % correct for snod(x,y,time)
 [lat_grid, lon_grid] = projinv(projcrs(3408), X, Y);
 lon_grid = wrapTo180_local(lon_grid);
 
@@ -166,50 +126,36 @@ nx = numel(x);
 ny = numel(y);
 
 disp('Checking ERA5 dimension order...')
-
-check_dim_order(ncfile_era5_snod, var_snod);
-check_dim_order(ncfile_era5_sden, var_sden);
-
-% -------------------------------------------------------------------------
-% Read MERRA2 time axes
-% -------------------------------------------------------------------------
-
-disp('Reading MERRA2 time axes...')
-
-nfiles_merra = numel(ncfiles_merra_snod);
-
-if numel(ncfiles_merra_sden) ~= nfiles_merra
-    error('MERRA2 snow-depth and snow-density file lists have different lengths.');
+dim_order_era5 = get_var_dim_order(ncfile_era5, 'snod');
+if ~isequal(dim_order_era5, ["x","y","time"])
+    error('ERA5 snod dimension order is %s, expected x,y,time.', strjoin(dim_order_era5, ','));
 end
 
+disp('Reading MERRA time axes...')
+nfiles_merra = numel(ncfiles_merra);
 F = struct([]);
 
 for k = 1:nfiles_merra
-
-    F(k).file_snod = ncfiles_merra_snod{k};
-    F(k).file_sden = ncfiles_merra_sden{k};
-
-    F(k).time_raw = ncread(F(k).file_snod, 'time');
-    F(k).t_raw = read_nc_time(F(k).file_snod, 'time', F(k).time_raw);
+    F(k).file = ncfiles_merra{k};
+    F(k).time_raw = ncread(F(k).file, 'time');
+    F(k).t_raw = read_nc_time(F(k).file, 'time', F(k).time_raw);
     F(k).t_day = dateshift(F(k).t_raw, 'start', 'day');
 
-    check_dim_order(F(k).file_snod, var_snod);
-    check_dim_order(F(k).file_sden, var_sden);
+    dim_order_merra = get_var_dim_order(F(k).file, 'snod');
+    if ~isequal(dim_order_merra, ["x","y","time"])
+        error('MERRA file %s has snod dimension order %s, expected x,y,time.', ...
+            F(k).file, strjoin(dim_order_merra, ','));
+    end
 end
 
-% -------------------------------------------------------------------------
-% Main matchup loop
-% -------------------------------------------------------------------------
-
-disp('Computing hs_smlg, rhos_smlg, hs_merra, rhos_merra using +/-2 days and 5x5 cells...')
+disp('Computing hs_smlg, t_smlg, hs_merra and t_merra using +/-2 days and 5x5 cells...')
+idx_valid = find(valid_match);
 
 for kk = 1:numel(idx_valid)
-
     i = idx_valid(kk);
 
     % Find nearest SnowModel-LG grid cell to the observation.
     dist_all_km = distance_km_haversine(D.lat(i), D.lon(i), lat_grid, lon_grid);
-
     [~, ig] = min(dist_all_km(:));
     [ix0, iy0] = ind2sub(size(lat_grid), ig);
 
@@ -219,38 +165,29 @@ for kk = 1:numel(idx_valid)
 
     obs_day = dateshift(D.date(i), 'start', 'day');
 
-    % =====================================================================
-    % ERA5 / SM-LG
-    % =====================================================================
+    % ---------------- ERA5 ----------------
+    vals = [];
+    times_used = NaT(0,1);
 
+    % For dates beyond model availability, sample the same calendar day
+    % from the final n_clim_years of the record.
     if D.date(i) <= cutoff_date_era5
-
         target_dates = obs_day;
-
     else
-
         start_year = year(cutoff_date_era5) - n_clim_years + 1;
         end_year   = year(cutoff_date_era5);
-
         target_dates = NaT(0,1);
-
         for yy = start_year:end_year
             td = safe_datetime(yy, month(obs_day), day(obs_day));
             if ~isnat(td)
-                target_dates(end+1,1) = td; %#ok<AGROW>
+                target_dates(end+1,1) = td;
             end
         end
     end
 
-    vals_hs = [];
-    vals_rhos = [];
-    times_used = NaT(0,1);
-
     for jj = 1:numel(target_dates)
-
         t1 = target_dates(jj) - days(time_half);
         t2 = target_dates(jj) + days(time_half);
-
         ind_t = find(t_day_era5 >= t1 & t_day_era5 <= t2);
 
         if isempty(ind_t)
@@ -259,36 +196,22 @@ for kk = 1:numel(idx_valid)
 
         start = [ix(1), iy(1), ind_t(1)];
         count = [numel(ix), numel(iy), numel(ind_t)];
+        sub = ncread(ncfile_era5, 'snod', start, count);
+        sub = single_to_nan(sub);
 
-        sub_hs = ncread(ncfile_era5_snod, var_snod, start, count);
-        sub_rhos = ncread(ncfile_era5_sden, var_sden, start, count);
-
-        sub_hs = single_to_nan(sub_hs);
-        sub_rhos = single_to_nan(sub_rhos);
-
-        vals_hs = [vals_hs; sub_hs(:)]; %#ok<AGROW>
-        vals_rhos = [vals_rhos; sub_rhos(:)]; %#ok<AGROW>
+        vals = [vals; sub(:)]; %#ok<AGROW>
 
         tmp_times = repmat(t_raw_era5(ind_t(:))', numel(ix)*numel(iy), 1);
         times_used = [times_used; tmp_times(:)]; %#ok<AGROW>
     end
 
-    good_hs = ~isnan(vals_hs);
-    good_rhos = ~isnan(vals_rhos);
+    good = ~isnan(vals);
+    if any(good)
+        vals_good = vals(good);
+        times_good = times_used(good);
 
-    if any(good_hs)
-        D.hs_smlg(i) = mean(vals_hs(good_hs), 'omitnan');
-    end
-
-    if any(good_rhos)
-        D.rhos_smlg(i) = mean(vals_rhos(good_rhos), 'omitnan');
-    end
-
-    good_time = good_hs | good_rhos;
-
-    if any(good_time)
-
-        times_good = times_used(good_time);
+        % Mean snow depth across all valid cells and times in the sampling window.
+        D.hs_smlg(i) = mean(vals_good, 'omitnan');
 
         if D.date(i) <= cutoff_date_era5
             [~, jt] = min(abs(times_good - D.date(i)));
@@ -298,40 +221,29 @@ for kk = 1:numel(idx_valid)
         end
     end
 
-    % =====================================================================
-    % MERRA2 / SM-LG
-    % =====================================================================
+    % ---------------- MERRA ----------------
+    vals = [];
+    times_used = NaT(0,1);
 
     if D.date(i) <= cutoff_date_merra
-
         target_dates = obs_day;
-
     else
-
         start_year = year(cutoff_date_merra) - n_clim_years + 1;
         end_year   = year(cutoff_date_merra);
-
         target_dates = NaT(0,1);
-
         for yy = start_year:end_year
             td = safe_datetime(yy, month(obs_day), day(obs_day));
             if ~isnat(td)
-                target_dates(end+1,1) = td; %#ok<AGROW>
+                target_dates(end+1,1) = td;
             end
         end
     end
 
-    vals_hs = [];
-    vals_rhos = [];
-    times_used = NaT(0,1);
-
     for jj = 1:numel(target_dates)
-
         t1 = target_dates(jj) - days(time_half);
         t2 = target_dates(jj) + days(time_half);
 
         for k = 1:nfiles_merra
-
             ind_t = find(F(k).t_day >= t1 & F(k).t_day <= t2);
 
             if isempty(ind_t)
@@ -340,37 +252,22 @@ for kk = 1:numel(idx_valid)
 
             start = [ix(1), iy(1), ind_t(1)];
             count = [numel(ix), numel(iy), numel(ind_t)];
+            sub = ncread(F(k).file, 'snod', start, count);
+            sub = single_to_nan(sub);
 
-            sub_hs = ncread(F(k).file_snod, var_snod, start, count);
-            sub_rhos = ncread(F(k).file_sden, var_sden, start, count);
-
-            sub_hs = single_to_nan(sub_hs);
-            sub_rhos = single_to_nan(sub_rhos);
-
-            vals_hs = [vals_hs; sub_hs(:)]; %#ok<AGROW>
-            vals_rhos = [vals_rhos; sub_rhos(:)]; %#ok<AGROW>
+            vals = [vals; sub(:)]; %#ok<AGROW>
 
             tmp_times = repmat(F(k).t_raw(ind_t(:))', numel(ix)*numel(iy), 1);
             times_used = [times_used; tmp_times(:)]; %#ok<AGROW>
         end
     end
 
-    good_hs = ~isnan(vals_hs);
-    good_rhos = ~isnan(vals_rhos);
+    good = ~isnan(vals);
+    if any(good)
+        vals_good = vals(good);
+        times_good = times_used(good);
 
-    if any(good_hs)
-        D.hs_merra(i) = mean(vals_hs(good_hs), 'omitnan');
-    end
-
-    if any(good_rhos)
-        D.rhos_merra(i) = mean(vals_rhos(good_rhos), 'omitnan');
-    end
-
-    good_time = good_hs | good_rhos;
-
-    if any(good_time)
-
-        times_good = times_used(good_time);
+        D.hs_merra(i) = mean(vals_good, 'omitnan');
 
         if D.date(i) <= cutoff_date_merra
             [~, jt] = min(abs(times_good - D.date(i)));
@@ -385,139 +282,76 @@ for kk = 1:numel(idx_valid)
     end
 end
 
-% -------------------------------------------------------------------------
-% Save output
-% -------------------------------------------------------------------------
-
 save(outputFile, 'D')
-
-fprintf('\nAdded ERA5 and MERRA2 snow depth and snow density products.\n')
-fprintf('Saved updated dataset to:\n%s\n', outputFile)
-
-fprintf('\nValid values:\n')
-fprintf('hs_smlg:      %d / %d\n', sum(~isnan(D.hs_smlg)), height(D))
-fprintf('rhos_smlg:    %d / %d\n', sum(~isnan(D.rhos_smlg)), height(D))
-fprintf('hs_merra:     %d / %d\n', sum(~isnan(D.hs_merra)), height(D))
-fprintf('rhos_merra:   %d / %d\n', sum(~isnan(D.rhos_merra)), height(D))
-fprintf('rhos_param:   %d / %d\n', sum(~isnan(D.rhos_param)), height(D))
+fprintf('Added ERA5 and MERRA2 snow products.\n')
+fprintf('Saved updated dataset to:\n%s\n', ...
+    outputFile)
 
 %% Helpers
 
-function D = init_numeric_column(D, varname)
-
-    if ~ismember(varname, string(D.Properties.VariableNames))
-        D.(varname) = nan(height(D),1);
-    else
-        D.(varname) = ensure_numeric_column(D.(varname), height(D));
-        D.(varname)(:) = NaN;
-    end
-
-end
-
-function D = init_datetime_column(D, varname)
-
-    if ~ismember(varname, string(D.Properties.VariableNames))
-        D.(varname) = NaT(height(D),1);
-    else
-        D.(varname) = ensure_datetime_column(D.(varname), height(D));
-        D.(varname)(:) = NaT;
-    end
-
-end
-
-function check_dim_order(ncfile, varname)
-
-    dim_order = get_var_dim_order(ncfile, varname);
-
-    if ~isequal(dim_order, ["x","y","time"])
-        error('%s variable %s has dimension order %s, expected x,y,time.', ...
-            ncfile, varname, strjoin(dim_order, ','));
-    end
-
-end
-
+% Ensure a table variable is a numeric column vector of length n.
 function x = ensure_numeric_column(x, n)
-
     if isempty(x)
         x = nan(n,1);
         return
     end
-
     x = x(:);
-
     if numel(x) ~= n
         error('Numeric column has inconsistent length.');
     end
-
     if ~isnumeric(x)
         error('Expected a numeric column.');
     end
-
 end
 
+% Convert a column to datetime and verify expected length.
 function t = ensure_datetime_column(t, n)
-
     if isempty(t)
         t = NaT(n,1);
         return
     end
-
     t = t(:);
-
     if isdatetime(t)
         if numel(t) ~= n
             error('Datetime column has inconsistent length.');
         end
         return
     end
-
     try
         t = datetime(t);
     catch
         error('Could not convert column to datetime.');
     end
-
     if numel(t) ~= n
         error('Datetime column has inconsistent length.');
     end
-
 end
 
+% Convert longitudes to the [-180,180) convention.
 function lon = wrapTo180_local(lon)
-
     lon = mod(lon + 180, 360) - 180;
-
 end
 
 function t = safe_datetime(y, m, d)
-
     try
         t = datetime(y,m,d);
     catch
         t = NaT;
     end
-
 end
 
+% Read CF-style NetCDF time coordinates.
 function t = read_nc_time(project,varname,time_values)
-
     units = '';
-
     try
         units = ncreadatt(project,varname,'units');
     catch
     end
 
     if isstring(units) || ischar(units)
-
         units = char(units);
-
-        tok = regexp(units, ...
-            '(\w+)\s+since\s+(\d{1,4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}:\d{1,2}:\d{1,2}))?', ...
-            'tokens','once');
-
+        tok = regexp(units,'(\w+)\s+since\s+(\d{1,4})-(\d{1,2})-(\d{1,2})(?:[ T](\d{1,2}:\d{1,2}:\d{1,2}))?','tokens','once');
         if ~isempty(tok)
-
             base_unit = lower(tok{1});
             yyyy = str2double(tok{2});
             mm   = str2double(tok{3});
@@ -544,32 +378,26 @@ function t = read_nc_time(project,varname,time_values)
                 otherwise
                     error('Unsupported time unit "%s" in %s.', base_unit, project);
             end
-
             return
         end
     end
 
     t0 = datetime(1,1,1,0,0,0);
     t = t0 + hours(time_values);
-
 end
 
 function dim_order = get_var_dim_order(ncfile, varname)
-
     info = ncinfo(ncfile, varname);
     dim_order = string({info.Dimensions.Name});
-
 end
 
 function A = single_to_nan(A)
-
     A = double(A);
     A(A <= -9990) = NaN;
-
 end
 
+% Great-circle distance using the haversine formula.
 function d = distance_km_haversine(lat1, lon1, lat2, lon2)
-
     R = 6371.0088; % mean Earth radius, km
 
     lat1 = double(lat1);
@@ -589,7 +417,6 @@ function d = distance_km_haversine(lat1, lon1, lat2, lon2)
     c = 2 .* atan2(sqrt(a), sqrt(1-a));
 
     d = R .* c;
-
 end
 
 end

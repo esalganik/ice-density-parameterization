@@ -1,4 +1,29 @@
 function analyze_density_model(repoRoot)
+%
+% ANALYZE_DENSITY_MODEL
+%
+% Derives the observation-based Arctic sea-ice density parameterization
+% presented in Figure 1 of Salganik et al.
+%
+% Workflow:
+%   1. Load merged observational density and SnowModel matchups.
+%   2. Select density definition (laboratory or in-situ).
+%   3. Fit a temperature-thickness density model.
+%   4. Estimate parameter uncertainty using bootstrap resampling.
+%   5. Evaluate model skill using leave-one-dataset-out cross-validation.
+%   6. Generate Figure 1.
+%
+% Input:
+%   data/final/snow_model_matchups_with_models.mat
+%
+% Output:
+%   figures/Fig1.png
+%
+% Notes:
+%   The fitted model combines a cold-regime thickness-dependent density
+%   parameterization with a warm-regime density reduction controlled by
+%   sea-ice temperature.
+%
 
 close all
 
@@ -50,8 +75,8 @@ rho_cold_high = 908.5;
 rho_cold_0_grid = 905:1:912;
 
 % Warm-regime density parameterization (T_i > T_crit).
-% Density varies linearly with effective thickness up to hcrit_warm and
-% approaches a plateau for thicker ice.
+% Density varies linearly with effective thickness up to hcrit_warm and approaches a plateau for thicker ice.
+% Candidate parameter values explored during grid-search optimization.
 Tcrit_grid = -3.0:0.05:-2.0;
 hcrit_warm_grid = 1.8:0.1:2.3;
 rho_warm_plateau_grid = 895:1:905;
@@ -61,28 +86,21 @@ min_n_warm = 8;
 
 doBootstrap = true;
 doLODO = true; % Optional diagnostic: leave-one-dataset-out cross-validation.
-nboot = 100;
+nboot = 1000;
 rng(1)
 
 if ~isdatetime(D.date)
     D.date = datetime(D.date);
 end
 
-if ismember("is_freeze",string(D.Properties.VariableNames))
-    is_freeze_all = logical(D.is_freeze);
-else
-    is_freeze_all = false(height(D),1);
-end
-
 t = D.date;
-% Normalize all dates to a common reference year for seasonal analysis.
+% Replace calendar year with a common reference year so observations from multiple campaigns can be combined into a climatological seasonal cycle.
 t.Year = 2020;
 T = D.temperature_C;
 rho = D.(rho_col);
 h = D.ice_thickness_m;
 dataset_id = string(D.dataset);
 ice_type = upper(string(D.ice_age));
-is_freeze = is_freeze_all;
 is_svalbard = contains(lower(dataset_id),"svalbard");
 
 valid = ~isnat(t) & isfinite(T) & isfinite(rho) & isfinite(h) & T < 0 & h > 0;
@@ -93,18 +111,25 @@ rho = rho(valid);
 h = h(valid);
 dataset_id = dataset_id(valid);
 ice_type = ice_type(valid);
-is_freeze = is_freeze(valid);
 is_svalbard = is_svalbard(valid);
 
-is_fyi_all = ice_type == "FYI" & ~is_svalbard & ~is_freeze;
-is_old_all = ice_type ~= "FYI" & ~is_svalbard & ~is_freeze;
-is_sva_all = is_svalbard & ~is_freeze;
+% Separate Arctic FYI, older ice (SYI/MYI), and Svalbard fjord ice for
+% visualization. Svalbard observations are shown separately because they
+% represent a coastal/fjord environment rather than drifting pack ice.
+is_fyi_all = ice_type == "FYI" & ~is_svalbard;
+is_old_all = ice_type ~= "FYI" & ~is_svalbard;
+is_sva_all = is_svalbard;
 
-T_fit = T(~is_freeze);
-rho_fit = rho(~is_freeze);
-h_fit = h(~is_freeze);
-dataset_fit = dataset_id(~is_freeze);
+T_fit = T;
+rho_fit = rho;
+h_fit = h;
+dataset_fit = dataset_id;
 N = numel(rho_fit);
+
+% Fit a hybrid density model:
+%   - Cold regime: piecewise-linear dependence on ice thickness.
+%   - Warm regime: temperature-dependent transition toward a lower-density
+%     thickness-controlled branch.
 
 fit = fit_fast_fixed_hcrit_model( ...
     rho_fit,T_fit,h_fit, ...
@@ -211,6 +236,7 @@ idxJan = month(tGuide) == 1;
 xWrap = [xGuide(idxDec)-366; xGuide; xGuide(idxJan)+366];
 rhoWrap = [rhoGuide(idxDec); rhoGuide; rhoGuide(idxJan)];
 
+% Robust LOESS smoothing used only for visualization of the FYI seasonal density cycle; it is not used in model fitting.
 if numel(xWrap) >= 5
     [xU,~,ic] = unique(xWrap);
     rhoDay = accumarray(ic,rhoWrap,[],@median);
@@ -398,6 +424,7 @@ fprintf('Saved figure to:\n%s\n', outputFigure)
 
 %% Helpers
 function fit = fit_fast_fixed_hcrit_model(rho,T,h,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
+% Grid-search optimization of the temperature-thickness density model.
 
 fit.rmse = inf;
 fit.r2 = -inf;
@@ -463,6 +490,7 @@ end
 end
 
 function rhohat = predict_fast_fixed_hcrit_model(T,h,p,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high)
+% Evaluate the fitted density parameterization.
 
 Tcrit = p(1);
 rho_warm_plateau = p(2);
@@ -500,6 +528,7 @@ rhoCold(idx2) = rho_cold_peak + ...
 end
 
 function cv = leave_one_dataset_out_cv_fast_fixed_hcrit(rho,T,h,dataset_id,p_full,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
+% Leave-one-dataset-out cross-validation treating each campaign as an independent observational unit.
 
 groups = unique(dataset_id);
 yhat_all = nan(size(rho));
@@ -528,6 +557,7 @@ cv.yhat = yhat_all;
 end
 
 function metrics = regression_metrics(y,yhat,k)
+% Compute standard regression performance metrics.
 
 e = y - yhat;
 n = numel(y);
@@ -541,6 +571,7 @@ metrics.bic = n*log(sse/n) + k*log(n);
 end
 
 function B = bootstrap_fast_fixed_hcrit_model(rho,T,h,dataset_id,nboot,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
+% Dataset-level bootstrap estimation of parameter uncertainty.
 
 n = numel(rho);
 B = nan(nboot,5);
@@ -548,6 +579,7 @@ groups = unique(dataset_id);
 G = numel(groups);
 
 for b = 1:nboot
+    % Resample entire observational datasets rather than individual observations to preserve within-campaign dependence structures.
     pickGroups = groups(randi(G,G,1));
     idx = false(n,1);
 
@@ -571,6 +603,7 @@ B = B(all(isfinite(B),2),:);
 end
 
 function hband = add_bootstrap_ci_band(ax,T_grid,h_grid,B,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high)
+% Plot 95% bootstrap confidence intervals for model predictions.
 
 rho_boot = nan(numel(T_grid),size(B,1));
 

@@ -1,3 +1,10 @@
+%
+% Freeze-up sensitivity test for the temperature-density parameterization.
+%
+% Fits the non-Svalbard temperature-thickness model including October and
+% November FYI freeze-up cores, then evaluates model skill with and without
+% those freeze-up observations.
+%
 clear
 close all
 clc
@@ -50,7 +57,6 @@ t.Year = 2020;
 T = D.temperature_C;
 rho = D.(rho_col);
 h = D.ice_thickness_m;
-T = D.temperature_C;
 dataset_id = string(D.dataset);
 ice_type = upper(string(D.ice_age));
 is_freezeup = is_freezeup_all;
@@ -140,6 +146,7 @@ fprintf('Temperature median = %.1f C, range = %.1f--%.1f C, 5th percentile = %.1
     max(T_freezeup_fit,[],'omitnan'), ...
     T_freezeup_p05)
 
+% Dataset-level bootstrap for prediction confidence bands.
 B_fit = bootstrap_fast_fixed_hcrit_model( ...
     rho_fit,T_fit,h_fit,dataset_fit,nboot, ...
     h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid, ...
@@ -329,6 +336,7 @@ fprintf('Freeze-up physical support: h_95 = %.2f m, T_05 = %.1f C\n', ...
     h_freezeup_p95,T_freezeup_p05)
 
 %% Helpers
+% Grid-search optimization of the temperature-thickness density model.
 function fit = fit_fast_fixed_hcrit_model(rho,T,h,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
 
 fit.rmse = inf;
@@ -394,6 +402,7 @@ if ~isfinite(fit.rmse)
 end
 end
 
+% Evaluate the fitted temperature-thickness density model.
 function rhohat = predict_fast_fixed_hcrit_model(T,h,p,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high)
 
 Tcrit = p(1);
@@ -441,6 +450,7 @@ metrics.aic = n*log(sse/n) + 2*k;
 metrics.bic = n*log(sse/n) + k*log(n);
 end
 
+% Dataset-level bootstrap resampling for model uncertainty.
 function B = bootstrap_fast_fixed_hcrit_model(rho,T,h,dataset_id,nboot,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
 
 n = numel(rho);

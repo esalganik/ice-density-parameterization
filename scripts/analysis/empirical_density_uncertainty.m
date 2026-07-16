@@ -6,33 +6,24 @@ end
 
 close all
 
-% make_empirical_density_uncertainty_new.m
 %
-% Estimate empirical sea-ice density uncertainty from observed residuals:
+% EMPIRICAL_DENSITY_UNCERTAINTY
 %
-%   residual = rho_observed - rho_model(h_f, h_s,SM-LG)
+% Estimates empirical uncertainty in the ERA5 SM-LG freeboard/snow density
+% parameterization from observed model residuals.
 %
-% This version uses:
-%   1. The updated data import used for Fig. 2:
-%      data/final/snow_model_matchups_with_models.mat
-%   2. The updated ERA5 SM-LG freeboard parametrization from Fig. 2d:
+% The residual is defined as:
 %
-%      rho(h_f,h_s) = (1 - w) rho_l(h_f) + w rho_h(h_f)
+%   residual = rho_observed - rho_model(h_f, h_s)
 %
-%      rho_l = 865 + 129 h_f,        h_f < 0.28 m
-%      rho_l = 900,                  h_f >= 0.28 m
+% The output table groups residuals by freeboard interval and snow regime.
 %
-%      rho_h = 911,                  h_f <= 0.20 m
-%      rho_h = 911 - 20(h_f - 0.20), h_f > 0.20 m
+% Input:
+%   data/final/snow_model_matchups_with_models.mat
 %
-%      w = h_s / 0.08,  0 < h_s < 0.08 m
-%      w = 1,           h_s >= 0.08 m
+% Output:
+%   data/final/Empirical_density_uncertainty.csv
 %
-% The table groups residuals by freeboard intervals and by the two
-% snow regimes used for uncertainty reporting:
-%
-%   h_s < 0.08 m
-%   h_s >= 0.08 m
 
 finalDir = fullfile(repoRoot,'data','final');
 
@@ -66,13 +57,8 @@ end
 
 dataset_all = string(D.dataset);
 
-if ismember("is_freeze",string(D.Properties.VariableNames))
-    is_freeze = logical(D.is_freeze);
-else
-    is_freeze = false(height(D),1);
-end
-
-mask = ~(is_freeze | contains(lower(dataset_all),"svalbard"));
+% Exclude Svalbard fjord observations because the uncertainty table is based on the Arctic pack-ice freeboard/snow parameterization.
+mask = ~contains(lower(dataset_all),"svalbard");
 
 hi_all = D.ice_thickness_m(mask);
 rho_obs_all = D.(rho_col)(mask);
@@ -253,6 +239,7 @@ aug1_this_year = datetime(year(date),8,1);
 aug1_next = aug1_this_year;
 aug1_next(date > aug1_this_year) = datetime(year(date(date > aug1_this_year)) + 1,8,1);
 
+% Seasonal snow-density parameterization used to estimate hydrostatic freeboard from ice thickness, snow thickness, and observed density.
 rho_s = 0.35 .* days(aug1_next - date) + 239.78;
 
 hf = hi - (rho.*hi + rho_s.*hs)./rho_w;

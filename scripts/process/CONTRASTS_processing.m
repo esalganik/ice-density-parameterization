@@ -1,4 +1,17 @@
 function CONTRASTS_processing(repoRoot)
+%
+% CONTRASTS_PROCESSING
+%
+% Imports CONTRASTS PS149 sea-ice core density data, computes in-situ
+% density estimates from laboratory density, salinity, and temperature, and
+% averages section-level measurements to one record per ice core.
+%
+% Input:
+%   data/raw/sea-ice_cores_density_PS149.tab
+%
+% Output:
+%   data/processed/Summary_CONTRASTS.mat
+%
 
 close all
 
@@ -15,6 +28,7 @@ inputFile = fullfile(rawDir, 'sea-ice_cores_density_PS149.tab');
 % Output file
 outputFile = fullfile(processedDir, 'Summary_CONTRASTS.mat');
 
+% Remove PANGAEA metadata header and read the tabular data section only.
 txt = fileread(inputFile);
 endHeader = strfind(txt,'*/');
 dataTxt = strtrim(txt(endHeader(1)+2:end));
@@ -32,6 +46,7 @@ opts = detectImportOptions(tmpFile, ...
 Tfull = readtable(tmpFile,opts);
 delete(tmpFile)
 
+% Select variables needed for density processing and repository summary output.
 cols = [2 3 4 7 8 11 13 14 15 16 17 18 23 24];
 
 T = Tfull(:,cols);
@@ -55,6 +70,7 @@ T.Properties.VariableNames = { ...
 T.DateTime = datetime(T.DateTime, ...
     'InputFormat','yyyy-MM-dd''T''HH:mm:ss');
 
+% Limit ice temperature to below the freezing point to avoid invalid brine volume calculations near 0 deg C.
 T.Temperature_C_limited = min(-0.1,T.Temperature_C);
 
 S = T.SeaIceSalinity;
@@ -106,7 +122,8 @@ vb_export(vb_export > 0.4 | vb_export < 0) = NaN;
 vb_calc = vb_raw;
 vb_calc(vb_calc > 0.4 | vb_calc < 0) = 0.4;
 
-% Connected pores (Eq. 21)
+% Connected-pore case: allow gas volume to change when laboratory density
+% is converted to in-situ temperature conditions (Eq. 21).
 
 A = ...
     (rhoi_i ./ rhoi_pr) .* ...
@@ -116,6 +133,7 @@ A = ...
 vg_connected = max(0, ...
     1 - (1 - vg_pr) .* A);
 
+% Disconnected-pore case: preserve laboratory gas volume during conversion to in-situ temperature conditions.
 vg_disconnected = vg_pr;
 
 rho_si_connected = ...
@@ -143,6 +161,7 @@ T.Density_insitu_connected_kgm3(idx) = ...
 T.Density_insitu_disconnected_kgm3(idx) = ...
     rho_si_disconnected;
 
+% Exclude false-bottom sections and missing laboratory densities before averaging section-level measurements to core means.
 idxFalseBottom = contains( ...
     lower(string(T.Comment)), ...
     'false bottom');
@@ -163,6 +182,7 @@ excludeFromAverages = ismember( ...
 numNames = TavgInput.Properties.VariableNames( ...
     numericVars & ~excludeFromAverages);
 
+% Average numeric section-level variables to one representative record per ice core.
 Tavg = groupsummary( ...
     TavgInput, ...
     'Core', ...
@@ -199,6 +219,7 @@ Tavg = outerjoin( ...
 
 Tavg = movevars(Tavg,'DateTime','After','Core');
 
+% Standardize ice-age labels before assigning repository dataset names.
 TavgInput.IceAge = upper(string(TavgInput.IceAge));
 
 TavgInput.IceAge(TavgInput.IceAge == "SMYI") = "MYI";
@@ -239,6 +260,7 @@ snow_thickness_m = Tavg.SnowThickness_m;
 lat_degN = Tavg.Latitude;
 lon_degE = Tavg.Longitude;
 
+% Convert processed CONTRASTS core means to the common repository schema.
 Summary_PS149 = table( ...
     dataset, ...
     core, ...
@@ -269,6 +291,7 @@ Summary_PS149 = table( ...
 save(outputFile,'Summary_PS149')
 
 %% Helpers
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 as a function of temperature.
 function [F1,F2] = F1F2_seaice(T)
 
 F1 = -4.732 - 22.45*T - 0.6397*T.^2 - 0.01074*T.^3;

@@ -1,4 +1,23 @@
 function make_cross_validation_table(repoRoot)
+%
+% MAKE_CROSS_VALIDATION_TABLE
+%
+% Performs leave-one-campaign-out cross-validation of the Arctic sea-ice
+% density parameterization and generates Table S2.
+%
+% Workflow:
+%   1. Load the merged density database.
+%   2. Fit the temperature-thickness density model to all observations.
+%   3. Refit the model repeatedly while withholding one campaign.
+%   4. Predict densities for the withheld campaign.
+%   5. Summarize campaign-specific and overall cross-validation skill.
+%
+% Input:
+%   data/final/snow_model_matchups_with_models.mat
+%
+% Output:
+%   results/TableS2_leave_one_campaign_out_cross_validation.csv
+%
 
 close all
 
@@ -63,8 +82,10 @@ h = h(valid);
 dataset_id = dataset_id(valid);
 ice_type = ice_type(valid);
 
+% Group individual dataset identifiers into campaign-level units used for leave-one-campaign-out cross-validation.
 campaign = define_campaign_groups(dataset_id);
 
+% Exclude unclassified datasets from campaign-level cross-validation.
 campaign_list = unique(campaign);
 campaign_list(campaign_list == "Other" | campaign_list == "") = [];
 
@@ -73,6 +94,7 @@ rho_cold_peak = 911;
 h_cold_high = 3.50;
 rho_cold_high = 908.5;
 
+% Candidate parameter values explored during grid-search optimization.
 rho_cold_0_grid = 905:1:912;
 Tcrit_grid = -2.8:0.1:-2.1;
 hcrit_warm_grid = 1.8:0.1:2.3;
@@ -81,6 +103,7 @@ rho_warm_plateau_grid = 895:1:905;
 min_n_cold = 8;
 min_n_warm = 8;
 
+% Fit the full temperature-thickness density parameterization using all available observations.
 fit = fit_fast_fixed_hcrit_model( ...
     rho, T, h, ...
     h_cold_peak, rho_cold_peak, h_cold_high, rho_cold_high, ...
@@ -113,6 +136,7 @@ fprintf('N = %d\n', numel(rho))
 rho_cv = nan(size(rho));
 cv_summary = table();
 
+% Leave-one-campaign-out cross-validation tests model transferability to entirely unseen observational campaigns.
 for ic = 1:numel(campaign_list)
 
     campaign_name = campaign_list(ic);
@@ -197,6 +221,7 @@ fprintf('Saved cross-validation table to:\n%s\n', outFile)
 
 end
 
+% Grid-search optimization of the temperature-thickness density model.
 function fit = fit_fast_fixed_hcrit_model(rho, T, h, ...
     h_cold_peak, rho_cold_peak, h_cold_high, rho_cold_high, ...
     rho_cold_0_grid, Tcrit_grid, rho_warm_plateau_grid, ...
@@ -279,6 +304,7 @@ end
 
 end
 
+% Evaluate the fitted density parameterization.
 function rhohat = predict_fast_fixed_hcrit_model(T, h, p, ...
     h_cold_peak, rho_cold_peak, h_cold_high, rho_cold_high)
 
@@ -306,6 +332,7 @@ rhohat = wT .* rhoCold + (1 - wT) .* rhoWarm;
 
 end
 
+% Piecewise-linear cold-regime density parameterization.
 function rhoCold = cold_branch_density(h, rho_cold_0, ...
     h_cold_peak, rho_cold_peak, h_cold_high, rho_cold_high)
 
@@ -325,6 +352,7 @@ rhoCold(idx2) = rho_cold_peak + ...
 
 end
 
+% Compute standard regression performance metrics.
 function metrics = regression_metrics(y, yhat, k)
 
 e = y - yhat;
@@ -339,6 +367,7 @@ metrics.r2adj = 1 - (1 - metrics.r2) * (n - 1) / max(n - k - 1, 1);
 
 end
 
+% Map dataset identifiers to campaign-level cross-validation groups.
 function campaign_group = define_campaign_groups(dataset_id)
 
 dataset_raw = strtrim(string(dataset_id));

@@ -1,4 +1,20 @@
 function manuscript_statistics(repoRoot)
+%
+% MANUSCRIPT_STATISTICS
+%
+% Generates summary statistics reported in the manuscript and supporting
+% information.
+%
+% Outputs include:
+%   - Dataset coverage and sample sizes
+%   - Seasonal and regional observation statistics
+%   - Ice-age-specific density summaries
+%   - SnowModel-LG snow-thickness evaluation metrics
+%   - Parameterization sample sizes
+%
+% Input:
+%   data/final/snow_model_matchups_with_models.mat
+%
 
 close all
 
@@ -57,6 +73,7 @@ snow_merra2 = D.hs_merra;
 
 is_svalbard = contains(lower(dataset_id),"svalbard");
 
+% Retain only physically valid sea-ice observations used throughout the parameterization analysis.
 valid = ~isnat(t) & ...
         isfinite(T) & ...
         isfinite(rho) & ...
@@ -150,6 +167,7 @@ fprintf('\n')
 
 m = month(t);
 
+% Meteorological seasons.
 season = strings(size(m));
 
 season(ismember(m,[12 1 2])) = "Winter";
@@ -273,6 +291,7 @@ model_snow = {snow_era5, snow_merra2};
 
 for k = 1:numel(model_names)
 
+    % Restrict evaluation to Arctic pack-ice observations because SnowModel-LG is not intended to represent Svalbard fjord conditions.
     idx = ~is_svalbard & ...
           isfinite(snow_obs) & ...
           isfinite(model_snow{k});
@@ -390,6 +409,7 @@ fprintf('Snow-based parameterization N        : %d\n', ...
 
 fprintf('\n')
 
+% Format year ranges for manuscript summary tables.
 function yearsStr = format_years_for_table(years)
 
 years = unique(sort(years(:)'));
@@ -402,6 +422,7 @@ end
 
 end
 
+% Format month ranges for manuscript summary tables.
 function monthsStr = format_months_for_table(months)
 
 monthNames = ["Jan","Feb","Mar","Apr","May","Jun", ...

@@ -1,4 +1,21 @@
 function analyze_snow_dependence(repoRoot)
+%
+% ANALYZE_SNOW_DEPENDENCE
+%
+% Derives snow-thickness-dependent sea-ice density parameterizations shown in Figure 2.
+%
+% The script compares two predictor choices:
+%   1. Ice thickness and snow thickness.
+%   2. Hydrostatic freeboard and snow thickness.
+%
+% For each case, the model is fitted using measured snow thickness, then only the snow-transition thresholds are refitted using ERA5 SnowModel-LG snow thickness.
+%
+% Input:
+%   data/final/snow_model_matchups_with_models.mat
+%
+% Output:
+%   figures/Fig2.png
+%
 
 close all
 
@@ -55,6 +72,7 @@ end
 
 dataset_all = string(D.dataset);
 
+% Exclude Svalbard fjord observations from the snow-dependence analysis because this parameterization targets Arctic pack-ice conditions.
 is_svalbard = contains(lower(dataset_all),"svalbard");
 mask = ~is_svalbard;
 
@@ -80,6 +98,7 @@ rho_thick_0_bounds = [890 915];
 hi0_low_bounds = [1.2 2.3];
 rho_low_const_bounds_hi = [890 910];
 
+% Bounds for the snow-thickness transition zone between low-snow and high-snow density branches.
 hs_low_min = 0.00;
 hs_low_max = 0.03;
 hs_high_min = 0.05;
@@ -247,6 +266,7 @@ fprintf('Saved figure to:\n%s\n', ...
 %% Helpers
 
 function [x,hs,rho,valid] = hi_prepare_thickness_data(hi,rho,hs)
+% Remove invalid observations and format ice-thickness model inputs.
 
 x = hi(:);
 hs = hs(:);
@@ -265,6 +285,7 @@ function [p_opt,RMSE,R2] = hi_fit_panel1_model( ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     rho_thick_0_bounds,hi0_low_bounds,rho_low_const_bounds, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Fit the full ice-thickness/snow-thickness density model.
 
 opts = optimset('MaxFunEvals',5e4,'MaxIter',5e4,'Display','off');
 
@@ -293,6 +314,7 @@ function [p_opt,RMSE,R2] = hi_fit_panel2_thresholds_only( ...
     x,hs,rho,p_fixed, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Refit only snow-thickness transition thresholds for SM-LG snow input.
 
 opts = optimset('MaxFunEvals',5e4,'MaxIter',5e4,'Display','off');
 
@@ -333,6 +355,7 @@ end
 
 function rho_m = hi_rho_model( ...
     p,x,hs,hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual)
+% Evaluate the ice-thickness/snow-thickness density parameterization.
 
 rho_low_0 = p(1);
 rho_low_const = p(2);
@@ -364,6 +387,7 @@ end
 
 function penalty = hi_penalty_panel1(p,hi0_low_bounds,rho_low_const_bounds,rho_thick_0_bounds, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Penalize parameter values outside physically plausible bounds during unconstrained fminsearch optimization.
 
 rho_low_0 = p(1);
 rho_low_const = p(2);
@@ -392,6 +416,7 @@ penalty = penalty + 1e6*max(0,rho_thick_0-rho_thick_0_bounds(2)).^2;
 end
 
 function penalty = hi_penalty_thresholds(q,hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Penalize parameter values outside physically plausible bounds during unconstrained fminsearch optimization.
 
 hs_low = q(1);
 hs_high = q(2);
@@ -410,6 +435,7 @@ function B = hi_bootstrap_panel1( ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     rho_thick_0_bounds,hi0_low_bounds,rho_low_const_bounds, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Bootstrap uncertainty for the full ice-thickness/snow-thickness model.
 
 n = numel(rho);
 B = nan(nboot,6);
@@ -440,6 +466,7 @@ function B = hi_bootstrap_panel2_thresholds_only( ...
     x,hs,rho,nboot,p_fixed,p_start, ...
     hi_ref_thick,rho_thick_at_ref,hi_thick_high,rho_thick_high_manual, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Bootstrap uncertainty when only SM-LG snow-threshold parameters are refit.
 
 n = numel(rho);
 B = nan(nboot,6);
@@ -734,6 +761,7 @@ c = cmap(idx,:);
 end
 
 function [x,hs,rho,valid] = hf_prepare_freeboard_data(hi,rho,hs,date,rho_w)
+% Estimate hydrostatic freeboard and prepare freeboard-model inputs.
 
 aug1_this_year = datetime(year(date),8,1);
 aug1_next = aug1_this_year;
@@ -831,6 +859,7 @@ end
 end
 
 function rho_m = hf_rho_model(p,x,hs,hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual)
+% Evaluate the freeboard/snow-thickness density parameterization.
 
 rho_low_0 = p(1);
 rho_low_const = p(2);
@@ -899,6 +928,7 @@ function B = hf_bootstrap_full_model( ...
     hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual, ...
     hf0_low_bounds,rho_low_const_bounds, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Bootstrap uncertainty for the full freeboard/snow-thickness model.
 
 n = numel(rho);
 B = nan(nboot,5);
@@ -929,6 +959,7 @@ function B = hf_bootstrap_thresholds_only( ...
     x,hs,rho,nboot,p_fixed,p_start, ...
     hf_ref_thick,rho_thick_const,hf_thick_high,rho_thick_high_manual, ...
     hs_low_min,hs_low_max,hs_high_min,hs_high_max)
+% Bootstrap uncertainty when only SM-LG snow-threshold parameters are refit.
 
 n = numel(rho);
 B = nan(nboot,5);
@@ -1078,7 +1109,13 @@ hs_low = p(3);
 hs_high = p(4);
 hf0_low = p(5);
 
-b_low = (rho_low_const - rho_low_0) ./ hf0_low;
+% Rounded display values for the low-snow branch.
+rho_low_0_txt = round(rho_low_0);
+rho_low_const_txt = round(rho_low_const);
+hf0_low_txt = round(hf0_low,2);
+
+b_low_txt = (rho_low_const_txt - rho_low_0_txt) ./ hf0_low_txt;
+
 b_thick = (rho_thick_high_manual - rho_thick_const) ./ ...
     (hf_thick_high - hf_ref_thick);
 
@@ -1092,8 +1129,8 @@ txt = sprintf([ ...
     '$\\rho_h=%.0f%+.0f\\,(h_f-%.2f),\\quad h_f>%.2f\\,\\mathrm{m}$\n' ...
     '%s' ...
     '$R^2=%.2f,\\; RMSE=%.1f\\,\\mathrm{kg\\,m^{-3}},\\; N=%d$'], ...
-    rho_low_0,b_low,hf0_low, ...
-    rho_low_const,hf0_low, ...
+    rho_low_0_txt,b_low_txt,hf0_low_txt, ...
+    rho_low_const_txt,hf0_low_txt, ...
     rho_thick_const,hf_ref_thick, ...
     rho_thick_const,b_thick,hf_ref_thick,hf_ref_thick, ...
     wtxt, ...

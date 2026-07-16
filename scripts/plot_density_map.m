@@ -45,7 +45,6 @@ hi_idx = round(1 + rho_scaled * (ncol_hi - 1));
 hi_idx = max(1, min(ncol_hi, hi_idx));
 hi_rgb = c_hi(hi_idx, :);
 
-% lon0 = median(Dmap.lon, 'omitnan');
 lon0 = 20;
 lat0 = min(89, max(Dmap.lat, [], 'omitnan') - 0.5);
 
@@ -192,9 +191,7 @@ set(ax_hi, ...
 t_rho = title(ax_hi, 'Sea-ice density (kg m^{-3})', 'FontSize', fs, 'FontWeight', 'normal');
 t_rho.Units = 'normalized'; t_rho.Position(2) = 1.05;
 
-% =========================================================
 % MANUAL COLORBAR POSITIONS: [left bottom width height]
-% =========================================================
 cb_bottom = 0.68;
 cb_height = 0.22;
 cb_width  = 0.018;

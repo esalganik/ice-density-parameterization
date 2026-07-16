@@ -1,4 +1,20 @@
 function merge_processed_summaries(repoRoot)
+%
+% MERGE_PROCESSED_SUMMARIES
+%
+% Merges all processed campaign summary tables into the common final
+% matchup table used for SnowModel-LG extraction and density analysis.
+%
+% The script standardizes variable names, harmonizes table schemas, applies
+% selected snow-thickness corrections, and initializes placeholder columns
+% for ERA5 and MERRA2 SnowModel-LG matchups.
+%
+% Inputs:
+%   data/processed/Summary_*.mat
+%
+% Outputs:
+%   data/final/snow_model_matchups.mat
+%
 
 close all
 
@@ -11,6 +27,7 @@ end
 
 dataFolder = processedDir;
 
+% Processed campaign summaries to merge.
 summaryFiles = { ...
     fullfile(dataFolder,'Summary_MOSAIC_FYI.mat')
     fullfile(dataFolder,'Summary_MOSAIC_SYI.mat')
@@ -24,8 +41,7 @@ summaryFiles = { ...
 
 averageGoNorth = true;
 
-% LOAD ALL TABLES
-
+% Load all available campaign summary tables.
 All = table();
 
 for i = 1:numel(summaryFiles)
@@ -40,7 +56,7 @@ for i = 1:numel(summaryFiles)
 
     Ttmp = S.(fn{1});
 
-    % standardize names
+    % Standardize key variable types after concatenation.
 
     if ismember('snow_depth_m',Ttmp.Properties.VariableNames)
         Ttmp.Properties.VariableNames{'snow_depth_m'} = ...
@@ -103,7 +119,7 @@ if ~isdatetime(All.date)
     All.date = datetime(All.date);
 end
 
-% AVERAGE GONORTH
+% Optionally average GoNorth observations to one FYI and one SYI record.
 
 if averageGoNorth
 
@@ -186,7 +202,7 @@ if averageGoNorth
     end
 end
 
-% BUILD FINAL TABLE
+% Build final common matchup table.
 
 D = table();
 
@@ -215,7 +231,7 @@ D.density_insitu_connected_kgm3 = ...
 D.density_insitu_disconnected_kgm3 = ...
     double(All.density_insitu_disconnected_kgm3);
 
-% REMOVE BAD GEO/DATE
+% Remove rows without valid date or geographic coordinates.
 
 validD = ...
     ~isnat(D.date) & ...
@@ -224,11 +240,13 @@ validD = ...
 
 D = D(validD,:);
 
-% SNOW THICKNESS FIXES
+% Apply dataset-specific snow-thickness corrections.
 
 md = month(D.date);
 dd = day(D.date);
 
+% Set summer snow thickness to zero for late June through August
+% observations where snow cover is assumed absent.
 summer_mask = ...
     (md == 6 & dd >= 25) | ...
     md == 7 | ...
@@ -236,8 +254,8 @@ summer_mask = ...
 
 D.hs(summer_mask) = 0;
 
-% fill missing MOSAiC SYI snow
-
+% Fill selected missing MOSAiC SYI snow-thickness values using the mean of
+% nearby available MOSAiC SYI observations.
 idx_fill = [31 33 34];
 
 idx_fill = idx_fill(idx_fill <= height(D));
@@ -250,7 +268,9 @@ if ~isempty(idx_fill) && height(D) >= 30
 
 end
 
-% placeholders
+% Initialize SnowModel-LG matchup variables. These columns are populated
+% later by add_SMLG_model_snow.m after ERA5- and MERRA2-forced SnowModel-LG
+% snow depths have been matched to each observation.
 
 D.hs_smlg = nan(height(D),1);
 D.t_smlg = NaT(height(D),1);

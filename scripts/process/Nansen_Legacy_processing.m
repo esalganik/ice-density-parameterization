@@ -1,4 +1,19 @@
 function Nansen_Legacy_processing(repoRoot)
+%
+% NANSEN_LEGACY_PROCESSING
+%
+% Imports Nansen Legacy sea-ice core density and temperature data,
+% interpolates temperature profiles onto density-core section depths,
+% computes in-situ density estimates from laboratory density, salinity, and
+% temperature, and averages section-level measurements to one record per ice
+% core.
+%
+% Input:
+%   data/raw/NL_density.xlsx
+%
+% Output:
+%   data/processed/Summary_NL.mat
+%
 
 close all
 
@@ -15,6 +30,7 @@ inputFile = fullfile(rawDir, ...
 outputFile = fullfile(processedDir, ...
     'Summary_NL.mat');
 
+% Read density-section data and matching temperature profiles.
 T1 = readtable(inputFile,'Sheet','density');
 T2 = readtable(inputFile,'Sheet','temperature');
 
@@ -37,10 +53,12 @@ dT_all = table2array(T2(:,8)) - table2array(T2(:,6));
 zT_all = table2array(T2(:,9));
 T_all = table2array(T2(:,11));
 
+% Split section-level density and temperature data into per-core arrays.
 for i = 1:max(n)
     rho{i} = rho_all(n == i);
     zzrho{i} = zzrho_all(n == i,:);
     Srho{i} = Srho_all(n == i);
+    % Use a fixed laboratory reference temperature of -20 deg C for density conversion.
     T_lab{i} = T_lab_all(n == i)*0 - 20;
 
     t0{i} = t_all(n == i);
@@ -70,10 +88,12 @@ for i = 1:max(n)
     hT(i) = hT0{i}(1);
 end
 
+% Interpolate temperature profiles to density-section midpoints and compute in-situ density estimates for each core.
 for i = 1:max(n)
 
     zrho{i} = mean(zzrho{i},2) * hrho(i) / zzrho{i}(end,2);
 
+    % Limit ice temperature to below the freezing point to avoid invalid brine volume calculations near 0 deg C.
     T_profile = min(-0.1,T{i});
     zT_scaled = zT{i} * hT(i) / zT{i}(end);
 
@@ -89,6 +109,8 @@ for i = 1:max(n)
     Si = Srho{i};
     rho_lab = rho{i};
 
+    % Estimate brine volume, gas volume, and in-situ density from laboratory
+    % density, salinity, laboratory temperature, and interpolated in-situ temperature.
     [F1_pr,F2_pr] = F1F2_seaice(Tlab);
     [F1_i,F2_i] = F1F2_seaice(Ti);
 
@@ -116,6 +138,8 @@ for i = 1:max(n)
     vb_calc = vb_raw;
     vb_calc(vb_calc > 0.6 | vb_calc < 0) = 0.6;
 
+    % Connected-pore case: allow gas volume to change when laboratory density
+    % is converted to in-situ temperature conditions.
     A = ...
         (rhoi_i ./ rhoi_pr) .* ...
         (F3_pr ./ F3_i) .* ...
@@ -127,6 +151,8 @@ for i = 1:max(n)
     vg_connected{i} = max(0, ...
         1 - (1 - vg_pr{i}) .* A);
 
+    % Disconnected-pore case: preserve laboratory gas volume during conversion
+    % to in-situ temperature conditions.
     vg_disconnected{i} = vg_pr{i};
 
     rho_si_connected{i} = ...
@@ -145,6 +171,7 @@ for i = 1:max(n)
     T_bulk(i) = mean(T_rho{i},'omitnan');
 end
 
+% Average section-level variables to one representative record per ice core.
 rho_bulk = nan(max(n),1);
 rho_si_connected_bulk = nan(max(n),1);
 rho_si_disconnected_bulk = nan(max(n),1);
@@ -168,6 +195,7 @@ for i = 1:max(n)
     lon_core(i) = lon(i);
 end
 
+% Convert processed Nansen Legacy core means to the common repository schema.
 ice_age = repmat("FYI",max(n),1);
 dataset = repmat("Nansen Legacy FYI",max(n),1);
 
@@ -207,7 +235,8 @@ fprintf('Output saved to:\n%s\n', ...
 save(outputFile,'NL_core_summary')
 
 %% Helpers
-
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 for the
+% relevant temperature regime.
 function [F1,F2] = F1F2_seaice(T)
 
 F1 = -4.732 - 22.45*T - 0.6397*T.^2 - 0.01074*T.^3;

@@ -1,4 +1,19 @@
 function Ridges_processing(repoRoot)
+%
+% RIDGES_PROCESSING
+%
+% Imports ridge-core density and temperature measurements from MOSAiC
+% ridge measurements, interpolates temperature profiles onto density-core
+% section depths, computes in-situ density estimates from laboratory
+% density, salinity, and temperature, and exports one summary record per
+% ridge core.
+%
+% Input:
+%   data/raw/ridges/**/*.xlsx
+%
+% Output:
+%   data/processed/Summary_Ridges.mat
+%
 
 close all
 
@@ -11,11 +26,13 @@ end
 
 outputFile = fullfile(processedDir, 'Summary_Ridges.mat');
 
+% Find all ridge-core workbooks and ignore temporary Excel files.
 files = dir(fullfile(rawDir,'**','*.xlsx'));
 files = files(~startsWith({files.name},'~$'));
 
 cores = struct([]);
 
+% Read ridge-core metadata, density sections, and temperature profiles from each workbook.
 for k = 1:numel(files)
     file = fullfile(files(k).folder,files(k).name);
 
@@ -30,6 +47,7 @@ for k = 1:numel(files)
     lonDeg = convcell(so{21,3});
     lonMin = convcell(so{21,4});
 
+    % Convert station coordinates from degrees and minutes to decimal degrees.
     if ~isnan(latDeg)
         if isnan(latMin)
             lat = latDeg;
@@ -50,6 +68,7 @@ for k = 1:numel(files)
         lon = NaN;
     end
 
+    % Extract section-level density, salinity, and laboratory-temperature data.
     rowsDC = 23:size(dc,1);
     top = convcol(dc(rowsDC,1));
     bottom = convcol(dc(rowsDC,2));
@@ -72,7 +91,8 @@ for k = 1:numel(files)
     iceDraft = convcell(dc{12,2});
 
     dateCore = parsedate(dc{4,2});
-
+    
+    % Extract temperature-profile measurements when available.
     if hasTemp
         tc = readcell(file,'Sheet','Temperature Core');
         coreLength = convcell(tc{18,5});
@@ -133,6 +153,8 @@ for k = 1:numel(files)
     cores(k).core_length = coreLength;
 end
 
+% Interpolate temperature profiles to density-section depths and compute
+% in-situ density estimates for each ridge core.
 for k = 1:numel(cores)
     zrho = (cores(k).density_top + cores(k).density_bottom) / 2;
     rho = cores(k).density;
@@ -189,6 +211,7 @@ for k = 1:numel(cores)
         continue
     end
 
+    % Interpolate in-situ temperatures from temperature-core measurements to the density-core section midpoints.
     T_rho(idxR) = interp1(zTuniq,Tuniq,zrho(idxR),'linear','extrap');
 
     TlabR = Tlab(idxR);
@@ -196,6 +219,9 @@ for k = 1:numel(cores)
     Si = S(idxR);
     rho_lab = rho(idxR);
 
+    % Estimate brine volume, gas volume, and in-situ density from laboratory
+    % density, salinity, laboratory temperature, and interpolated in-situ
+    % temperature.
     [F1_pr,F2_pr] = F1F2_seaice(TlabR);
     [F1_i,F2_i] = F1F2_seaice(Ti);
 
@@ -223,6 +249,8 @@ for k = 1:numel(cores)
     vb_calc = vb_raw;
     vb_calc(vb_calc > 0.4 | vb_calc < 0) = 0.4;
 
+    % Connected-pore case: allow gas volume to change when laboratory density
+    % is converted to in-situ temperature conditions.
     A = ...
         (rhoi_i ./ rhoi_pr) .* ...
         (F3_pr ./ F3_i) .* ...
@@ -268,6 +296,7 @@ for k = 1:n
     file_ridge(k) = string(cores(k).file);
     dataset_ridge(k) = string(cores(k).source);
 
+    % Average section-level properties to one representative value per ridge core.
     rho_ridge(k) = mean(cores(k).density,'omitnan');
     rho_si_ridge(k) = mean(cores(k).density_insitu,'omitnan');
 
@@ -280,6 +309,7 @@ for k = 1:n
     lon_ridge(k) = cores(k).lon;
 end
 
+% Convert processed ridge-core means to the common repository schema.
 Ridge_core_summary = table( ...
     file_ridge, ...
     dataset_ridge, ...
@@ -320,6 +350,9 @@ fprintf('Output saved to:\n%s\n',outputFile)
 save(outputFile,'Summary_Ridges')
 
 %% Helper functions
+
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 for the
+% relevant temperature regime.
 
 function [F1,F2] = F1F2_seaice(T)
 

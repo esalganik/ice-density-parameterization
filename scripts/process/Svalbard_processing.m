@@ -1,4 +1,19 @@
 function Svalbard_processing(repoRoot)
+%
+% SVALBARD_PROCESSING
+%
+% Imports sea-ice density and temperature measurements from Svalbard and
+% N-ICE2015 ice-core campaigns, interpolates temperature profiles onto
+% density-core section depths, computes in-situ density estimates from
+% laboratory density, salinity, and temperature, and exports one summary
+% record per ice core.
+%
+% Input:
+%   data/raw/Svalbard/**/*.xlsx
+%
+% Output:
+%   data/processed/Summary_Svalbard.mat
+%
 
 close all
 
@@ -17,12 +32,14 @@ rootFolder = rawDir;
 folder1 = fullfile(rootFolder,'Kongsfjorden_density_cores_for_Evgenii');
 folder2 = fullfile(rootFolder,'Density_cores_KF2018_NICE');
 
+% Collect all Svalbard and N-ICE2015 workbooks.
 files = [ ...
     dir(fullfile(folder1,'*.xlsx')); ...
     dir(fullfile(folder2,'*.xlsx'))];
 
 cores = struct([]);
 
+% Read metadata, density-core measurements, and temperature profiles from each workbook.
 for k = 1:numel(files)
     file = fullfile(files(k).folder,files(k).name);
 
@@ -37,6 +54,7 @@ for k = 1:numel(files)
     lonDeg = convcell(so{21,3});
     lonMin = convcell(so{21,4});
 
+    % Convert station coordinates from degrees and minutes to decimal degrees.
     lat = NaN;
     lon = NaN;
 
@@ -48,6 +66,7 @@ for k = 1:numel(files)
         lon = lonDeg + lonMin/60;
     end
 
+    % Extract section-level density and salinity measurements.
     rowsDC = 23:size(dc,1);
     top = convcol(dc(rowsDC,1));
     bottom = convcol(dc(rowsDC,2));
@@ -68,6 +87,7 @@ for k = 1:numel(files)
 
     dateCore = parsedate(dc{4,2});
 
+    % Extract temperature-profile measurements when available.
     if hasTemp
         tc = readcell(file,'Sheet','Temperature Core');
         coreLength = convcell(tc{18,5});
@@ -126,6 +146,7 @@ for k = 1:numel(files)
     cores(k).core_length = coreLength;
 end
 
+% Interpolate temperature profiles to density-section depths and compute in-situ density estimates for each ice core.
 for k = 1:numel(cores)
 
     zrho = (cores(k).density_top + cores(k).density_bottom) / 2;
@@ -174,12 +195,16 @@ for k = 1:numel(cores)
         continue
     end
 
+    % Interpolate in-situ temperatures from temperature-core measurements to density-core section midpoints.
     T_rho(idxR) = interp1(zTuniq,Tuniq,zrho(idxR),'linear','extrap');
 
     TlabR = Tlab(idxR);
     Ti = T_rho(idxR);
     Si = S(idxR);
     rho_lab = rho(idxR);
+
+    % Estimate brine volume, gas volume, and in-situ density from laboratory
+    % density, salinity, laboratory temperature, and interpolated in-situ temperature.
 
     [F1_pr,F2_pr] = F1F2_seaice(TlabR);
     [F1_i,F2_i] = F1F2_seaice(Ti);
@@ -208,6 +233,7 @@ for k = 1:numel(cores)
     vb_calc = vb_raw;
     vb_calc(vb_calc > 0.6 | vb_calc < 0) = 0.6;
 
+    % Connected-pore case: allow gas volume to change when laboratory density is converted to in-situ temperature conditions.
     A = ...
         (rhoi_i ./ rhoi_pr) .* ...
         (F3_pr ./ F3_i) .* ...
@@ -219,6 +245,7 @@ for k = 1:numel(cores)
     vg_conn = max(0, ...
         1 - (1 - vg_pr) .* A);
 
+    % Disconnected-pore case: preserve laboratory gas volume during conversion to in-situ temperature conditions.
     vg_disc = vg_pr;
 
     rho_conn = ...
@@ -255,7 +282,6 @@ end
 nCores = numel(cores);
 
 file_sva = strings(nCores,1);
-source_sva = strings(nCores,1);
 dataset_sva = strings(nCores,1);
 coreDate = NaT(nCores,1);
 
@@ -268,10 +294,11 @@ avgTemp = nan(nCores,1);
 lat_sva = nan(nCores,1);
 lon_sva = nan(nCores,1);
 
+% Average section-level properties to one representative value per ice core.
 for k = 1:nCores
     file_sva(k) = string(cores(k).file);
-    source_sva(k) = string(cores(k).source);
 
+    % Separate N-ICE2015 cores from the remaining Svalbard observations.
     if strcmp(cores(k).file,'N-ICE_Ice_Station_2015_02_12_with_density_100426.xlsx')
         dataset_sva(k) = "N-ICE2015";
     else
@@ -296,9 +323,9 @@ hi_sva = iceThickness / 100;
 hs_sva = snowDepth / 100;
 Ti_sva = avgTemp;
 rho_sva = avgDensity;
-rho_si_sva = avgDensity_insitu_connected;
 ice_age = repmat("FYI",nCores,1);
 
+% Convert processed core means to the common repository schema.
 Svalbard_core_summary = table( ...
     file_sva, ...
     dataset_sva, ...
@@ -338,6 +365,27 @@ save(outputFile,'Svalbard_core_summary')
 
 %% Helpers
 
+% F1F2_SEAICE
+%
+% Computes the empirical sea-ice coefficients F1 and F2 used in the Cox
+% and Weeks brine-volume formulation as a function of ice temperature.
+%
+% Input:
+%   T  - Sea-ice temperature (°C)
+%
+% Output:
+%   F1 - Temperature-dependent coefficient
+%   F2 - Temperature-dependent coefficient
+%
+% Notes:
+%   Piecewise polynomial fits are used following Cox and Weeks (1983):
+%       -22.9 °C <= T <= -2 °C
+%       T > -2 °C
+%       T < -22.9 °C
+%
+%   These coefficients are used to estimate brine volume, gas volume, and
+%   temperature-corrected in-situ sea-ice density from laboratory density
+%   measurements.
 function [F1,F2] = F1F2_seaice(T)
 
 F1 = -4.732 - 22.45*T - 0.6397*T.^2 - 0.01074*T.^3;

@@ -1,4 +1,17 @@
 function MOSAIC_FYI_processing(repoRoot)
+%
+% MOSAIC_FYI_PROCESSING
+%
+% Imports MOSAiC first-year ice core density data, computes in-situ density
+% estimates from laboratory density, salinity, and in-situ temperature, and
+% averages section-level measurements to one record per core/date.
+%
+% Input:
+%   data/raw/MOSAiC_MCS_FYI_sea_ice.tab
+%
+% Output:
+%   data/processed/Summary_MOSAIC_FYI.mat
+%
 
 close all
 
@@ -15,6 +28,7 @@ inputFile = fullfile(rawDir, ...
 outputFile = fullfile(processedDir, ...
     'Summary_MOSAIC_FYI.mat');
 
+% Remove PANGAEA metadata header and read the tabular data section only.
 txt = fileread(inputFile);
 endHeader = strfind(txt,'*/');
 dataTxt = strtrim(txt(endHeader(1)+2:end));
@@ -32,6 +46,7 @@ opts = detectImportOptions(tmpFile, ...
 Tfull = readtable(tmpFile,opts);
 delete(tmpFile)
 
+% Select variables needed for density processing and repository summary output.
 cols = [2 3 4 5 8 9 14 19 20 22 23];
 T = Tfull(:,cols);
 
@@ -51,10 +66,12 @@ T.Properties.VariableNames = { ...
 T.DateTime = datetime(T.DateTime, ...
     'InputFormat','yyyy-MM-dd''T''HH:mm');
 
+% Laboratory density measurements are converted using a fixed reference laboratory temperature because no sample-specific laboratory temperature is provided in this dataset.
 Tlab_fixed = -15;
 
 S = T.SeaIceSalinity;
 rho = T.Density_lab_kgm3;
+% Limit in-situ ice temperature to below the freezing point to avoid invalid brine-volume calculations near 0 deg C.
 Tinsitu = min(-0.1,T.Temperature_C);
 
 T.Temperature_C_limited = Tinsitu;
@@ -74,6 +91,8 @@ rho_lab = rho(idx);
 Tlab_i = Tlab_fixed * ones(sum(idx),1);
 Ti_i = Tinsitu(idx);
 
+% Estimate brine volume, gas volume, and in-situ density from laboratory
+% density, salinity, fixed laboratory temperature, and in-situ temperature.
 [F1_pr,F2_pr] = F1F2_seaice(Tlab_i);
 [F1_i,F2_i] = F1F2_seaice(Ti_i);
 
@@ -101,6 +120,7 @@ vb_export(vb_export > 0.4 | vb_export < 0) = NaN;
 vb_calc = vb_raw;
 vb_calc(vb_calc > 0.4 | vb_calc < 0) = 0.4;
 
+% Connected-pore case: allow gas volume to change when laboratory density is converted to in-situ temperature conditions.
 A = ...
     (rhoi_i ./ rhoi_pr) .* ...
     (F3_pr ./ F3_i) .* ...
@@ -112,6 +132,7 @@ A(idx0) = 1;
 vg_connected = max(0, ...
     1 - (1 - vg_pr) .* A);
 
+% Disconnected-pore case: preserve laboratory gas volume during conversion to in-situ temperature conditions.
 vg_disconnected = vg_pr;
 
 rho_si_connected = ...
@@ -132,6 +153,7 @@ T.GasVolume_disconnected(idx) = vg_disconnected;
 T.Density_insitu_connected_kgm3(idx) = rho_si_connected;
 T.Density_insitu_disconnected_kgm3(idx) = rho_si_disconnected;
 
+% Exclude false-bottom sections and missing laboratory densities before averaging section-level measurements to core/date means.
 idxFalseBottom = contains(lower(string(T.Comment)),'false bottom');
 idxNaNDensity = isnan(T.Density_lab_kgm3);
 
@@ -144,6 +166,7 @@ excludeFromAverages = ismember(TavgInput.Properties.VariableNames, ...
 
 numNames = TavgInput.Properties.VariableNames(numericVars & ~excludeFromAverages);
 
+% Average numeric section-level variables to one representative record per core/date.
 Tavg = groupsummary(TavgInput,'DateTime','mean',numNames);
 
 if ismember('GroupCount',Tavg.Properties.VariableNames)
@@ -202,7 +225,8 @@ Summary_MOSAIC_FYI = table( ...
 save(outputFile,'Summary_MOSAIC_FYI')
 
 %% Helpers
-
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 for the
+% relevant temperature regime.
 function [F1,F2] = F1F2_seaice(T)
 
 F1 = -4.732 - 22.45*T - 0.6397*T.^2 - 0.01074*T.^3;

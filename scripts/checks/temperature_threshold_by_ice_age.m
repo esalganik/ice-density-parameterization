@@ -1,3 +1,14 @@
+%
+% Exploratory analysis of the temperature-transition threshold (Tcrit).
+%
+% Produces:
+%   1. Two-panel version of the density parameterization figure.
+%   2. Sensitivity tests for separate FYI and SYI/MYI transition
+%      temperatures.
+%
+% This script was used to evaluate whether ice-type-specific transition
+% temperatures are supported by the observational dataset.
+%
 clear
 close all
 clc
@@ -63,12 +74,6 @@ if ~isdatetime(D.date)
     D.date = datetime(D.date);
 end
 
-if ismember("is_freeze",string(D.Properties.VariableNames))
-    is_freeze_all = logical(D.is_freeze);
-else
-    is_freeze_all = false(height(D),1);
-end
-
 t = D.date;
 t.Year = 2020;
 T = D.temperature_C;
@@ -76,7 +81,6 @@ rho = D.(rho_col);
 h = D.ice_thickness_m;
 dataset_id = string(D.dataset);
 ice_type = upper(string(D.ice_age));
-is_freeze = is_freeze_all;
 is_svalbard = contains(lower(dataset_id),"svalbard");
 
 valid = ~isnat(t) & isfinite(T) & isfinite(rho) & isfinite(h) & T < 0 & h > 0;
@@ -87,17 +91,16 @@ rho = rho(valid);
 h = h(valid);
 dataset_id = dataset_id(valid);
 ice_type = ice_type(valid);
-is_freeze = is_freeze(valid);
 is_svalbard = is_svalbard(valid);
 
-is_fyi_all = ice_type == "FYI" & ~is_svalbard & ~is_freeze;
-is_old_all = ice_type ~= "FYI" & ~is_svalbard & ~is_freeze;
-is_sva_all = is_svalbard & ~is_freeze;
+is_fyi_all = ice_type == "FYI" & ~is_svalbard;
+is_old_all = ice_type ~= "FYI" & ~is_svalbard;
+is_sva_all = is_svalbard;
 
-T_fit = T(~is_freeze);
-rho_fit = rho(~is_freeze);
-h_fit = h(~is_freeze);
-dataset_fit = dataset_id(~is_freeze);
+T_fit = T;
+rho_fit = rho;
+h_fit = h;
+dataset_fit = dataset_id;
 N = numel(rho_fit);
 
 fit = fit_fast_fixed_hcrit_model( ...
@@ -275,8 +278,8 @@ text(ax3,-0.145,1.02,'(b)','Units','normalized','FontSize',10,'FontWeight','norm
 
 fprintf('\nIce-type threshold sensitivity test:\n')
 
-is_fyi_fit = ice_type(~is_freeze) == "FYI" & ~is_svalbard(~is_freeze);
-is_old_fit = ice_type(~is_freeze) ~= "FYI" & ~is_svalbard(~is_freeze);
+is_fyi_fit = ice_type == "FYI" & ~is_svalbard;
+is_old_fit = ice_type ~= "FYI" & ~is_svalbard;
 
 fprintf('FYI non-Svalbard N = %d; SYI/MYI non-Svalbard N = %d\n',sum(is_fyi_fit),sum(is_old_fit))
 
@@ -318,11 +321,11 @@ end
 % the pooled model and scan only Tcrit separately for FYI and old ice.
 % This asks whether the data support a meaningful Tcrit split without giving
 % each ice type a full independent 5-parameter model.
-non_svalbard_fit = ~is_svalbard(~is_freeze);
+non_svalbard_fit = ~is_svalbard;
 T_test = T_fit(non_svalbard_fit);
 h_test = h_fit(non_svalbard_fit);
 rho_test = rho_fit(non_svalbard_fit);
-ice_test = ice_type(~is_freeze);
+ice_test = ice_type;
 ice_test = ice_test(non_svalbard_fit);
 is_fyi_test = ice_test == "FYI";
 is_old_test = ice_test ~= "FYI";
@@ -335,6 +338,7 @@ yhat_common = predict_fast_fixed_hcrit_model(T_test,h_test,p_base, ...
 sse_common = sum((rho_test - yhat_common).^2,'omitnan');
 rmse_common = sqrt(mean((rho_test - yhat_common).^2,'omitnan'));
 
+% Scan independent FYI and SYI/MYI transition temperatures while holding all other model parameters fixed at their pooled-fit values.
 sse_split = nan(numel(Tcrit_grid),numel(Tcrit_grid));
 
 for i = 1:numel(Tcrit_grid)

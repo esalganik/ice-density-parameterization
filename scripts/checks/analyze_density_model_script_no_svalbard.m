@@ -1,3 +1,16 @@
+%
+% Temperature-dependent sea-ice density parameterization.
+%
+% Produces the main temperature-density figure and evaluates the
+% temperature-transition model:
+%
+%   rho = f(T_i, h_i)
+%
+% Additional analyses include:
+%   - Bootstrap confidence intervals
+%   - Leave-one-dataset-out validation
+%   - Sensitivity to inclusion of Svalbard observations
+%
 clear
 close all
 clc
@@ -67,12 +80,6 @@ if ~isdatetime(D.date)
     D.date = datetime(D.date);
 end
 
-if ismember("is_freeze",string(D.Properties.VariableNames))
-    is_freeze_all = logical(D.is_freeze);
-else
-    is_freeze_all = false(height(D),1);
-end
-
 t = D.date;
 t.Year = 2020;
 T = D.temperature_C;
@@ -80,7 +87,6 @@ rho = D.(rho_col);
 h = D.ice_thickness_m;
 dataset_id = string(D.dataset);
 ice_type = upper(string(D.ice_age));
-is_freeze = is_freeze_all;
 is_svalbard = contains(lower(dataset_id),"svalbard");
 
 valid = ~isnat(t) & isfinite(T) & isfinite(rho) & isfinite(h) & T < 0 & h > 0;
@@ -91,17 +97,16 @@ rho = rho(valid);
 h = h(valid);
 dataset_id = dataset_id(valid);
 ice_type = ice_type(valid);
-is_freeze = is_freeze(valid);
 is_svalbard = is_svalbard(valid);
 
-is_fyi_all = ice_type == "FYI" & ~is_svalbard & ~is_freeze;
-is_old_all = ice_type ~= "FYI" & ~is_svalbard & ~is_freeze;
-is_sva_all = is_svalbard & ~is_freeze;
+is_fyi_all = ice_type == "FYI" & ~is_svalbard;
+is_old_all = ice_type ~= "FYI" & ~is_svalbard;
+is_sva_all = is_svalbard;
 
-T_fit = T(~is_freeze);
-rho_fit = rho(~is_freeze);
-h_fit = h(~is_freeze);
-dataset_fit = dataset_id(~is_freeze);
+T_fit = T;
+rho_fit = rho;
+h_fit = h;
+dataset_fit = dataset_id;
 N = numel(rho_fit);
 
 fit = fit_fast_fixed_hcrit_model( ...
@@ -117,8 +122,8 @@ rhohat = predict_fast_fixed_hcrit_model( ...
 metrics = regression_metrics(rho_fit,rhohat,numel(p));
 
 % Sensitivity test for manuscript sentence:
-% refit the same parameterization after excluding Svalbard/landfast cores.
-fit_mask_no_svalbard = ~is_freeze & ~is_svalbard;
+% refit the same parameterization after excluding Svalbard cores.
+fit_mask_no_svalbard = ~is_svalbard;
 T_fit_no_svalbard = T(fit_mask_no_svalbard);
 rho_fit_no_svalbard = rho(fit_mask_no_svalbard);
 h_fit_no_svalbard = h(fit_mask_no_svalbard);
@@ -139,6 +144,7 @@ rhohat_no_svalbard = predict_fast_fixed_hcrit_model( ...
 metrics_no_svalbard = regression_metrics( ...
     rho_fit_no_svalbard,rhohat_no_svalbard,numel(p_no_svalbard));
 
+% Leave-one-dataset-out cross-validation. % Each dataset is excluded in turn and predicted using a model calibrated from all remaining datasets.
 if doLODO
     cv = leave_one_dataset_out_cv_fast_fixed_hcrit( ...
         rho_fit,T_fit,h_fit,dataset_fit,p, ...
@@ -149,6 +155,8 @@ else
     cv.r2 = NaN;
 end
 
+% Dataset-level bootstrap.
+% Resamples datasets with replacement to estimate parameter uncertainty and the confidence intervals shown in panels (c) and (d).
 if doBootstrap
     B_fit = bootstrap_fast_fixed_hcrit_model( ...
         rho_fit,T_fit,h_fit,dataset_fit,nboot, ...
@@ -418,13 +426,23 @@ fprintf('\nNo-Svalbard refit for manuscript sentence:\n')
 fprintf('R2 = %.2f, RMSE = %.1f kg m-3, N = %d\n', ...
     metrics_no_svalbard.r2,metrics_no_svalbard.rmse,N_no_svalbard)
 fprintf(['Refitting the temperature-based parameterization without Svalbard cores ' ...
-    'yielded nearly identical coefficients and skill (R^2 = %.2f, RMSE = %.1f~kg~m$^{-3}$), ' ...
-    'confirming that inclusion of landfast-ice observations does not materially bias the calibration.\n'], ...
-    metrics_no_svalbard.r2,metrics_no_svalbard.rmse)
+    'yielded nearly identical coefficients and skill (R^2 = %.2f, ' ...
+    'RMSE = %.1f kg m-3), confirming that inclusion of Svalbard ' ...
+    'observations does not materially bias the calibration.\n'], ...
+    metrics_no_svalbard.r2, metrics_no_svalbard.rmse)
 fprintf('No-Svalbard coefficients: Tcrit = %.1f C, rho_warm_plateau = %.1f, warm_slope = %.2f, hcrit_warm = %.1f m, rho_cold_0 = %.1f\n', ...
     p_no_svalbard(1),p_no_svalbard(2),p_no_svalbard(3),p_no_svalbard(4),p_no_svalbard(5))
 
 %% Helpers
+% Grid-search optimization of the temperature-dependent density model.
+%
+% Searches over:
+%   Tcrit
+%   rho_warm_plateau
+%   hcrit_warm
+%   rho_cold_0
+%
+% while solving warm_slope analytically by least squares.
 function fit = fit_fast_fixed_hcrit_model(rho,T,h,h_cold_peak,rho_cold_peak,h_cold_high,rho_cold_high,rho_cold_0_grid,Tcrit_grid,rho_warm_plateau_grid,hcrit_warm_grid,min_n_cold,min_n_warm)
 
 fit.rmse = inf;

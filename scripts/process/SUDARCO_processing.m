@@ -1,5 +1,19 @@
 function SUDARCO_processing(repoRoot)
-
+%
+% SUDARCO_PROCESSING
+%
+% Imports sea-ice density and temperature measurements from SUDARCO and
+% related ridge-core campaigns, interpolates temperature profiles onto
+% density-core section depths, computes in-situ density estimates from
+% laboratory density, salinity, and temperature, and exports one summary
+% record per ice core.
+%
+% Input:
+%   data/raw/SUDARCO/**/*.xlsx
+%
+% Output:
+%   data/processed/Summary_SUDARCO.mat
+%
 close all
 
 rawDir = fullfile(repoRoot, 'data', 'raw', 'SUDARCO');
@@ -14,11 +28,13 @@ outputFile = fullfile(processedDir, ...
 
 dataFolder = rawDir;
 
+% Find all SUDARCO workbooks and ignore temporary Excel files.
 files = dir(fullfile(dataFolder,'**','*.xlsx'));
 files = files(~startsWith({files.name},'~$'));
 
 cores = struct([]);
 
+% Read metadata, density-core measurements, and temperature profiles from each workbook.
 for k = 1:numel(files)
     file = fullfile(files(k).folder,files(k).name);
 
@@ -33,6 +49,7 @@ for k = 1:numel(files)
     lonDeg = convcell(so{21,3});
     lonMin = convcell(so{21,4});
 
+    % Convert station coordinates from degrees and minutes to decimal degrees.
     lat = NaN;
     lon = NaN;
 
@@ -44,6 +61,7 @@ for k = 1:numel(files)
         lon = lonDeg + lonMin/60;
     end
 
+    % Extract section-level density, salinity, and laboratory-temperature data.
     rowsDC = 23:size(dc,1);
     top = convcol(dc(rowsDC,1));
     bottom = convcol(dc(rowsDC,2));
@@ -66,6 +84,7 @@ for k = 1:numel(files)
 
     dateCore = parsedate(dc{4,2});
 
+    % Extract temperature-profile measurements when available.
     if hasTemp
         tc = readcell(file,'Sheet','Temperature Core');
         coreLength = convcell(tc{18,5});
@@ -125,6 +144,7 @@ for k = 1:numel(files)
     cores(k).core_length = coreLength;
 end
 
+% Interpolate temperature profiles to density-section depths and compute in-situ density estimates for each ice core.
 for k = 1:numel(cores)
     zrho = (cores(k).density_top + cores(k).density_bottom) / 2;
     rho = cores(k).density;
@@ -196,6 +216,7 @@ for k = 1:numel(cores)
         continue
     end
 
+    % Interpolate in-situ temperatures from temperature-core measurements to density-core section midpoints.
     T_rho(idxR) = interp1(zTuniq,Tuniq,zrho(idxR),'linear','extrap');
 
     TlabR = Tlab(idxR);
@@ -203,6 +224,8 @@ for k = 1:numel(cores)
     Si = S(idxR);
     rho_lab = rho(idxR);
 
+    % Estimate brine volume, gas volume, and in-situ density from laboratory
+    % density, salinity, laboratory temperature, and interpolated in-situ temperature.
     [F1_pr,F2_pr] = F1F2_seaice(TlabR);
     [F1_i,F2_i] = F1F2_seaice(Ti);
 
@@ -230,6 +253,7 @@ for k = 1:numel(cores)
     vb_calc = vb_raw;
     vb_calc(vb_calc > 0.4 | vb_calc < 0) = 0.4;
 
+    % Connected-pore case: allow gas volume to change when laboratory density is converted to in-situ temperature conditions.
     A = ...
         (rhoi_i ./ rhoi_pr) .* ...
         (F3_pr ./ F3_i) .* ...
@@ -241,6 +265,7 @@ for k = 1:numel(cores)
     vg_conn = max(0, ...
         1 - (1 - vg_pr) .* A);
 
+    % Disconnected-pore case: preserve laboratory gas volume during conversion to in-situ temperature conditions.
     vg_disc = vg_pr;
 
     rho_conn = ...
@@ -284,13 +309,12 @@ Ti_sud = nan(n,1);
 t_sud = NaT(n,1);
 lat_sud = nan(n,1);
 lon_sud = nan(n,1);
-source_sud = strings(n,1);
 dataset_sud = strings(n,1);
 file_sud = strings(n,1);
 
+% Average section-level properties to one representative value per ice core.
 for k = 1:n
     file_sud(k) = string(cores(k).file);
-    source_sud(k) = string(cores(k).source);
     dataset_sud(k) = "SUDARCO";
 
     rho_sud(k) = mean(cores(k).density,'omitnan');
@@ -306,6 +330,7 @@ for k = 1:n
     lon_sud(k) = cores(k).lon;
 end
 
+% Assign ice-age classes from campaign metadata and station descriptions.
 ice_age = repmat("SYI",n,1);
 
 idxMOSAiC = file_sud == "MOSAiC_ice_station_14.06.2020.xlsx";
@@ -322,6 +347,7 @@ ice_age(file_sud == "Polhavet2022_Ice_Station_6_Amundsen_Basin_ver150223_with_de
 ice_age(file_sud == "Polhavet2022_Ice_Station_8_Nansen_Basin_ver030223_with_density_final.xlsx") = "SYI";
 ice_age(file_sud == "Polhavet2022_Ice_Station_10_ver291123with_density_final.xlsx") = "FYI";
 
+% Convert processed SUDARCO core means to the common repository schema.
 SUDARCO_core_summary = table( ...
     file_sud, ...
     dataset_sud, ...
@@ -373,6 +399,8 @@ Summary_SUDARCO = SUDARCO_core_summary;
 save(outputFile,'Summary_SUDARCO')
 
 %% Helper functions
+
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 for the relevant temperature regime.
 
 function [F1,F2] = F1F2_seaice(T)
 

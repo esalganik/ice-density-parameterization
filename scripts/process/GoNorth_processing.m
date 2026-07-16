@@ -1,4 +1,18 @@
 function GoNorth_processing(repoRoot)
+%
+% GONORTH_PROCESSING
+%
+% Imports GoNorth sea-ice core density data, interpolates temperature
+% profiles onto density-core section depths, computes in-situ density
+% estimates from laboratory density, salinity, and temperature, and averages
+% section-level measurements to one record per ice core.
+%
+% Input:
+%   data/raw/GoNorth1_icecores.tab
+%
+% Output:
+%   data/processed/Summary_GoNorth.mat
+%
 
 close all
 
@@ -15,6 +29,7 @@ inputFile = fullfile(rawDir, ...
 outputFile = fullfile(processedDir, ...
     'Summary_GoNorth.mat');
 
+% Remove PANGAEA metadata header and read the tabular data section only.
 txt = fileread(inputFile);
 endHeader = strfind(txt,'*/');
 dataTxt = strtrim(txt(endHeader(1)+2:end));
@@ -47,6 +62,7 @@ Tfull.IceAge = upper(string(Tfull.IceAge));
 Tfull.Core = string(Tfull.Core);
 Tfull.Station = string(Tfull.Station);
 
+% Separate density cores from temperature profiles. Temperature profiles are later interpolated onto the density-core section depths.
 Tden = Tfull(startsWith(Tfull.Core,"DEN"),:);
 Ttemp = Tfull(Tfull.Core == "TEMP",:);
 
@@ -58,6 +74,7 @@ Tden.GasVolume_disconnected = nan(height(Tden),1);
 Tden.Density_insitu_connected_kgm3 = nan(height(Tden),1);
 Tden.Density_insitu_disconnected_kgm3 = nan(height(Tden),1);
 
+% Interpolate the station temperature profile to each density-core section midpoint. Profile depths are scaled to the density-core thickness before interpolation.
 coreKeys = unique(strcat(Tden.Station,"_",Tden.Core),'stable');
 
 for k = 1:numel(coreKeys)
@@ -100,6 +117,9 @@ rho_lab = rho(idx);
 Tlab_i = Tlab(idx);
 Ti_i = Ti(idx);
 
+% Estimate brine volume, gas volume, and in-situ density from laboratory
+% density, salinity, laboratory temperature, and interpolated in-situ
+% temperature.
 [F1_pr,F2_pr] = F1F2_seaice(Tlab_i);
 [F1_i,F2_i] = F1F2_seaice(Ti_i);
 
@@ -127,6 +147,8 @@ vb_export(vb_export > 0.6 | vb_export < 0) = NaN;
 vb_calc = vb_raw;
 vb_calc(vb_calc > 0.6 | vb_calc < 0) = 0.6;
 
+% Connected-pore case: allow gas volume to change when laboratory density
+% is converted to in-situ temperature conditions.
 A = ...
     (rhoi_i ./ rhoi_pr) .* ...
     (F3_pr ./ F3_i) .* ...
@@ -138,6 +160,7 @@ A(idx0) = 1;
 vg_connected = max(0, ...
     1 - (1 - vg_pr) .* A);
 
+% Disconnected-pore case: preserve laboratory gas volume during conversion to in-situ temperature conditions.
 vg_disconnected = vg_pr;
 
 rho_connected = ...
@@ -158,6 +181,7 @@ Tden.GasVolume_disconnected(idx) = vg_disconnected;
 Tden.Density_insitu_connected_kgm3(idx) = rho_connected;
 Tden.Density_insitu_disconnected_kgm3(idx) = rho_disconnected;
 
+% Average density-section measurements to one representative record per station/core.
 Tden.CoreID = strcat(Tden.Station,"_",Tden.Core);
 
 numericVars = varfun(@isnumeric,Tden,'OutputFormat','uniform');
@@ -188,7 +212,6 @@ iceAgeInfo.Properties.VariableNames{'fun1_IceAge'} = 'IceAge';
 Tavg = outerjoin(coreInfo,Tavg,'Keys','CoreID','MergeKeys',true,'Type','right');
 Tavg = outerjoin(iceAgeInfo,Tavg,'Keys','CoreID','MergeKeys',true,'Type','right');
 
-% dataset = repmat("GoNorth1",height(Tavg),1);
 dataset = repmat("GoNorth SYI",height(Tavg),1);
 idxFYI = upper(string(Tavg.IceAge)) == "FYI";
 dataset(idxFYI) = "GoNorth FYI";
@@ -240,6 +263,8 @@ fprintf('Output saved to:\n%s\n', ...
 save(outputFile,'Summary_GoNorth')
 
 %% Helpers
+% Compute empirical sea-ice brine-volume coefficients F1 and F2 for the
+% relevant temperature regime.
 function [F1,F2] = F1F2_seaice(T)
 
 F1 = -4.732 - 22.45*T - 0.6397*T.^2 - 0.01074*T.^3;
