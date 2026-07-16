@@ -1,3 +1,16 @@
+%
+% RUN_ALL
+%
+% Main repository workflow script.
+%
+% Executes the complete processing, analysis, statistics, and figure
+% reproduction workflow for the Arctic sea-ice density parameterization
+% repository.
+%
+% Workflow switches below allow expensive steps, such as raw-data
+% processing or SnowModel-LG matchup generation, to be skipped when
+% processed outputs already exist.
+%
 clear; clc
 
 %% Workflow switches
@@ -5,9 +18,9 @@ clear; clc
 doProcessing = false;     % Reprocess raw observational datasets
 doMerge = false;          % Merge processed datasets
 doSnowMatchups = false;   % Add ERA5/MERRA2 SnowModel-LG snow products
-doStatistics = true;     % Generate manuscript statistics
+doStatistics = false;     % Generate manuscript statistics
 doFigures = false;        % Reproduce manuscript figures
-doSupportingInfo = false; % Generate Supporting Information figures and tables
+doSupportingInfo = true; % Generate Supporting Information figures and tables
 
 %% Repository setup
 
@@ -72,6 +85,9 @@ if doSnowMatchups
 
     requiredModelFiles = [{era5File}; merraFiles];
 
+    % Regenerate SnowModel-LG matchups only when all required NetCDF source
+    % files are available. Otherwise, reuse the processed matchup file if it
+    % already exists.
     haveModelFiles = all(cellfun(@(f) exist(f,'file'), ...
         requiredModelFiles));
 
@@ -148,8 +164,19 @@ end
 if doSupportingInfo
 
     make_cross_validation_table(repoRoot)
-    make_mosaic_coring_density_figure(repoRoot)
-    make_si_ridge_density_figure(repoRoot)
+    make_figureS1_mosaic_coring_density_figure(repoRoot)
+    make_figureS2_ridge_density_figure(repoRoot)
     make_figureS3_snow_dependence_merra(repoRoot)
+    make_figureS4_density_formulations(repoRoot)
+    make_figureS6_snow_model_evaluation(repoRoot)
 
 end
+
+%% Workflow complete
+
+fprintf('\n')
+fprintf('========================================\n')
+fprintf('Workflow completed successfully.\n')
+fprintf('Repository: %s\n', repoRoot)
+fprintf('Finished at: %s\n', datestr(now))
+fprintf('========================================\n')
