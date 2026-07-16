@@ -1,0 +1,20 @@
+# Large SnowModel-LG files
+data/model/ERA5/*.nc
+data/model/MERRA2/*.nc
+
+# Ignore external package contents
+external/m_map/*
+external/topo/*
+
+# Keep folder documentation
+!external/m_map/README.md
+!external/topo/README.md
+
+# MATLAB temporary files
+*.asv
+*.m~
+*.fig
+
+# Operating-system files
+.DS_Store
+Thumbs.db
