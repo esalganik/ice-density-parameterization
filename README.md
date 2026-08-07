@@ -154,7 +154,7 @@ uit_sit_v2northpolarstereo_80km_jul_2011-2023_v3p0.nc
 | MOSAiC SYI | Oggier et al. (2023b), MOSAiC second-year ice dataset | https://doi.org/10.1594/PANGAEA.959830 |
 | MOSAiC Leg 5 | Salganik et al. (2024), MOSAiC Leg 5 sea-ice density dataset | https://doi.org/10.1594/PANGAEA.971266 |
 | Nansen Legacy | Divine et al. (2025), Barents Sea and Arctic Basin sea-ice properties | https://doi.org/10.1002/gdj3.70001 |
-| N-ICE2015–SUDARCO–Svalbard compilation | Combined sea-ice density observations from N-ICE2015, SUDARCO, and Kongsfjorden landfast ice | Dataset publication in preparation |
+| N-ICE2015–SUDARCO–Svalbard compilation | Combined sea-ice density observations from N-ICE2015, SUDARCO, and Kongsfjorden landfast ice | https://doi.org/10.21334/NPOLAR.2026.7B676D79 |
 
 ---
 
