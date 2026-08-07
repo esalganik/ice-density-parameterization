@@ -44,27 +44,8 @@ function [values,longs,lats]=m_etopo2(varargin)
 
 %%% This will have to be set by YOU the USER! ---------------------
 
-%PATHNAME='/ocean/rich/more/mmapbase/etopo2v2/';   % Be sure to end the path with a "/" or
-PATHNAME='C:\Users\evsalg001\Documents\MATLAB\scripts\ocean\ocean/';   % Be sure to end the path with a "/" or
-                                                 % whatever your separator is.
-%  Note - etopo2v2 now comes in 4 flavours - both grid-centered
-% and cell-centered, with both in either big-endian or little-endian
-% formats. Use the grid-centered version, 
-% and right now I have used the big-endian version.
-%
-
-%%efid=fopen([PATHNAME 'etopo2_2006apr.raw'],'r','b'); % in big-endian format
-%%efid=fopen([PATHNAME 'etopo2.i2'],'r','b'); % in big-endian format
-
-
-%efid=fopen([PATHNAME 'ETOPO2v2g_i2_MSB.bin'],'r','b'); % in big-endian format
-%efid=fopen([PATHNAME 'ETOPO2v2c_i2_MSB.bin'],'r','b'); % in big-endian format
 mmapDir = fileparts(mfilename('fullpath'));
-
-PATHNAME = fullfile(mmapDir, '..', 'topo', filesep);
-
-topoFile = fullfile(PATHNAME, ...
-    'etopo1_ice_g_i2.bin');
+topoFile = fullfile(mmapDir,'..','topo','etopo1_ice_g_i2.bin');
 
 if ~exist(topoFile,'file')
     error(['ETOPO1 file not found.\n' ...
