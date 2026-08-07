@@ -23,12 +23,15 @@ repository/
 │   │   ├── analyze_snow_dependence.m
 │   │   ├── empirical_density_uncertainty.m
 │   │   ├── make_cross_validation_table.m
+│   │   ├── make_figure3.m
 │   │   ├── make_figureS1_mosaic_coring_density_figure.m
 │   │   ├── make_figureS2_ridge_density_figure.m
 │   │   ├── make_figureS3_snow_dependence_merra.m
 │   │   ├── make_figureS4_density_formulations.m
+│   │   ├── make_figureS5.m
 │   │   └── make_figureS6_snow_model_evaluation.m
 │   └── checks/
+│       ├── cs2_manuscript_checks.m
 │       ├── check_temperature_thickness_independence.m
 │       ├── snow_density_source_sensitivity_freeboard_only.m
 │       ├── freezeup_skill_test.m
@@ -39,6 +42,7 @@ repository/
 │   ├── processed/
 │   ├── final/
 │   ├── model/
+│   ├── cs2/
 │   └── colormaps/
 ├── external/
 │   ├── m_map/
@@ -82,6 +86,7 @@ Large auxiliary datasets (ETOPO1 topography and SnowModel-LG files) are optional
 
 The scripts in `scripts/checks/` are standalone diagnostic analyses. They support specific statements or methodological choices in the manuscript but are not part of the default `run_all.m` workflow.
 
+- `cs2_manuscript_checks.m` reproduces the CryoSat-2 sea-ice volume and thickness-difference values reported in the manuscript using the February and July 2011–2023 CryoSat-2 products.
 - `check_temperature_thickness_independence.m` compares temperature-only and temperature-thickness models and tests whether thickness explains residual density variability.
 - `snow_density_source_sensitivity_freeboard_only.m` tests the sensitivity of the freeboard-based parameterization to the source of snow density.
 - `freezeup_skill_test.m` evaluates the influence of October and November FYI freeze-up observations on model skill.
@@ -90,19 +95,20 @@ The scripts in `scripts/checks/` are standalone diagnostic analyses. They suppor
 
 ---
 
-## Optional large datasets
+## External and large datasets
 
 Some processing steps depend on large external datasets:
 
 - ETOPO1 topography (`~445 MB`)
 - SnowModel-LG NetCDF files
+- CryoSat-2 NetCDF files
 
 If these files are unavailable, the workflow can still run using previously generated intermediate products:
 
 - `figures/Map_density_lab.png`
 - `data/final/snow_model_matchups_with_models.mat`
 
-This allows lightweight reruns without downloading all large external files.
+This allows lightweight reruns without downloading all large external files. The CryoSat-2 NetCDF files are required to regenerate Figures 3 and S5 and to run scripts/checks/cs2_manuscript_checks.m.
 
 ---
 
@@ -122,7 +128,18 @@ Model snow products should be placed in:
 data/model/
 ```
 
----
+CryoSat-2 products required for Figures 3 and S5 should be placed in:
+
+```text
+data/cs2/
+```
+
+The required files are:
+
+```text
+uit_sit_v2northpolarstereo_80km_feb_2011-2023_v3p0.nc
+uit_sit_v2northpolarstereo_80km_jul_2011-2023_v3p0.nc
+```
 
 ### Observational datasets
 
@@ -192,6 +209,9 @@ Required MATLAB products and toolboxes:
 External MATLAB packages:
 
 - M_Map mapping package
+- ncpolarm
+- inpaint_nans
+- viridis
 
 The repository includes a lightweight redistributed version of `m_map` required for map generation.
 
@@ -223,6 +243,7 @@ Manuscript:
 
 - Figure 1: Arctic sea-ice density map and temperature-thickness parameterization
 - Figure 2: Snow-thickness and freeboard-dependent density parameterizations
+- Figure 3: CryoSat-2 sea-ice density fields and corresponding sea-ice thickness distributions
 
 Supporting Information:
 
@@ -230,6 +251,7 @@ Supporting Information:
 - Figure S2: Directly measured MOSAiC ridge-core densities
 - Figure S3: Snow-thickness and freeboard-dependent density parameterizations using MERRA-2 SM-LG
 - Figure S4: Comparison of the sea-ice density formulations used in the CryoSat-2 sensitivity analysis
+- Figure S5: CryoSat-2 sea-ice thickness differences between density parameterizations
 - Figure S6: Evaluation of ERA5- and MERRA-2-forced SnowModel-LG snow thickness
 - Table S2: Leave-one-campaign-out cross-validation statistics
 
