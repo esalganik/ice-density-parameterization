@@ -104,15 +104,16 @@ Some processing steps depend on large external datasets:
 
 - ETOPO1 topography (`~445 MB`)
 - SnowModel-LG NetCDF files
-- CryoSat-2 NetCDF files
+- CryoSat-2 NetCDF files archived at https://doi.org/10.5281/zenodo.21839354
 
-If these files are unavailable, the workflow can still run using previously generated intermediate products:
+If the ETOPO1 or SnowModel-LG source files are unavailable, the workflow can still use previously generated intermediate products:
 
 - `figures/Map_density_lab.png`
 - `data/final/snow_model_matchups_with_models.mat`
 
 This allows lightweight reruns without downloading the ETOPO1 and SnowModel-LG source files when the corresponding intermediate products already exist.
-The CryoSat-2 NetCDF files are required to regenerate Figures 3 and S5 and to run scripts/checks/cs2_manuscript_checks.m.
+
+The CryoSat-2 NetCDF files must be downloaded from https://doi.org/10.5281/zenodo.21839354 and placed in `data/cs2/` to regenerate Figures 3 and S5 and to run `scripts/checks/cs2_manuscript_checks.m`.
 
 ---
 
@@ -132,7 +133,11 @@ Model snow products should be placed in:
 data/model/
 ```
 
-CryoSat-2 products required for Figures 3 and S5 should be placed in:
+CryoSat-2 products required for Figures 3 and S5 are archived at:
+
+https://doi.org/10.5281/zenodo.21839354
+
+Download the files and place them in:
 
 ```text
 data/cs2/
@@ -170,10 +175,10 @@ uit_sit_v2northpolarstereo_80km_jul_2011-2023_v3p0.nc
 
 ### Additional datasets
 
-| Dataset                     | Source                     | DOI / Link                                                                                                                   |
-| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| CryoSat-2 sea-ice thickness | Landy and Dawson (2022)    | [https://doi.org/10.5285/D8C66670-57AD-44FC-8FEF-942A46734ECB](https://doi.org/10.5285/D8C66670-57AD-44FC-8FEF-942A46734ECB) |
-| ETOPO1 topography           | Amante and Eakins (2009)   | [https://doi.org/10.7289/V5C8276M](https://doi.org/10.7289/V5C8276M)                                                         |
+| Dataset | Source | DOI / Link |
+|---|---|---|
+| CryoSat-2 fields used in this study    | Landy and Salganik (2026) | [https://doi.org/10.5281/zenodo.21839354](https://doi.org/10.5281/zenodo.21839354) |
+| ETOPO1 topography | Amante and Eakins (2009) | https://doi.org/10.7289/V5C8276M |
 
 ---
 
