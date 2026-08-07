@@ -46,6 +46,9 @@ repository/
 │   └── colormaps/
 ├── external/
 │   ├── m_map/
+│   ├── ncpolarm/
+│   ├── inpaint_nans/
+│   ├── viridis/
 │   └── topo/
 ├── figures/
 ├── results/
@@ -206,14 +209,14 @@ Required MATLAB products and toolboxes:
 - Statistics and Machine Learning Toolbox
 - Curve Fitting Toolbox
 
-External MATLAB packages:
+External MATLAB packages included in this repository:
 
-- M_Map mapping package
-- ncpolarm
-- inpaint_nans
-- viridis
+- `M_Map`
+- `ncpolarm`
+- `inpaint_nans`
+- `viridis`
 
-The repository includes a lightweight redistributed version of `m_map` required for map generation.
+The repository includes redistributed copies of these packages under `external/`. Each package retains its original copyright notice and license in the corresponding subdirectory.
 
 ---
 
