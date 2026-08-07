@@ -170,9 +170,10 @@ uit_sit_v2northpolarstereo_80km_jul_2011-2023_v3p0.nc
 
 ### Additional datasets
 
-| Dataset | Source | DOI / Link |
-|---|---|---|
-| CryoSat-2 sea-ice thickness | Landy and Dawson (2022) | https://doi.org/10.5285/D8C66670-57AD-44FC-8FEF-942A46734ECB |
+| Dataset                     | Source                     | DOI / Link                                                                                                                   |
+| --------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| CryoSat-2 sea-ice thickness | Landy and Dawson (2022)    | [https://doi.org/10.5285/D8C66670-57AD-44FC-8FEF-942A46734ECB](https://doi.org/10.5285/D8C66670-57AD-44FC-8FEF-942A46734ECB) |
+| ETOPO1 topography           | Amante and Eakins (2009)   | [https://doi.org/10.7289/V5C8276M](https://doi.org/10.7289/V5C8276M)                                                         |
 
 ---
 
