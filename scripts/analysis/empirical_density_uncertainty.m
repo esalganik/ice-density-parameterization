@@ -6,7 +6,6 @@ end
 
 close all
 
-%
 % EMPIRICAL_DENSITY_UNCERTAINTY
 %
 % Estimates empirical uncertainty in the ERA5 SM-LG freeboard/snow density
@@ -22,10 +21,15 @@ close all
 %   data/final/snow_model_matchups_with_models.mat
 %
 % Output:
-%   data/final/Empirical_density_uncertainty.csv
+%   results/Empirical_density_uncertainty.csv
 %
 
 finalDir = fullfile(repoRoot,'data','final');
+resultsDir = fullfile(repoRoot,'results');
+
+if ~exist(resultsDir,'dir')
+    mkdir(resultsDir)
+end
 
 inputFile = fullfile(finalDir,'snow_model_matchups_with_models.mat');
 
@@ -221,7 +225,7 @@ units.Note = "-";
 
 T_export = [units; T_readable];
 
-outputCsv = fullfile(finalDir,'Empirical_density_uncertainty.csv');
+outputCsv = fullfile(resultsDir,'Empirical_density_uncertainty.csv');
 writetable(T_export,outputCsv)
 
 fprintf('Saved empirical density uncertainty table: %s\n',outputCsv)

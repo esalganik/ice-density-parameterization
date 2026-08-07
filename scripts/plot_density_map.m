@@ -53,6 +53,7 @@ lat_span = max(Dmap.lat) - min(Dmap.lat);
 
 radius = max(6.2, 0.36 * max(lon_span/2, lat_span*2.0));
 radius = min(radius, 16);
+radius = radius * 1.02;
 fs = 9.5;
 
 fig = figure;
@@ -68,8 +69,10 @@ m_proj('stereographic', ...
 depth_levels = -6000:200:0;
 [~,~] = m_etopo2('contourf', depth_levels, 'edgecolor', 'none');
 shading flat
-Sdeep = load(fullfile(colormapDir,'deep.mat'));
-colormap(flipud(Sdeep.deep))
+% Sdeep = load(fullfile(colormapDir,'deep.mat'));
+% colormap(flipud(Sdeep.deep))
+Sgray = load(fullfile(colormapDir,'grayC.mat'));
+colormap(Sgray.grayC)
 clim([-6000 0])
 
 hold on
