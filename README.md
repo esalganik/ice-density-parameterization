@@ -111,7 +111,8 @@ If these files are unavailable, the workflow can still run using previously gene
 - `figures/Map_density_lab.png`
 - `data/final/snow_model_matchups_with_models.mat`
 
-This allows lightweight reruns without downloading all large external files. The CryoSat-2 NetCDF files are required to regenerate Figures 3 and S5 and to run scripts/checks/cs2_manuscript_checks.m.
+This allows lightweight reruns without downloading the ETOPO1 and SnowModel-LG source files when the corresponding intermediate products already exist.
+The CryoSat-2 NetCDF files are required to regenerate Figures 3 and S5 and to run scripts/checks/cs2_manuscript_checks.m.
 
 ---
 
