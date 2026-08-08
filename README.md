@@ -55,6 +55,8 @@ run_all
 
 By default, `run_all.m` executes the complete processing and analysis workflow. Individual stages can be disabled using the workflow switches at the beginning of the script. The required raw and external datasets must be available in the directories described below.
 
+Bootstrap uncertainty estimates for Figures 1, 2, and S3 use 1000 resamples by default. The `nBootstrap` setting in `run_all.m` can be reduced for faster exploratory runs; use 1000 to reproduce the default results.
+
 The workflow consists of:
 
 1. Import and processing of observational datasets
