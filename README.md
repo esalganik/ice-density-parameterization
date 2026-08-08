@@ -38,6 +38,7 @@ repository/
 ├── figures/
 ├── results/
 ├── README.md
+├── CITATION.cff
 └── LICENSE
 ```
 
@@ -53,7 +54,7 @@ Run the complete workflow from the repository root using:
 run_all
 ```
 
-By default, `run_all.m` executes the complete processing and analysis workflow. Individual stages can be disabled using the workflow switches at the beginning of the script. The required raw and external datasets must be available in the directories described below.
+By default, `run_all.m` executes the complete processing and analysis workflow. Individual stages can be disabled using the workflow switches at the beginning of the script. The input datasets required for the enabled stages must be available in the directories described below.
 
 Bootstrap uncertainty estimates for Figures 1, 2, and S3 use 1000 resamples by default. The `nBootstrap` setting in `run_all.m` can be reduced for faster exploratory runs; use 1000 to reproduce the default results.
 
@@ -214,12 +215,12 @@ The repository includes redistributed copies of these packages under `external/`
 
 ## Colormaps
 
-Scientific colormaps (`lipari`, `buda`, `deep`) follow recommendations from:
+The density map uses `grayC` for bathymetry and `buda` for sea-ice density. Other figures use `lipari`. These scientific colormaps are from:
 
 > Crameri, F., Shephard, G. E., & Heron, P. J. (2020).  
 > *The misuse of colour in science communication.*  
 > Nature Communications, 11, 5444.  
-> https://doi.org/10.1038/s41467-020-19160-7
+> [https://doi.org/10.1038/s41467-020-19160-7](https://doi.org/10.1038/s41467-020-19160-7)
 
 ---
 
@@ -263,6 +264,6 @@ If you use this repository, please cite:
 
 ## License
 
-Please see `LICENSE` for repository licensing information.
+The original MATLAB code in this repository is available under the MIT License. See `LICENSE` for details.
 
-External datasets and packages retain their original licenses and citation requirements.
+Third-party software in `external/` and external datasets retain their respective licenses and terms of use.
