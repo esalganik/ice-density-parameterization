@@ -219,13 +219,6 @@ Scientific colormaps (`lipari`, `buda`, `deep`) follow recommendations from:
 > Nature Communications, 11, 5444.  
 > https://doi.org/10.1038/s41467-020-19160-7
 
-and
-
-> Thyng, K.M., Greene, C.A., Hetland, R.D., Zimmerle, H.M., & DiMarco, S.F. (2016).  
-> *True colors of oceanography: Guidelines for effective and accurate colormap selection.*  
-> Oceanography, 29(3), 9–13.  
-> https://doi.org/10.5670/oceanog.2016.66
-
 ---
 
 ## Figures
