@@ -19,8 +19,10 @@ doProcessing = false;     % Reprocess raw observational datasets
 doMerge = false;          % Merge processed datasets
 doSnowMatchups = false;   % Add ERA5/MERRA2 SnowModel-LG snow products
 doStatistics = false;     % Generate manuscript statistics
-doFigures = true;         % Reproduce manuscript figures
+doFigures = false;         % Reproduce manuscript figures
 doSupportingInfo = true;  % Generate Supporting Information figures and tables
+
+nBootstrap = 100;  % Use a smaller value; 1000 for final results
 
 %% Repository setup
 
@@ -185,8 +187,8 @@ if doFigures
         plot_density_map(repoRoot)
     end
 
-    analyze_density_model(repoRoot)
-    analyze_snow_dependence(repoRoot)
+    analyze_density_model(repoRoot,nBootstrap)
+    analyze_snow_dependence(repoRoot,nBootstrap)
     make_figure3(repoRoot)
 
 end
@@ -199,7 +201,7 @@ if doSupportingInfo
     empirical_density_uncertainty(repoRoot)
     make_figureS1_mosaic_coring_density_figure(repoRoot)
     make_figureS2_ridge_density_figure(repoRoot)
-    make_figureS3_snow_dependence_merra(repoRoot)
+    make_figureS3_snow_dependence_merra(repoRoot,nBootstrap)
     make_figureS4_density_formulations(repoRoot)
     make_figureS5(repoRoot)
     make_figureS6_snow_model_evaluation(repoRoot)

@@ -1,4 +1,4 @@
-function make_figureS3_snow_dependence_merra(repoRoot)
+function make_figureS3_snow_dependence_merra(repoRoot,nBootstrap)
 
 %
 % MAKE_FIGURES3_SNOW_DEPENDENCE_MERRA
@@ -24,6 +24,17 @@ function make_figureS3_snow_dependence_merra(repoRoot)
 % Output:
 %   figures/FigS3.png
 %
+
+if nargin < 1 || isempty(repoRoot)
+    repoRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+end
+
+if nargin < 2 || isempty(nBootstrap)
+    nBootstrap = 1000;
+end
+
+validateattributes(nBootstrap,{'numeric'}, ...
+    {'scalar','integer','positive'},mfilename,'nBootstrap')
 
 close all
 
@@ -118,7 +129,7 @@ hs_high_max = 0.12;
 
 p0_hi = [857, 908, 0.015, 0.07, 1.9, 905];
 % Bootstrap resampling parameters.
-nboot_hi = 1000;
+nboot_hi = nBootstrap;
 rng(1)
 
 [p_hi_meas,RMSE_hi_meas,R2_hi_meas] = hi_fit_panel1_model( ...
@@ -170,7 +181,7 @@ rho_thick_high_manual_hf = 908;
 
 p0_hf = [857, 908, 0.015, 0.07, 0.23];
 % Bootstrap resampling parameters.
-nboot_hf = 1000;
+nboot_hf = nBootstrap;
 rng(1)
 
 [p_hf_meas,RMSE_hf_meas,R2_hf_meas] = hf_fit_full_model( ...

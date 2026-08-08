@@ -1,4 +1,4 @@
-function analyze_density_model(repoRoot)
+function analyze_density_model(repoRoot,nBootstrap)
 %
 % ANALYZE_DENSITY_MODEL
 %
@@ -24,6 +24,13 @@ function analyze_density_model(repoRoot)
 %   parameterization with a warm-regime density reduction controlled by
 %   sea-ice temperature.
 %
+
+if nargin < 2 || isempty(nBootstrap)
+    nBootstrap = 1000;
+end
+
+validateattributes(nBootstrap,{'numeric'}, ...
+    {'scalar','integer','positive'},mfilename,'nBootstrap')
 
 close all
 
@@ -86,7 +93,7 @@ min_n_warm = 8;
 
 doBootstrap = true;
 doLODO = true; % Optional diagnostic: leave-one-dataset-out cross-validation.
-nboot = 1000;
+nboot = nBootstrap;
 rng(1)
 
 if ~isdatetime(D.date)
