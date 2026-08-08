@@ -18,25 +18,10 @@ repository/
 ├── scripts/
 │   ├── process/
 │   ├── analysis/
-│   │   ├── manuscript_statistics.m
-│   │   ├── analyze_density_model.m
-│   │   ├── analyze_snow_dependence.m
-│   │   ├── empirical_density_uncertainty.m
-│   │   ├── make_cross_validation_table.m
-│   │   ├── make_figure3.m
-│   │   ├── make_figureS1_mosaic_coring_density_figure.m
-│   │   ├── make_figureS2_ridge_density_figure.m
-│   │   ├── make_figureS3_snow_dependence_merra.m
-│   │   ├── make_figureS4_density_formulations.m
-│   │   ├── make_figureS5.m
-│   │   └── make_figureS6_snow_model_evaluation.m
-│   └── checks/
-│       ├── cs2_manuscript_checks.m
-│       ├── check_temperature_thickness_independence.m
-│       ├── snow_density_source_sensitivity_freeboard_only.m
-│       ├── freezeup_skill_test.m
-│       ├── analyze_density_model_script_no_svalbard.m
-│       └── temperature_threshold_by_ice_age.m
+│   ├── checks/
+│   ├── merge_processed_summaries.m
+│   ├── add_SMLG_model_snow.m
+│   └── plot_density_map.m
 ├── data/
 │   ├── raw/
 │   ├── processed/
@@ -52,26 +37,23 @@ repository/
 │   └── topo/
 ├── figures/
 ├── results/
-│   ├── manuscript_statistics.txt
-│   ├── Empirical_density_uncertainty.csv
-│   └── TableS2_leave_one_campaign_out_cross_validation.csv
 ├── README.md
 └── LICENSE
 ```
 
-The scripts in `scripts/analysis/` form the main reproducibility workflow and are called by `run_all.m`.
-
-The scripts in `scripts/checks/` contain additional sensitivity tests used to support specific methodological choices and statements in the manuscript. They are not called by `run_all.m` and are not required to reproduce the final figures and tables.
+This is a selective overview rather than a complete file listing. Processing scripts are stored in `scripts/process/`, analysis and figure scripts in `scripts/analysis/`, and optional diagnostic tests in `scripts/checks/`. The main workflow is controlled by `run_all.m`.
 
 ---
 
 ## Workflow
 
-The complete processing and analysis workflow can be executed using:
+Run the complete workflow from the repository root using:
 
 ```matlab
 run_all
 ```
+
+By default, `run_all.m` executes the complete processing and analysis workflow. Individual stages can be disabled using the workflow switches at the beginning of the script. The required raw and external datasets must be available in the directories described below.
 
 The workflow consists of:
 
