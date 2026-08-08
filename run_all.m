@@ -15,11 +15,11 @@ clear; clc
 
 %% Workflow switches
 
-doProcessing = false;     % Reprocess raw observational datasets
-doMerge = false;          % Merge processed datasets
-doSnowMatchups = false;   % Add ERA5/MERRA2 SnowModel-LG snow products
-doStatistics = false;     % Generate manuscript statistics
-doFigures = false;         % Reproduce manuscript figures
+doProcessing = true;      % Reprocess raw observational datasets
+doMerge = true;           % Merge processed datasets
+doSnowMatchups = true;    % Add ERA5/MERRA2 SnowModel-LG snow products
+doStatistics = true;      % Generate manuscript statistics
+doFigures = true;         % Reproduce manuscript figures
 doSupportingInfo = true;  % Generate Supporting Information figures and tables
 
 nBootstrap = 100;  % Use a smaller value; 1000 for final results
