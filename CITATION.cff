@@ -1,7 +1,17 @@
 cff-version: 1.2.0
-title: Sea-ice density parametrization
+message: "If you use this software, please cite it as below."
+title: "Arctic sea-ice density parameterization"
+version: 1.0.0
+date-released: 2026-08-08
+doi: 10.5281/zenodo.21849713
+license: MIT
+repository-code: "https://github.com/esalganik/ice-density-parameterization"
+
 authors:
   - family-names: Salganik
     given-names: Evgenii
-doi: YOUR_ZENODO_DOI
-date-released: 2026
+    orcid: "https://orcid.org/0000-0001-8383-7815"
+
+  - family-names: Landy
+    given-names: Jack C.
+    orcid: "https://orcid.org/0000-0002-7372-1007"
